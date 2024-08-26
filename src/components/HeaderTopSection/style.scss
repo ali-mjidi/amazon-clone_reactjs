@@ -2,8 +2,9 @@
 @import "@styles/_var.scss";
 
 .headerTopSection {
-    @include flex(space-between, center);
+    @include flex(space-between, stretch);
     padding: 4px;
+    gap: 1rem;
     color: $text-color;
     background-color: #131921;
 
@@ -17,7 +18,6 @@
         grid-template-columns: auto 1fr;
         grid-template-rows: repeat(2, 1fr);
         place-items: center;
-        gap: 1px;
         font-size: 14px;
         color: rgb(204, 204, 204);
 
@@ -32,10 +32,45 @@
         }
     }
 
+    .searchBar {
+        @include flex(center, center);
+        margin: 4px 0;
+        flex-grow: 1;
+        border-radius: 0.25rem;
+        overflow: hidden;
+
+        &__select,
+        &__input,
+        &__button {
+            height: 100%;
+        }
+
+        &__select {
+            width: max-content;
+            padding: 0 10px;
+            border-right: 1px solid rgb(148, 163, 184);
+        }
+
+        &__input {
+            flex-grow: 1;
+            padding: 0 1rem;
+        }
+
+        &__button {
+            aspect-ratio: 1;
+            cursor: pointer;
+            background-color: $search-btn-background;
+
+            &:hover {
+                background-color: darken($search-btn-background, 10%);
+            }
+        }
+    }
+
     & > * {
         border: 1px solid transparent;
 
-        &:hover {
+        &:not(.searchBar):hover {
             border-color: white;
         }
     }

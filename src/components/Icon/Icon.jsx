@@ -1,7 +1,8 @@
-import { IoLocationOutline } from "react-icons/io5";
+import { IoLocationOutline, IoSearch } from "react-icons/io5";
 
 const iconComponents = {
     location: IoLocationOutline,
+    search: IoSearch,
 };
 
 function Icon({ type, ...props }) {

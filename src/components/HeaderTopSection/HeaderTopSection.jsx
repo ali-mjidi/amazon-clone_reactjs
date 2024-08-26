@@ -6,9 +6,8 @@ function HeaderTopSection() {
     return (
         <div className="headerTopSection">
             <img
-                // src="https://upload.wikimedia.org/wikipedia/donate/f/fd/Amazon-logo-white.svg"
                 src={amazonLogo}
-                alt=""
+                alt="Amazon Logo"
                 className="headerTopSection__logo"
             />
             <div className="headerTopSection__location">
@@ -20,7 +19,22 @@ function HeaderTopSection() {
                 />
                 Deliver to <b className="locationName">France</b>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <form
+                className="headerTopSection__searchBar searchBar"
+                onSubmit={e => e.preventDefault()}>
+				<select name="category" className="searchBar__select">
+					<option value="some">Something else and more than that</option>
+				</select>
+                <input
+                    type="search"
+                    name="search"
+                    placeholder="Search Amazon"
+					className="searchBar__input"
+                />
+                <button type="button" className="searchBar__button">
+                    <Icon type="search" size={30} color="black" />
+                </button>
+            </form>
         </div>
     );
 }
