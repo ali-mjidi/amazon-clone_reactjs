@@ -1,4 +1,4 @@
-import HeaderTopSection from "../HeaderTopSection/HeaderTopSection";
+import HeaderTopSection from "@components/HeaderTopSection/HeaderTopSection";
 import "./style.scss";
 
 function Header() {
