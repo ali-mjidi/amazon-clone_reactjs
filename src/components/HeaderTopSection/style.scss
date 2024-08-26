@@ -36,8 +36,6 @@
         @include flex(center, center);
         margin: 4px 0;
         flex-grow: 1;
-        border-radius: 0.25rem;
-        overflow: hidden;
 
         &__select,
         &__input,
@@ -45,24 +43,60 @@
             height: 100%;
         }
 
-        &__select {
-            width: max-content;
-            padding: 0 10px;
-            border-right: 1px solid rgb(148, 163, 184);
-        }
-
         &__input {
             flex-grow: 1;
             padding: 0 1rem;
+
+            &:focus {
+                outline: 0;
+            }
         }
 
         &__button {
             aspect-ratio: 1;
             cursor: pointer;
-            background-color: $search-btn-background;
+            background-color: $orange-color;
 
             &:hover {
-                background-color: darken($search-btn-background, 10%);
+                background-color: darken($orange-color, 10%);
+            }
+        }
+
+        .select {
+            height: 100%;
+
+            &:focus {
+                outline: 0;
+                border: 0;
+            }
+
+            &__control {
+                height: 100%;
+                border-radius: $searchBar-border-radius 0 0
+                    $searchBar-border-radius;
+                border: none;
+                border-right: 1px solid darken($gray-color, 30%);
+                background-color: $gray-color;
+
+                &--is-focused {
+                    box-shadow: 0 0 0 3px $orange-color;
+                }
+            }
+
+            &__option {
+                color: black;
+
+                &--is-selected {
+                    background-color: $gray-color;
+                }
+
+                &:hover {
+                    background-color: rgb(148 163 184);
+                }
+            }
+
+            &__indicator-separator {
+                display: none;
             }
         }
     }

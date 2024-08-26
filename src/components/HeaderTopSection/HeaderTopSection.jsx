@@ -1,8 +1,20 @@
+import { useState, useRef } from "react";
+import Select from "react-select";
+
 import Icon from "../Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
 import "./style.scss";
 
+const SELECT_OPTIONS = [
+    { value: "all", label: "All" },
+    { value: "book", label: "Book" },
+    { value: "some", label: "something else and more than that" },
+];
+
 function HeaderTopSection() {
+    const [selectedOption, setSelectedOption] = useState(null);
+    const searchInput = useRef();
+
     return (
         <div className="headerTopSection">
             <img
@@ -22,14 +34,19 @@ function HeaderTopSection() {
             <form
                 className="headerTopSection__searchBar searchBar"
                 onSubmit={e => e.preventDefault()}>
-				<select name="category" className="searchBar__select">
-					<option value="some">Something else and more than that</option>
-				</select>
+                <Select
+                    className="select"
+                    classNamePrefix="select"
+                    defaultValue={SELECT_OPTIONS[0]}
+                    onChange={option => setSelectedOption(option)}
+                    options={SELECT_OPTIONS}
+                />
                 <input
+                    ref={searchInput}
                     type="search"
                     name="search"
                     placeholder="Search Amazon"
-					className="searchBar__input"
+                    className="searchBar__input"
                 />
                 <button type="button" className="searchBar__button">
                     <Icon type="search" size={30} color="black" />
