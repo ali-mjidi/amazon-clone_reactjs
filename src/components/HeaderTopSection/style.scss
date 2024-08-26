@@ -1,5 +1,5 @@
-@import "./../../styles/_mixin.scss";
-@import "./../../styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_var.scss";
 
 .headerTopSection {
     @include flex(space-between, center);
