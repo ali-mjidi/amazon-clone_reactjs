@@ -55,6 +55,7 @@
         &__button {
             aspect-ratio: 1;
             cursor: pointer;
+            border-radius: 0 $searchBar-border-radius $searchBar-border-radius 0;
             background-color: $orange-color;
 
             &:hover {
@@ -72,6 +73,8 @@
 
             &__control {
                 height: 100%;
+                padding: 0 10px;
+                gap: 8px;
                 border-radius: $searchBar-border-radius 0 0
                     $searchBar-border-radius;
                 border: none;
@@ -93,6 +96,11 @@
                 &:hover {
                     background-color: rgb(148 163 184);
                 }
+            }
+
+            &__value-container,
+            &__indicator {
+                padding: 0;
             }
 
             &__indicator-separator {
