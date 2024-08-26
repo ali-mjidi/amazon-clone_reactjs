@@ -4,9 +4,9 @@ const iconComponents = {
     location: IoLocationOutline,
 };
 
-function Icon({ type, size, color }) {
+function Icon({ type, ...props }) {
     const SelectedIcon = iconComponents[type];
-    return <SelectedIcon size={size} color={color} />;
+    return <SelectedIcon {...props} />;
 }
 
 export default Icon;

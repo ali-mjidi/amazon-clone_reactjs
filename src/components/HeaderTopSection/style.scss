@@ -1,0 +1,42 @@
+@import "./../../styles/_mixin.scss";
+@import "./../../styles/_var.scss";
+
+.headerTopSection {
+    @include flex(space-between, center);
+    padding: 4px;
+    color: $text-color;
+    background-color: #131921;
+
+    &__logo {
+        width: 115px;
+        cursor: pointer;
+    }
+
+    &__location {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        place-items: center;
+        gap: 1px;
+        font-size: 14px;
+        color: rgb(204, 204, 204);
+
+        .icon {
+            grid-row: 1 / -1;
+        }
+
+        .locationName {
+            font-weight: 700;
+            font-size: 17px;
+            color: #fff;
+        }
+    }
+
+    & > * {
+        border: 1px solid transparent;
+
+        &:hover {
+            border-color: white;
+        }
+    }
+}
