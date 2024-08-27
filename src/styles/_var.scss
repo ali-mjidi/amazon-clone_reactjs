@@ -10,6 +10,7 @@ $colors: (
     slate-200: #e2e8f0,
     slate-300: #cbd5e1,
     orange-300: #fdba74,
+    orange-500: #f97316,
     amber-500: #f59e0b,
     red-600: #dc2626,
     teal-700: #0f766e,
@@ -19,6 +20,7 @@ $colors: (
 
 // sizes
 $radius: (
+    rounded-sm: 0.125rem,
     rounded: 0.25rem,
     rounded-full: 9999px,
 );
@@ -34,7 +36,6 @@ $padding: (
 );
 
 $weight: (
-	font-bold: 700,
-	font-extrabold: 800,
-	font-black: 900,
+    font-bold: 700,
+    font-extrabold: 800,
 );

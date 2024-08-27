@@ -30,7 +30,7 @@ function HeaderTopSection() {
                     color="white"
                     className="icon"
                 />
-                Deliver to <b className="locationName">France</b>
+                <span className="locationText">Deliver to</span> <b className="locationName">France</b>
             </div>
 
             <form
@@ -302,10 +302,17 @@ function HeaderTopSection() {
             </div>
 
             <div className="headerTopSection__return">
-				Returns	
-				<strong className="headerTopSection__order">& Orders</strong>
-			</div>
-            <div className="box"></div>
+                Returns
+                <strong className="headerTopSection__order">& Orders</strong>
+            </div>
+
+            <div className="cart">
+                <div className="cart__count">
+                    <Icon type="cart" size={50} color="white" />
+                    <span className="cart__countNumber">0</span>
+                </div>
+                <span className="cart__text">Cart</span>
+            </div>
         </div>
     );
 }
