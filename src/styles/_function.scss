@@ -3,6 +3,7 @@
 @function var($string) {
     $mapName: str-slice($string, 0, str-index($string, ".") - 1);
     $property: str-slice($string, str-index($string, ".") + 1);
+
     @if $mapName == "colors" {
         @return map.get($colors, $property);
     } @else if $mapName == "radius" {
@@ -10,8 +11,10 @@
     } @else if $mapName == "gap" {
         @return map.get($gap, $property);
     } @else if $mapName == "padding" {
-		@return map.get($padding, $property);
-	} @else {
+        @return map.get($padding, $property);
+    } @else if $mapName == "weight" {
+        @return map.get($weight, $property);
+    } @else {
         @error "Unknown map: #{$mapName}";
     }
 }
