@@ -308,7 +308,7 @@ function HeaderTopSection() {
 
             <div className="cart">
                 <div className="cart__count">
-                    <Icon type="cart" size={50} color="white" />
+                    <Icon type="cart" size={45} color="white" />
                     <span className="cart__countNumber">0</span>
                 </div>
                 <span className="cart__text">Cart</span>

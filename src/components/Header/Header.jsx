@@ -1,13 +1,12 @@
 import HeaderTopSection from "@components/HeaderTopSection/HeaderTopSection";
+import Nav from "../Nav/Nav";
 import "./style.scss";
 
 function Header() {
     return (
         <header className="header">
             <HeaderTopSection />
-            <nav>
-                <ul></ul>
-            </nav>
+            <Nav />
         </header>
     );
 }

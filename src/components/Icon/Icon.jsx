@@ -1,4 +1,9 @@
-import { IoLocationOutline, IoSearch, IoCartOutline } from "react-icons/io5";
+import {
+    IoLocationOutline,
+    IoSearch,
+    IoCartOutline,
+    IoMenu,
+} from "react-icons/io5";
 import { FaCaretDown } from "react-icons/fa";
 
 const iconComponents = {
@@ -6,6 +11,7 @@ const iconComponents = {
     search: IoSearch,
     down: FaCaretDown,
     cart: IoCartOutline,
+    burger: IoMenu,
 };
 
 function Icon({ type, ...props }) {
