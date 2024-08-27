@@ -300,7 +300,11 @@ function HeaderTopSection() {
                     </ul>
                 </div>
             </div>
-            <div className="box"></div>
+
+            <div className="headerTopSection__return">
+				Returns	
+				<strong className="headerTopSection__order">& Orders</strong>
+			</div>
             <div className="box"></div>
         </div>
     );

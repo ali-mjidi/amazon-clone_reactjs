@@ -303,6 +303,17 @@
         }
     }
 
+    &__return {
+		@include flex(space-evenly, flex-start, column);
+		padding: var("padding.p-1");
+        font-size: 12px;
+    }
+
+    &__order {
+        font-weight: var("weight.font-extrabold");
+        font-size: 15px;
+    }
+
     .box {
         width: 136px;
         border: 1px solid var("colors.white");
