@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@function var($string) {
+@function getVar($string) {
     $mapName: str-slice($string, 0, str-index($string, ".") - 1);
     $property: str-slice($string, str-index($string, ".") + 1);
 

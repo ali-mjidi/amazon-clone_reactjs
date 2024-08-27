@@ -6,8 +6,8 @@
     @include flex(space-between, stretch);
     padding: 4px;
     gap: 1rem;
-    color: var("colors.white");
-    background-color: var("colors.gray-900");
+    color: getVar("colors.white");
+    background-color: getVar("colors.gray-900");
 
     &__logo {
         width: 115px;
@@ -17,9 +17,9 @@
     &__location {
         @include grid(repeat(2, 1fr), auto 1fr);
         place-items: center;
-		row-gap: var("gap.gap-1");
+		row-gap: getVar("gap.gap-1");
         font-size: 12px;
-        color: var("colors.gray-300");
+        color: getVar("colors.gray-300");
 
         .icon {
             grid-row: 1 / -1;
@@ -30,9 +30,9 @@
 		}
 		
         .locationName {
-            font-weight: var("weight.font-bold");
+            font-weight: getVar("weight.font-bold");
             font-size: 14px;
-            color: var("colors.white");
+            color: getVar("colors.white");
             place-self: start center;
         }
     }
@@ -60,8 +60,8 @@
         &__button {
             aspect-ratio: 1;
             cursor: pointer;
-            border-radius: 0 var("radius.rounded") var("radius.rounded") 0;
-            background-color: var("colors.orange-300");
+            border-radius: 0 getVar("radius.rounded") getVar("radius.rounded") 0;
+            background-color: getVar("colors.orange-300");
 
             &:hover {
                 opacity: 80%;
@@ -81,29 +81,29 @@
                 padding: 0 10px;
                 gap: 8px;
                 cursor: pointer;
-                border-radius: var("radius.rounded") 0 0 var("radius.rounded");
+                border-radius: getVar("radius.rounded") 0 0 getVar("radius.rounded");
                 border: none;
-                border-right: 1px solid var("colors.gray-400");
-                background-color: var("colors.gray-200");
+                border-right: 1px solid getVar("colors.gray-400");
+                background-color: getVar("colors.gray-200");
 
                 &--is-focused {
-                    box-shadow: 0 0 0 3px var("colors.orange-300");
+                    box-shadow: 0 0 0 3px getVar("colors.orange-300");
                 }
 
                 &:hover {
-                    background-color: var("colors.slate-300");
+                    background-color: getVar("colors.slate-300");
                 }
             }
 
             &__option {
-                color: var("colors.black");
+                color: getVar("colors.black");
 
                 &--is-selected {
-                    background-color: var("colors.gray-200");
+                    background-color: getVar("colors.gray-200");
                 }
 
                 &:hover {
-                    background-color: var("colors.gray-400");
+                    background-color: getVar("colors.gray-400");
                 }
             }
 
@@ -124,7 +124,7 @@
         gap: 4px;
         cursor: pointer;
         position: relative;
-        color: var("colors.white");
+        color: getVar("colors.white");
 
         &__flag {
             width: 25px;
@@ -134,24 +134,24 @@
             @include flex(flex-start, flex-start, column);
             width: 300%;
             padding: 12px;
-            gap: var("gap.gap-2");
+            gap: getVar("gap.gap-2");
             display: none;
             position: absolute;
             // top: calc(100% + 4px);
             top: 100%;
             left: -100%;
-            border-radius: var("radius.rounded");
+            border-radius: getVar("radius.rounded");
             border: 2px solid aqua;
             cursor: pointer;
-            color: var("colors.black");
-            background-color: var("colors.white");
+            color: getVar("colors.black");
+            background-color: getVar("colors.white");
 
             &::before {
                 content: "";
                 width: 20px;
                 aspect-ratio: 1;
                 border: 10px solid transparent;
-                border-bottom-color: var("colors.gray-400");
+                border-bottom-color: getVar("colors.gray-400");
                 position: absolute;
                 bottom: 100%;
                 left: 50%;
@@ -161,15 +161,15 @@
             &__radioWrapper {
                 @include flex(flex-start, flex-start, column);
                 width: 100%;
-                gap: var("gap.gap-2");
-                // padding-bottom: var("gap.gap-2");;
-                // margin-bottom: var("gap.gap-2");;
-                // border-bottom: 1px solid var("colors.gray-400");
+                gap: getVar("gap.gap-2");
+                // padding-bottom: getVar("gap.gap-2");;
+                // margin-bottom: getVar("gap.gap-2");;
+                // border-bottom: 1px solid getVar("colors.gray-400");
             }
 
             .radio {
                 @include flex(flex-start, center);
-                gap: var("gap.gap-2");
+                gap: getVar("gap.gap-2");
 
                 &__label {
                     font-size: 14px;
@@ -181,7 +181,7 @@
             }
 
             &__title {
-                color: var("colors.gray-700");
+                color: getVar("colors.gray-700");
 
                 &:first-of-type {
                     margin-bottom: 24px;
@@ -196,18 +196,18 @@
             &__link {
                 &--changeCountry {
                     width: 100%;
-                    // margin-top: var("gap.gap-2");;
+                    // margin-top: getVar("gap.gap-2");;
                     text-align: center;
                 }
 
                 &:hover {
-                    color: var("colors.red-600");
+                    color: getVar("colors.red-600");
                 }
             }
 
             &__separator {
                 width: 100%;
-                border: 1px solid var("colors.gray-400");
+                border: 1px solid getVar("colors.gray-400");
             }
 
             &__currency {
@@ -217,7 +217,7 @@
 
             &__status {
                 @include flex(flex-start, center);
-                gap: var("gap.gap-2");
+                gap: getVar("gap.gap-2");
             }
         }
 
@@ -238,7 +238,7 @@
         }
 
         &__options {
-            font-weight: var("weight.font-extrabold");
+            font-weight: getVar("weight.font-extrabold");
             font-size: 15px;
         }
 
@@ -247,21 +247,21 @@
             width: 400%;
             padding: 12px;
             display: none;
-            gap: var("gap.gap-2");
+            gap: getVar("gap.gap-2");
             position: absolute;
             top: 100%;
             right: -100%;
-            border-radius: var("radius.rounded");
+            border-radius: getVar("radius.rounded");
             border: 2px solid limegreen;
-            color: var("colors.black");
-            background-color: var("colors.white");
+            color: getVar("colors.black");
+            background-color: getVar("colors.white");
 
             &__signInSection {
                 @include flex(flex-start, center, column);
-                padding-bottom: var("gap.gap-2");
+                padding-bottom: getVar("gap.gap-2");
                 grid-column: 1 / -1;
-                gap: var("gap.gap-2");
-                border-bottom: 1px solid var("colors.slate-200");
+                gap: getVar("gap.gap-2");
+                border-bottom: 1px solid getVar("colors.slate-200");
             }
 
             &__signInBtn {
@@ -269,23 +269,23 @@
                 padding: 1rem;
                 display: block;
                 cursor: pointer;
-                border-radius: var("radius.rounded-full");
-                border: 1px solid var("colors.yellow-400");
-                background-color: var("colors.yellow-400");
+                border-radius: getVar("radius.rounded-full");
+                border: 1px solid getVar("colors.yellow-400");
+                background-color: getVar("colors.yellow-400");
 
                 &:hover {
-                    background-color: var("colors.yellow-500");
+                    background-color: getVar("colors.yellow-500");
                 }
             }
 
             .userList,
             .userAccount {
                 @include flex(flex-start, flex-start, column);
-                padding: var("padding.p-2");
-                gap: var("gap.gap-1");
+                padding: getVar("padding.p-2");
+                gap: getVar("gap.gap-1");
 
                 &__heading {
-                    font-weight: var("weight.font-bold");
+                    font-weight: getVar("weight.font-bold");
                     font-size: 16px;
                 }
 
@@ -294,59 +294,59 @@
                 }
 
                 &__link {
-                    color: var("colors.gray-700");
+                    color: getVar("colors.gray-700");
 
                     &:hover {
-                        color: var("colors.amber-500");
+                        color: getVar("colors.amber-500");
                     }
                 }
             }
 
             .userList {
-                border-right: 1px solid var("colors.slate-200");
+                border-right: 1px solid getVar("colors.slate-200");
             }
         }
     }
 
     &__return {
         @include flex(space-evenly, flex-start, column);
-        padding: var("padding.p-1");
+        padding: getVar("padding.p-1");
         font-size: 12px;
     }
 
     &__order {
-        font-weight: var("weight.font-extrabold");
+        font-weight: getVar("weight.font-extrabold");
         font-size: 15px;
     }
 
     .cart {
         @include flex(space-between, flex-end);
-        padding: var("padding.p-1");
+        padding: getVar("padding.p-1");
 
         &__count {
             position: relative;
         }
 
         &__countNumber {
-            padding: var("padding.p-1");
+            padding: getVar("padding.p-1");
             position: absolute;
             top: 0;
             left: 50%;
             transform: translate(-30%, 0);
             font-size: 16px;
-            color: var("colors.orange-500");
-            background-color: var("colors.gray-900");
+            color: getVar("colors.orange-500");
+            background-color: getVar("colors.gray-900");
         }
 
         &__text {
-            padding-bottom: var("padding.p-2");
-            font-weight: var("weight.font-extrabold");
+            padding-bottom: getVar("padding.p-2");
+            font-weight: getVar("weight.font-extrabold");
             font-size: 15px;
         }
     }
 
     .link {
-        color: var("colors.teal-700");
+        color: getVar("colors.teal-700");
 
         &:hover {
             text-decoration: underline;
@@ -355,10 +355,10 @@
 
     & > * {
         border: 1px solid transparent;
-        border-radius: var("radius.rounded-sm");
+        border-radius: getVar("radius.rounded-sm");
 
         &:not(.searchBar):hover {
-            border-color: var("colors.white");
+            border-color: getVar("colors.white");
         }
     }
 }
