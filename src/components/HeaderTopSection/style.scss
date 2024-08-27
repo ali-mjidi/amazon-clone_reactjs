@@ -5,7 +5,7 @@
     @include flex(space-between, stretch);
     padding: 4px;
     gap: 1rem;
-    color: $text-color;
+    color: $light-text;
     background-color: #131921;
 
     &__logo {
@@ -55,7 +55,7 @@
         &__button {
             aspect-ratio: 1;
             cursor: pointer;
-            border-radius: 0 $searchBar-border-radius $searchBar-border-radius 0;
+            border-radius: 0 $small-border-radius $small-border-radius 0;
             background-color: $orange-color;
 
             &:hover {
@@ -75,10 +75,9 @@
                 height: 100%;
                 padding: 0 10px;
                 gap: 8px;
-                border-radius: $searchBar-border-radius 0 0
-                    $searchBar-border-radius;
+                border-radius: $small-border-radius 0 0 $small-border-radius;
                 border: none;
-                border-right: 1px solid darken($gray-color, 30%);
+                border-right: 1px solid $dark-gray-color;
                 background-color: $gray-color;
 
                 &--is-focused {
@@ -87,7 +86,7 @@
             }
 
             &__option {
-                color: black;
+                color: $dark-text;
 
                 &--is-selected {
                     background-color: $gray-color;
@@ -105,6 +104,125 @@
 
             &__indicator-separator {
                 display: none;
+            }
+        }
+    }
+
+    .box {
+        width: 136px;
+        border: 1px solid white;
+    }
+
+    .language {
+        @include flex(center, center);
+        padding: 0 8px;
+        gap: 4px;
+        cursor: pointer;
+        position: relative;
+
+        &:hover > .language__change {
+            display: flex;
+        }
+
+        &__flag {
+            width: 25px;
+        }
+
+        .changeLanguage {
+            $gap: 8px;
+
+            width: 300%;
+            padding: 8px;
+            // display: none;
+            position: absolute;
+            // top: calc(100% + 4px);
+            top: 100%;
+            left: -100%;
+            border-radius: $small-border-radius;
+            border: 2px solid aqua;
+            cursor: pointer;
+            color: $dark-text;
+            background-color: lighten(aqua, 40%);
+
+            &::before {
+                content: "";
+                width: 20px;
+                aspect-ratio: 1;
+                border: 10px solid transparent;
+                border-bottom-color: $dark-gray-color;
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            &,
+            &__radioWrapper {
+                @include flex(flex-start, flex-start, column);
+                gap: $gap;
+            }
+
+            &__radioWrapper {
+                width: 100%;
+                // padding-bottom: $gap;
+                // margin-bottom: $gap;
+                // border-bottom: 1px solid $dark-gray-color;
+            }
+
+            .radio {
+                @include flex(flex-start, center);
+                gap: $gap;
+
+                &__label {
+                    font-size: 14px;
+                }
+
+                &__input {
+                    height: 21px;
+                }
+            }
+
+            &__title {
+                color: #444;
+
+                &:first-of-type {
+                    margin-bottom: 24px;
+                }
+            }
+
+            &__title,
+            &__currency {
+                font-size: 13px;
+            }
+
+            &__link {
+                color: $blue-color;
+
+                &--changeCountry {
+                    width: 100%;
+                    margin-top: $gap;
+                    text-align: center;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                    color: $dark-orange-color;
+                }
+            }
+
+            &__separator {
+                width: 100%;
+                border: 1px solid $dark-gray-color;
+            }
+
+            &__currency {
+                @include flex(space-between, center);
+                width: 100%;
+            }
+
+            &__status {
+                @include flex(flex-start, center);
+                gap: $gap;
             }
         }
     }
