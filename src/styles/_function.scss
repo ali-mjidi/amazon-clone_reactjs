@@ -9,7 +9,9 @@
         @return map.get($radius, $property);
     } @else if $mapName == "gap" {
         @return map.get($gap, $property);
-    } @else {
+    } @else if $mapName == "padding" {
+		@return map.get($padding, $property);
+	} @else {
         @error "Unknown map: #{$mapName}";
     }
 }

@@ -1,12 +1,13 @@
 @import "@styles/_mixin.scss";
 @import "@styles/_var.scss";
+@import "@styles/_function.scss";
 
 .headerTopSection {
     @include flex(space-between, stretch);
     padding: 4px;
     gap: 1rem;
-    color: $light-text;
-    background-color: #131921;
+    color: var("colors.white");
+    background-color: var("colors.gray-900");
 
     &__logo {
         width: 115px;
@@ -14,12 +15,10 @@
     }
 
     &__location {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        @include grid(repeat(2, 1fr), auto 1fr);
         place-items: center;
-        font-size: 14px;
-        color: rgb(204, 204, 204);
+        font-size: 12px;
+        color: var("colors.gray-300");
 
         .icon {
             grid-row: 1 / -1;
@@ -27,8 +26,9 @@
 
         .locationName {
             font-weight: 700;
-            font-size: 17px;
-            color: #fff;
+            font-size: 14px;
+            color: var("colors.white");
+            place-self: start center;
         }
     }
 
@@ -55,11 +55,11 @@
         &__button {
             aspect-ratio: 1;
             cursor: pointer;
-            border-radius: 0 $small-border-radius $small-border-radius 0;
-            background-color: $orange-color;
+            border-radius: 0 var("radius.rounded") var("radius.rounded") 0;
+            background-color: var("colors.orange-300");
 
             &:hover {
-                background-color: darken($orange-color, 10%);
+                opacity: 80%;
             }
         }
 
@@ -75,25 +75,30 @@
                 height: 100%;
                 padding: 0 10px;
                 gap: 8px;
-                border-radius: $small-border-radius 0 0 $small-border-radius;
+                cursor: pointer;
+                border-radius: var("radius.rounded") 0 0 var("radius.rounded");
                 border: none;
-                border-right: 1px solid $dark-gray-color;
-                background-color: $gray-color;
+                border-right: 1px solid var("colors.gray-400");
+                background-color: var("colors.gray-200");
 
                 &--is-focused {
-                    box-shadow: 0 0 0 3px $orange-color;
+                    box-shadow: 0 0 0 3px var("colors.orange-300");
+                }
+
+                &:hover {
+                    background-color: var("colors.slate-300");
                 }
             }
 
             &__option {
-                color: $dark-text;
+                color: var("colors.black");
 
                 &--is-selected {
-                    background-color: $gray-color;
+                    background-color: var("colors.gray-200");
                 }
 
                 &:hover {
-                    background-color: rgb(148 163 184);
+                    background-color: var("colors.gray-400");
                 }
             }
 
@@ -108,70 +113,58 @@
         }
     }
 
-    .box {
-        width: 136px;
-        border: 1px solid white;
-    }
-
     .language {
         @include flex(center, center);
         padding: 0 8px;
         gap: 4px;
         cursor: pointer;
         position: relative;
-
-        &:hover > .language__change {
-            display: flex;
-        }
+        color: var("colors.white");
 
         &__flag {
             width: 25px;
         }
 
         .changeLanguage {
-            $gap: 8px;
-
+            @include flex(flex-start, flex-start, column);
             width: 300%;
-            padding: 8px;
-            // display: none;
+            padding: 12px;
+            gap: var("gap.gap-2");
+            display: none;
             position: absolute;
             // top: calc(100% + 4px);
             top: 100%;
             left: -100%;
-            border-radius: $small-border-radius;
+            border-radius: var("radius.rounded");
             border: 2px solid aqua;
             cursor: pointer;
-            color: $dark-text;
-            background-color: lighten(aqua, 40%);
+            color: var("colors.black");
+            background-color: var("colors.white");
 
             &::before {
                 content: "";
                 width: 20px;
                 aspect-ratio: 1;
                 border: 10px solid transparent;
-                border-bottom-color: $dark-gray-color;
+                border-bottom-color: var("colors.gray-400");
                 position: absolute;
                 bottom: 100%;
                 left: 50%;
                 transform: translate(-50%, 0);
             }
 
-            &,
             &__radioWrapper {
                 @include flex(flex-start, flex-start, column);
-                gap: $gap;
-            }
-
-            &__radioWrapper {
                 width: 100%;
-                // padding-bottom: $gap;
-                // margin-bottom: $gap;
-                // border-bottom: 1px solid $dark-gray-color;
+                gap: var("gap.gap-2");
+                // padding-bottom: var("gap.gap-2");;
+                // margin-bottom: var("gap.gap-2");;
+                // border-bottom: 1px solid var("colors.gray-400");
             }
 
             .radio {
                 @include flex(flex-start, center);
-                gap: $gap;
+                gap: var("gap.gap-2");
 
                 &__label {
                     font-size: 14px;
@@ -183,7 +176,7 @@
             }
 
             &__title {
-                color: #444;
+                color: var("colors.gray-700");
 
                 &:first-of-type {
                     margin-bottom: 24px;
@@ -196,23 +189,20 @@
             }
 
             &__link {
-                color: $blue-color;
-
                 &--changeCountry {
                     width: 100%;
-                    margin-top: $gap;
+                    // margin-top: var("gap.gap-2");;
                     text-align: center;
                 }
 
                 &:hover {
-                    text-decoration: underline;
-                    color: $dark-orange-color;
+                    color: var("colors.red-600");
                 }
             }
 
             &__separator {
                 width: 100%;
-                border: 1px solid $dark-gray-color;
+                border: 1px solid var("colors.gray-400");
             }
 
             &__currency {
@@ -222,8 +212,108 @@
 
             &__status {
                 @include flex(flex-start, center);
-                gap: $gap;
+                gap: var("gap.gap-2");
             }
+        }
+
+        &:hover > .changeLanguage {
+            display: flex;
+        }
+    }
+
+    .signIn {
+        @include flex(space-around, flex-start, column);
+        padding: 4px;
+        position: relative;
+        font-size: 12px;
+        cursor: pointer;
+        border: 2px solid red;
+
+        &:hover > .account {
+            display: grid;
+        }
+
+        &__options {
+            font-weight: 900;
+            font-size: 15px;
+        }
+
+        .account {
+            @include grid(repeat(2, auto), repeat(2, 1fr));
+            width: 400%;
+            padding: 12px;
+            display: none;
+            gap: var("gap.gap-2");
+            position: absolute;
+            top: 100%;
+            right: -100%;
+            border-radius: var("radius.rounded");
+            border: 2px solid limegreen;
+            color: var("colors.black");
+            background-color: var("colors.white");
+
+            &__signInSection {
+                @include flex(flex-start, center, column);
+                padding-bottom: var("gap.gap-2");
+                grid-column: 1 / -1;
+                gap: var("gap.gap-2");
+                border-bottom: 1px solid var("colors.slate-200");
+            }
+
+            &__signInBtn {
+                width: 60%;
+                padding: 1rem;
+                display: block;
+                cursor: pointer;
+                border-radius: var("radius.rounded-full");
+                border: 1px solid var("colors.yellow-400");
+                background-color: var("colors.yellow-400");
+
+                &:hover {
+                    background-color: var("colors.yellow-500");
+                }
+            }
+
+            .userList,
+            .userAccount {
+                @include flex(flex-start, flex-start, column);
+                padding: var("padding.p-2");
+                gap: var("gap.gap-1");
+
+                &__heading {
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+
+                &__options {
+                    font-size: 13px;
+                }
+
+                &__link {
+                    color: var("colors.gray-700");
+
+                    &:hover {
+                        color: var("colors.amber-500");
+                    }
+                }
+            }
+
+            .userList {
+                border-right: 1px solid var("colors.slate-200");
+            }
+        }
+    }
+
+    .box {
+        width: 136px;
+        border: 1px solid var("colors.white");
+    }
+
+    .link {
+        color: var("colors.teal-700");
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 
@@ -231,7 +321,7 @@
         border: 1px solid transparent;
 
         &:not(.searchBar):hover {
-            border-color: white;
+            border-color: var("colors.white");
         }
     }
 }

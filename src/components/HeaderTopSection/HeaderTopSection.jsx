@@ -69,12 +69,12 @@ function HeaderTopSection() {
                 <Icon type="down" size={15} color="#b8b0b5" />
 
                 <form className="changeLanguage">
-                    <p className="changeLanguage__title">
+                    <h4 className="changeLanguage__title">
                         Change Language.{" "}
-                        <a href="#" className="changeLanguage__link">
+                        <a href="#" className="changeLanguage__link link">
                             Learn more.
                         </a>
-                    </p>
+                    </h4>
 
                     <ul className="changeLanguage__radioWrapper">
                         <li className="radio">
@@ -170,16 +170,16 @@ function HeaderTopSection() {
 
                     <hr className="changeLanguage__separator" />
 
-                    <p className="changeLanguage__title">
+                    <h4 className="changeLanguage__title">
                         Change Currency.
-                        <a href="#" className="changeLanguage__link">
+                        <a href="#" className="changeLanguage__link link">
                             Learn more.
                         </a>
-                    </p>
+                    </h4>
 
                     <p className="changeLanguage__currency">
                         &#x24;-USD-US Dollar
-                        <a href="#" className="changeLanguage__link">
+                        <a href="#" className="changeLanguage__link link">
                             Change
                         </a>
                     </p>
@@ -195,13 +195,111 @@ function HeaderTopSection() {
                         You are shopping on Amazon.com.
                     </p>
 
-                    <a href="#" className="changeLanguage__link changeLanguage__link--changeCountry">
+                    <a
+                        href="#"
+                        className="changeLanguage__link link changeLanguage__link link--changeCountry">
                         Change Country / Region
                     </a>
                 </form>
             </div>
 
-            <div className="box"></div>
+            <div className="signIn">
+                <span className="signIn__username">Hello, sign in</span>
+                <strong className="signIn__options">
+                    Account & Lists
+                    <Icon type="down" size={15} color="#b8b0b5" />
+                </strong>
+
+                <div className="account">
+                    <div className="account__signInSection">
+                        <button className="account__signInBtn">Sign In</button>
+                        <p className="account__newCustomer">
+                            New Customer{" "}
+                            <a href="#" className="account__link link">
+                                Start Here
+                            </a>
+                        </p>
+                    </div>
+
+                    <ul className="account__userList userList">
+                        <h3 className="userList__heading">Your Lists</h3>
+                        <li className="userList__options">
+                            <a href="#" className="userList__link link">
+                                Create a List
+                            </a>
+                        </li>
+                        <li className="userList__options">
+                            <a href="#" className="userList__link link">
+                                Find a List Registry
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul className="account__userAccount userAccount">
+                        <h3 className="userAccount__heading">Your Account</h3>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Account
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                orders
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Recommendations
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Browsing
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                History
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Watchlist
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Video
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Purchases & Rentals
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Kindle Unlimited
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Subscribe & Save Items
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Memberships & Subscriptions
+                            </a>
+                        </li>
+                        <li className="userAccount__options">
+                            <a href="#" className="userAccount__link link">
+                                Music Library
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div className="box"></div>
             <div className="box"></div>
         </div>
@@ -209,3 +307,17 @@ function HeaderTopSection() {
 }
 
 export default HeaderTopSection;
+
+// Your Account
+// Account
+// orders
+// Recommendations
+// Browsing
+// History
+// Watchlist
+// Video
+// Purchases & Rentals
+// Kindle Unlimited
+// Subscribe & Save Items
+// Memberships & Subscriptions
+// Music Library
