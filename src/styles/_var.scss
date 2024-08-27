@@ -1,18 +1,27 @@
 // colors
-$light-text: #fff;
-$dark-text: #000;
-$gray-200: #e5e7eb;
-$gray-300: #d1d5db;
-$gray-400: #9ca3af;
-$gray-700: #374151;
-$gray-900: #111827;
-$slate-300: #cbd5e1;
-$orange-300: #fdba74;
-$red-600: #dc2626;
-$teal-700: #0f766e;
-$yellow-400: #facc15;
-$yellow-500: #eab308;
+$colors: (
+    light-text: #fff,
+    dark-text: #000,
+    gray-200: #e5e7eb,
+    gray-300: #d1d5db,
+    gray-400: #9ca3af,
+    gray-700: #374151,
+    gray-900: #111827,
+    slate-300: #cbd5e1,
+    orange-300: #fdba74,
+    red-600: #dc2626,
+    teal-700: #0f766e,
+    yellow-400: #facc15,
+    yellow-500: #eab308,
+);
 
 // sizes
-$rounded: 0.25rem;
-$rounded-full: 9999px;
+$radius: (
+    rounded: 0.25rem,
+    rounded-full: 9999px,
+);
+
+$gap: (
+    gap-1: 0.25rem,
+    gap-2: 0.5rem,
+);
