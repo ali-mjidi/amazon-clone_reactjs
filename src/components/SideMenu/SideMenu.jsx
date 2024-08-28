@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import SideMenuList from "@components/SideMenuList/SideMenuList";
 import SideContent from "@components/SideContent/SideContent";
 import Icon from "@components/Icon/Icon";
 import "./style.scss";
 
-function SideMenu({ ...props }) {
+function SideMenu({ isShow }) {
     const [showSideContent, setShowSideContent] = useState(false);
     const data = [
         {
@@ -72,8 +72,17 @@ function SideMenu({ ...props }) {
         },
     ];
 
+    useEffect(() => {
+        if (!isShow) {
+            setShowSideContent(false);
+        }
+    }, [isShow]);
+
     return (
-        <section {...props}>
+        <section
+            className={`navBar__sideMenu sideMenu ${
+                isShow ? "sideMenu--show" : ""
+            }`}>
             <p className="sideMenu__user">
                 <div className="sideMenu__iconWrapper">
                     <Icon type="user" size={25} className="icon" />
@@ -81,7 +90,11 @@ function SideMenu({ ...props }) {
                 Hello, sign in
             </p>
 
-            <div className="sideMenu__content">
+            <div
+                className="sideMenu__content"
+                style={{
+                    overflow: showSideContent && "hidden",
+                }}>
                 {data.map(data => (
                     <SideMenuList data={data} prefix="sideMenu" />
                 ))}

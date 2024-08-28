@@ -24,9 +24,7 @@ function Nav() {
             </ul>
 
             <SideMenu
-                className={`navBar__sideMenu sideMenu ${
-                    showMenu ? "sideMenu--show" : ""
-                }`}
+                isShow={showMenu}
             />
 
             {showMenu && (
