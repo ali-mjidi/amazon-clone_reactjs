@@ -1,0 +1,10 @@
+@import "@styles/_mixin.scss";
+
+.layout {
+    @include flex(space-between, stretch, column);
+    min-height: 100vh;
+
+    & > :nth-child(2) {
+        flex-grow: 1;
+    }
+}
