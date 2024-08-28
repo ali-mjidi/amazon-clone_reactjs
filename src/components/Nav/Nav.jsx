@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Icon from "@components/Icon/Icon";
+import SideMenu from "@components/SideMenu/SideMenu";
 import BackDrop from "@components/BackDrop/BackDrop";
 import "./style.scss";
 
@@ -22,10 +23,11 @@ function Nav() {
                 <li className="navBar__item">Sell</li>
             </ul>
 
-            <div
+            <SideMenu
                 className={`navBar__sideMenu sideMenu ${
                     showMenu ? "sideMenu--show" : ""
-                }`}></div>
+                }`}
+            />
 
             {showMenu && (
                 <BackDrop targetId="root" onClick={() => setShowMenu(false)} />

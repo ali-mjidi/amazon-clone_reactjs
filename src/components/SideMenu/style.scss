@@ -1,0 +1,89 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.sideMenu {
+    @include flex(flex-start, flex-start, column);
+    width: 365px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    color: getVar("colors.black");
+    background-color: getVar("colors.white");
+    transition: 0.3s;
+    overflow: scroll;
+    z-index: 100;
+
+    &--show {
+        transform: translateX(0);
+    }
+
+    &__user {
+        @include flex(flex-start, center);
+        @include font("lg");
+        width: 100%;
+        padding: getVar("padding.p-2.5");
+        padding-left: getVar("padding.p-8");
+		position: sticky;
+		top: 0;
+        gap: getVar("gap.gap-2.5");
+        font-weight: getVar("weight.font-extrabold");
+        color: getVar("colors.white");
+        background-color: getVar("colors.slate-800");
+    }
+
+    &__iconWrapper {
+        padding: 3px;
+        display: inline-block;
+        line-height: 0;
+        border-radius: 100%;
+        background-color: getVar("colors.white");
+
+        .icon {
+            color: getVar("colors.slate-800");
+        }
+    }
+
+    &__list {
+        @include flex(flex-start, flex-start, column);
+        width: 100%;
+        border-bottom: 1px solid getVar("colors.gray-300");
+    }
+
+    &__heading {
+        @include font("lg");
+        width: 100%;
+        padding: 0 getVar("padding.p-8");
+        padding-top: getVar("padding.p-4");
+        padding-bottom: getVar("padding.p-1");
+        font-weight: getVar("weight.font-bold");
+    }
+
+    &__item {
+        @include flex(space-between, center);
+        @include font("sm");
+        width: 100%;
+        padding: getVar("padding.p-3") getVar("padding.p-8");
+        color: getVar("colors.slate-800");
+        cursor: pointer;
+
+        .icon {
+            color: getVar("colors.slate-400");
+        }
+
+		.wrapper {
+			@include flex(flex-start, center);
+			gap: getVar("gap.gap-2");
+		}
+		
+        &:hover {
+            background-color: getVar("colors.slate-200");
+        }
+    }
+
+    &__flag {
+        width: 20px;
+    }
+}
