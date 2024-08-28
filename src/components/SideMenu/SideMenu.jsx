@@ -1,9 +1,77 @@
+import { useState } from "react";
+
+import SideMenuList from "@components/SideMenuList/SideMenuList";
 import Icon from "@components/Icon/Icon";
 import "./style.scss";
 
 function SideMenu({ ...props }) {
-    const rightCaret = <Icon type="right" size={25} className="icon" />;
+    const [showSideContent, setShowSideContent] = useState(false);
+    const data = [
+        {
+            heading: "Digital Content & Devices",
+            list: [
+                {
+                    content: "Amazon Music",
+                    handler: {onClick: () => setShowSideContent(true)},
+                },
+                {
+                    content: "Kindle E -readers & Books",
+                },
+                { content: "Amazon Appstore" },
+            ],
+        },
+        {
+            heading: "Shop by Department",
+            list: [
+                { content: "Shop by Department" },
+                { content: "Electronics" },
+                { content: "Computer" },
+                { content: "Smart Home" },
+                { content: "Arts & Crafts" },
+                { content: "See all" },
+            ],
+        },
+        {
+            heading: "Programs & Features",
+            list: [
+                { content: "Gift Cards" },
+                { content: "Shop By Interest" },
+                { content: "Amazon live" },
+                { content: "International Shopping" },
+                { content: "See all" },
+            ],
+        },
+        {
+            heading: "Help & Settings",
+            list: [
+                { content: "Your Account" },
+                {
+                    content: (
+                        <div className="wrapper">
+                            <Icon type="language" size={25} className="icon" />
+                            English
+                        </div>
+                    ),
+                },
+                {
+                    content: (
+                        <div className="wrapper">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
+                                alt="USA Flag"
+                                className="sideMenu__flag"
+                            />
+                            United States
+                        </div>
+                    ),
+                },
+                { content: "Customer Service" },
+                { content: "Sign in" },
+            ],
+        },
+    ];
 
+    const rightCaret = 2;
     return (
         <section {...props}>
             <p className="sideMenu__user">
@@ -13,63 +81,16 @@ function SideMenu({ ...props }) {
                 Hello, sign in
             </p>
 
-            <ul className="sideMenu__digitalContent sideMenu__list">
-                <h3 className="sideMenu__heading">Digital Content & Devices</h3>
-                <li className="sideMenu__item">Amazon Music {rightCaret}</li>
-                <li className="sideMenu__item">
-                    Kindle E -readers & Books {rightCaret}
-                </li>
-                <li className="sideMenu__item">Amazon Appstore {rightCaret}</li>
-            </ul>
+            <div className="sideMenu__content">
+                {data.map(data => (
+                    <SideMenuList data={data} />
+                ))}
 
-            <ul className="sideMenu__list">
-                <h3 className="sideMenu__heading">Shop by Department</h3>
-                <li className="sideMenu__item">Electronics {rightCaret}</li>
-                <li className="sideMenu__item">Computer {rightCaret}</li>
-                <li className="sideMenu__item">Smart Home {rightCaret}</li>
-                <li className="sideMenu__item">Arts & Crafts {rightCaret}</li>
-                <li className="sideMenu__item">See all {rightCaret}</li>
-            </ul>
-
-            <ul className="sideMenu__list">
-                <h3 className="sideMenu__heading">Programs & Features</h3>
-                <li className="sideMenu__item">Gift Cards {rightCaret}</li>
-                <li className="sideMenu__item">
-                    Shop By Interest {rightCaret}
-                </li>
-                <li className="sideMenu__item">Amazon live {rightCaret}</li>
-                <li className="sideMenu__item">
-                    International Shopping {rightCaret}
-                </li>
-                <li className="sideMenu__item">See all {rightCaret}</li>
-            </ul>
-
-            <ul className="sideMenu__list">
-                <h3 className="sideMenu__heading">Help & Settings</h3>
-                <li className="sideMenu__item">Your Account {rightCaret}</li>
-                <li className="sideMenu__item">
-                    <div className="wrapper">
-                        <Icon type="language" size={25} className="icon" />
-                        English
-                    </div>
-                    {rightCaret}
-                </li>
-                <li className="sideMenu__item">
-                    <div className="wrapper">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
-                            alt="USA Flag"
-                            className="sideMenu__flag"
-                        />
-                        United States
-                    </div>
-                    {rightCaret}
-                </li>
-                <li className="sideMenu__item">
-                    Customer Service {rightCaret}
-                </li>
-                <li className="sideMenu__item">Sign in {rightCaret}</li>
-            </ul>
+                <section
+                    className={`sideContent sideContent${
+                        showSideContent ? "--show" : ""
+                    }`}></section>
+            </div>
         </section>
     );
 }
