@@ -3,6 +3,7 @@ import Select from "react-select";
 
 import Icon from "../Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
+import BackDrop from "@components/BackDrop/BackDrop";
 import "./style.scss";
 
 const SELECT_OPTIONS = [
@@ -13,6 +14,7 @@ const SELECT_OPTIONS = [
 
 function HeaderTopSection() {
     const [selectedOption, setSelectedOption] = useState(null);
+    const [showBackDrop, setShowBackDrop] = useState(false);
     const searchInput = useRef();
 
     return (
@@ -30,7 +32,8 @@ function HeaderTopSection() {
                     color="white"
                     className="icon"
                 />
-                <span className="locationText">Deliver to</span> <b className="locationName">France</b>
+                <span className="locationText">Deliver to</span>
+                <b className="locationName">France</b>
             </div>
 
             <form
@@ -57,7 +60,10 @@ function HeaderTopSection() {
                 </button>
             </form>
 
-            <div className="language">
+            <div
+                className="language"
+                onPointerEnter={() => setShowBackDrop(true)}
+                onMouseLeave={() => setShowBackDrop(false)}>
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
                     alt="USA Flag"
@@ -83,7 +89,7 @@ function HeaderTopSection() {
                                 name="language"
                                 id="EN"
                                 className="radio__input"
-                                checked
+                                defaultChecked
                             />
                             <label htmlFor="EN" className="radio__label">
                                 English - EN
@@ -203,7 +209,10 @@ function HeaderTopSection() {
                 </form>
             </div>
 
-            <div className="signIn">
+            <div
+                className="signIn"
+                onPointerEnter={() => setShowBackDrop(true)}
+                onMouseLeave={() => setShowBackDrop(false)}>
                 <span className="signIn__username">Hello, sign in</span>
                 <strong className="signIn__options">
                     Account & Lists
@@ -313,22 +322,14 @@ function HeaderTopSection() {
                 </div>
                 <span className="cart__text">Cart</span>
             </div>
+            {showBackDrop && (
+                <BackDrop
+                    targetId="header"
+                    // onPointerEnter={() => setShowBackDrop(false)}
+                />
+            )}
         </div>
     );
 }
 
 export default HeaderTopSection;
-
-// Your Account
-// Account
-// orders
-// Recommendations
-// Browsing
-// History
-// Watchlist
-// Video
-// Purchases & Rentals
-// Kindle Unlimited
-// Subscribe & Save Items
-// Memberships & Subscriptions
-// Music Library

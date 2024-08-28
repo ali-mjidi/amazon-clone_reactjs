@@ -4,7 +4,7 @@ import "./style.scss";
 
 function Header() {
     return (
-        <header className="header">
+        <header className="header" id="header">
             <HeaderTopSection />
             <Nav />
         </header>
