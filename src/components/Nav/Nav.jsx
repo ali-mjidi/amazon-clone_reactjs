@@ -25,8 +25,7 @@ function Nav() {
             <div
                 className={`navBar__sideMenu sideMenu ${
                     showMenu ? "sideMenu--show" : ""
-                }`}
-                onClick={() => setShowMenu(false)}></div>
+                }`}></div>
 
             {showMenu && (
                 <BackDrop targetId="root" onClick={() => setShowMenu(false)} />
