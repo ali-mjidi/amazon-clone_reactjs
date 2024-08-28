@@ -1,0 +1,6 @@
+@import "@styles/_mixin.scss";
+
+.notFound {
+    padding: 5rem;
+    @include flex(center, center);
+}

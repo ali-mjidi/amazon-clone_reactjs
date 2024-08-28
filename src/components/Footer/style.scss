@@ -1,0 +1,8 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.footer {
+    @include flex(center, center, column);
+    width: 100%;
+}
