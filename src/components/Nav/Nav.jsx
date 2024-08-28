@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Icon from "../Icon/Icon";
 import "./style.scss";
+import BackDrop from "../BackDrop/BackDrop";
 
 function Nav() {
     const [showMenu, setShowMenu] = useState(false);
@@ -26,6 +27,13 @@ function Nav() {
                     showMenu ? "sideMenu--show" : ""
                 }`}
                 onClick={() => setShowMenu(false)}></div>
+
+            {showMenu && (
+                <BackDrop
+                    targetId="root"
+                    closeFunc={() => setShowMenu(false)}
+                />
+            )}
         </nav>
     );
 }
