@@ -1,16 +1,19 @@
 import Icon from "@components/Icon/Icon";
-import "./style.css";
+import style from "./style.module.scss";
 
-function SideMenuList({ data }) {
+function SideMenuList({ data, prefix }) {
+    const { list, heading, item } = style;
     const rightCaret = <Icon type="right" size={25} className="icon" />;
 
     return (
-        <ul className="sideMenu__list">
-            <h3 className="sideMenu__heading">{data.heading}</h3>
+        <ul className={`${prefix}__list ${list}`}>
+            <h3 className={`${prefix}__heading ${heading}`}>{data.heading}</h3>
 
-            {data.list.map(item => (
-                <li className="sideMenu__item" {...item?.handler}>
-                    {item.content} {rightCaret}
+            {data.list.map(itemData => (
+                <li
+                    className={`${prefix}__item ${item}`}
+                    {...itemData?.handler}>
+                    {itemData.content} {prefix === "sideMenu" && rightCaret}
                 </li>
             ))}
         </ul>

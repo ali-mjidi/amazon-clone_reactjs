@@ -1,0 +1,30 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.list {
+    @include flex(flex-start, flex-start, column);
+    width: 100%;
+}
+
+.heading {
+    @include font("lg");
+    width: 100%;
+    padding: 0 getVar("padding.p-8");
+    padding-top: getVar("padding.p-4");
+    padding-bottom: getVar("padding.p-1");
+    font-weight: getVar("weight.font-bold");
+}
+
+.item {
+    @include flex(space-between, center);
+    @include font("sm");
+    width: 100%;
+    padding: getVar("padding.p-3") getVar("padding.p-8");
+    color: getVar("colors.slate-800");
+    cursor: pointer;
+
+    &:hover {
+        background-color: getVar("colors.slate-200");
+    }
+}

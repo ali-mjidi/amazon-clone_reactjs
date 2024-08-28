@@ -12,6 +12,8 @@
         @return map.get($gap, $property);
     } @else if $mapName == "padding" {
         @return map.get($padding, $property);
+    } @else if $mapName == margin {
+        @return map.get($margin, $property);
     } @else if $mapName == "weight" {
         @return map.get($weight, $property);
     } @else {

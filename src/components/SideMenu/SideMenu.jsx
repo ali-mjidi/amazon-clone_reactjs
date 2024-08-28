@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import SideMenuList from "@components/SideMenuList/SideMenuList";
+import SideContent from "@components/SideContent/SideContent";
 import Icon from "@components/Icon/Icon";
 import "./style.scss";
 
@@ -12,7 +13,7 @@ function SideMenu({ ...props }) {
             list: [
                 {
                     content: "Amazon Music",
-                    handler: {onClick: () => setShowSideContent(true)},
+                    handler: { onClick: () => setShowSideContent(true) },
                 },
                 {
                     content: "Kindle E -readers & Books",
@@ -71,7 +72,6 @@ function SideMenu({ ...props }) {
         },
     ];
 
-    const rightCaret = 2;
     return (
         <section {...props}>
             <p className="sideMenu__user">
@@ -83,13 +83,13 @@ function SideMenu({ ...props }) {
 
             <div className="sideMenu__content">
                 {data.map(data => (
-                    <SideMenuList data={data} />
+                    <SideMenuList data={data} prefix="sideMenu" />
                 ))}
 
-                <section
-                    className={`sideContent sideContent${
-                        showSideContent ? "--show" : ""
-                    }`}></section>
+                <SideContent
+                    isShow={showSideContent}
+                    closeHandler={() => setShowSideContent(false)}
+                />
             </div>
         </section>
     );

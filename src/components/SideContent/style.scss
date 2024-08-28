@@ -1,0 +1,38 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.sideContent {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: getVar("colors.white");
+    transition: 0.3s;
+
+    &--show {
+        left: 0;
+    }
+
+    &__back {
+        @include flex(flex-start, center);
+        @include font("sm");
+        width: 100%;
+        margin-top: getVar("margin.m-2");
+        padding: getVar("padding.p-3") getVar("padding.p-8");
+        gap: getVar("gap.gap-2");
+        cursor: pointer;
+        border-bottom: 2px solid getVar("colors.slate-300");
+        color: getVar("colors.slate-800");
+        background-color: transparent;
+
+        .icon {
+            color: getVar("colors.slate-400");
+        }
+
+        &:hover {
+            background-color: getVar("colors.slate-200");
+        }
+    }
+}

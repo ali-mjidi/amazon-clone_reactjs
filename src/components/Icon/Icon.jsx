@@ -6,6 +6,7 @@ import {
 } from "react-icons/io5";
 import { FaDollarSign, FaCaretDown, FaUser } from "react-icons/fa6";
 import { MdLanguage, MdOutlineNavigateNext } from "react-icons/md";
+import { IoMdArrowBack } from "react-icons/io";
 
 const iconComponents = {
     location: IoLocationOutline,
@@ -17,6 +18,7 @@ const iconComponents = {
     dollar: FaDollarSign,
     user: FaUser,
     right: MdOutlineNavigateNext,
+    back: IoMdArrowBack,
 };
 
 function Icon({ type, ...props }) {
