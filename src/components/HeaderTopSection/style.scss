@@ -142,7 +142,6 @@
             top: 100%;
             left: -100%;
             border-radius: getVar("radius.rounded");
-            border: 2px solid aqua;
             cursor: pointer;
             color: getVar("colors.black");
             background-color: getVar("colors.white");
@@ -255,7 +254,6 @@
             top: 100%;
             right: -100%;
             border-radius: getVar("radius.rounded");
-            border: 2px solid limegreen;
             color: getVar("colors.black");
             background-color: getVar("colors.white");
 

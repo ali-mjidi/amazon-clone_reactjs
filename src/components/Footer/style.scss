@@ -5,4 +5,68 @@
 .footer {
     @include flex(center, center, column);
     width: 100%;
+    color: getVar("colors.white");
+
+    &__elevator,
+    &__links,
+    &__info {
+        width: 100%;
+        background-color: getVar("colors.slate-800");
+    }
+
+    &__elevator {
+        padding: getVar("padding.p-3.5");
+        text-align: center;
+        opacity: 90%;
+        @include font("xs");
+
+        &:hover {
+            opacity: 80%;
+        }
+    }
+
+    &__links {
+        padding: getVar("padding.p-10");
+    }
+
+    &__wrapper {
+        width: 90%;
+        max-width: 1100px;
+        height: 5rem;
+        margin: 0 auto;
+        box-shadow: 0 0 0 1px white;
+    }
+
+    &__info {
+        @include flex(center, center);
+        padding: getVar("padding.p-2.5");
+		gap: getVar("gap.gap-2");
+        border-top: 1px solid getVar("colors.slate-500");
+    }
+
+    &__infoItem {
+        @include flex(center, center);
+        padding: getVar("padding.p-1.5");
+        gap: getVar("gap.gap-2");
+        border-radius: getVar("radius.rounded");
+        border: 2px solid getVar("colors.slate-500");
+		cursor: pointer;
+    }
+
+    &__logo {
+        width: 100px;
+        margin-right: 2rem;
+    }
+
+	&__language {
+		.icon {
+			color: getVar("colors.slate-500")
+		}
+	}
+
+	&__flag{
+		width: 17px;
+	}
 }
+
+// p-10 shrink-0 px-[90px] sm:[110px] md:px-[130px] lg:px-[160px] xl:px-[180px]  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-around flex-row bg-[#232F3E]

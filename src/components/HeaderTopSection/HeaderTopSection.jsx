@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Select from "react-select";
 
-import Icon from "../Icon/Icon";
+import Icon from "@components/Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
 import BackDrop from "@components/BackDrop/BackDrop";
 import "./style.scss";

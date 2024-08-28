@@ -1,5 +1,5 @@
 import HeaderTopSection from "@components/HeaderTopSection/HeaderTopSection";
-import Nav from "../Nav/Nav";
+import Nav from "@components/Nav/Nav";
 import "./style.scss";
 
 function Header() {
