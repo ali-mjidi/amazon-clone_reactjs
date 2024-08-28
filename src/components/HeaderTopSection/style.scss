@@ -346,17 +346,10 @@
         }
     }
 
-    .link {
-        color: getVar("colors.teal-700");
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
     & > * {
         border: 1px solid transparent;
         border-radius: getVar("radius.rounded-sm");
+        cursor: pointer;
 
         &:not(.searchBar):hover {
             border-color: getVar("colors.white");

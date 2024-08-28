@@ -30,17 +30,35 @@
     }
 
     &__wrapper {
+        @include flex(space-between, flex-start);
         width: 90%;
-        max-width: 1100px;
-        height: 5rem;
+        max-width: 1110px;
         margin: 0 auto;
-        box-shadow: 0 0 0 1px white;
+        color: getVar("colors.gray-300");
     }
+
+    &__aboutUs,
+    &__makeMoney,
+	&__payment,
+	&__help {
+        @include flex(flex-start, flex-start, column);
+        gap: getVar("gap.gap-2");
+    }
+
+    &__heading {
+		margin-bottom: 2px;
+        font-weight: getVar("weight.font-extrabold");
+        color: getVar("colors.white");
+    }
+
+	&__link {
+		@include font("sm");
+	}
 
     &__info {
         @include flex(center, center);
         padding: getVar("padding.p-2.5");
-		gap: getVar("gap.gap-2");
+        gap: getVar("gap.gap-2");
         border-top: 1px solid getVar("colors.slate-500");
     }
 
@@ -50,7 +68,7 @@
         gap: getVar("gap.gap-2");
         border-radius: getVar("radius.rounded");
         border: 2px solid getVar("colors.slate-500");
-		cursor: pointer;
+        cursor: pointer;
     }
 
     &__logo {
@@ -58,15 +76,15 @@
         margin-right: 2rem;
     }
 
-	&__language {
-		.icon {
-			color: getVar("colors.slate-500")
-		}
-	}
+    &__language {
+        .icon {
+            color: getVar("colors.slate-500");
+        }
+    }
 
-	&__flag{
-		width: 17px;
-	}
+    &__flag {
+        width: 17px;
+    }
 }
 
 // p-10 shrink-0 px-[90px] sm:[110px] md:px-[130px] lg:px-[160px] xl:px-[180px]  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-around flex-row bg-[#232F3E]
