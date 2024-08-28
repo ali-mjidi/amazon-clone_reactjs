@@ -233,7 +233,6 @@
         position: relative;
         font-size: 12px;
         cursor: pointer;
-        z-index: 100;
 
         &:hover > .account {
             display: grid;
@@ -256,6 +255,8 @@
             border-radius: getVar("radius.rounded");
             color: getVar("colors.black");
             background-color: getVar("colors.white");
+			z-index: 100;
+
 
             &__signInSection {
                 @include flex(flex-start, center, column);
