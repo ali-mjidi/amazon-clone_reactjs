@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Select from "react-select";
+import axios from "axios";
 
 import Icon from "@components/Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
@@ -16,7 +17,20 @@ function HeaderTopSection() {
     const [selectedOption, setSelectedOption] = useState(null);
     const [showBackDrop, setShowBackDrop] = useState(false);
     const [isFormFocus, setIsFormFocus] = useState(false);
+    const [userLocation, setUserLocation] = useState("");
     const searchInput = useRef();
+
+    useEffect(() => {
+        getUserLocation();
+    }, []);
+
+    async function getUserLocation() {
+        const { data } = await axios.get(
+            "https://get.geojs.io//v1/ip/country/full"
+        );
+
+        setUserLocation(data);
+    }
 
     function handleShowBackDrop() {
         setShowBackDrop(true);
@@ -57,7 +71,7 @@ function HeaderTopSection() {
                     className="icon"
                 />
                 <span className="locationText">Deliver to</span>
-                <b className="locationName">France</b>
+                <b className="locationName">{userLocation || "Unknown"}</b>
             </div>
 
             <form
