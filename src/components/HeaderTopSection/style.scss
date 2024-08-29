@@ -37,6 +37,10 @@
         }
     }
 
+    %focus {
+        box-shadow: 0 0 0 3px getVar("colors.orange-300");
+    }
+
     .searchBar {
         @include flex(center, center);
         margin: 4px 0;
@@ -88,7 +92,7 @@
                 background-color: getVar("colors.gray-200");
 
                 &--is-focused {
-                    box-shadow: 0 0 0 3px getVar("colors.orange-300");
+                    @extend %focus;
                 }
 
                 &:hover {
@@ -123,7 +127,7 @@
         }
 
         &--focus {
-            box-shadow: 0 0 0 3px getVar("colors.orange-300");
+            @extend %focus;
         }
     }
 
