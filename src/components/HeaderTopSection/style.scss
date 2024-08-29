@@ -96,6 +96,10 @@
                 }
             }
 
+            &__menu {
+                z-index: 100;
+            }
+
             &__option {
                 color: getVar("colors.black");
 
@@ -116,6 +120,10 @@
             &__indicator-separator {
                 display: none;
             }
+        }
+
+        &--focus {
+            box-shadow: 0 0 0 3px getVar("colors.orange-300");
         }
     }
 
@@ -255,8 +263,7 @@
             border-radius: getVar("radius.rounded");
             color: getVar("colors.black");
             background-color: getVar("colors.white");
-			z-index: 100;
-
+            z-index: 100;
 
             &__signInSection {
                 @include flex(flex-start, center, column);

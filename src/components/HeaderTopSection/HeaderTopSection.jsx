@@ -15,7 +15,31 @@ const SELECT_OPTIONS = [
 function HeaderTopSection() {
     const [selectedOption, setSelectedOption] = useState(null);
     const [showBackDrop, setShowBackDrop] = useState(false);
+    const [isFormFocus, setIsFormFocus] = useState(false);
     const searchInput = useRef();
+
+    function handleShowBackDrop() {
+        setShowBackDrop(true);
+    }
+
+    function handleRemoveBackDrop() {
+        setShowBackDrop(false);
+    }
+
+    function handleChangeSelect(option) {
+        setSelectedOption(option);
+        searchInput.current.focus();
+    }
+
+    function handleInputFocus() {
+        handleShowBackDrop();
+        setIsFormFocus(true);
+    }
+
+    function handleInputBlur() {
+        handleRemoveBackDrop();
+        setIsFormFocus(false);
+    }
 
     return (
         <div className="headerTopSection">
@@ -37,14 +61,17 @@ function HeaderTopSection() {
             </div>
 
             <form
-                className="headerTopSection__searchBar searchBar"
+                className={`headerTopSection__searchBar searchBar ${
+                    isFormFocus ? "searchBar--focus" : ""
+                }`}
                 onSubmit={e => e.preventDefault()}>
                 <Select
                     className="select"
                     classNamePrefix="select"
                     defaultValue={SELECT_OPTIONS[0]}
-                    onChange={option => setSelectedOption(option)}
                     options={SELECT_OPTIONS}
+                    onChange={handleChangeSelect}
+                    onFocus={handleShowBackDrop}
                 />
 
                 <input
@@ -53,17 +80,18 @@ function HeaderTopSection() {
                     name="search"
                     placeholder="Search Amazon"
                     className="searchBar__input"
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                 />
 
                 <button type="button" className="searchBar__button">
                     <Icon type="search" size={30} color="black" />
                 </button>
             </form>
-
             <div
                 className="language"
-                onPointerEnter={() => setShowBackDrop(true)}
-                onMouseLeave={() => setShowBackDrop(false)}>
+                onPointerEnter={handleShowBackDrop}
+                onMouseLeave={handleRemoveBackDrop}>
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
                     alt="USA Flag"
@@ -208,11 +236,10 @@ function HeaderTopSection() {
                     </a>
                 </form>
             </div>
-
             <div
                 className="signIn"
-                onPointerEnter={() => setShowBackDrop(true)}
-                onMouseLeave={() => setShowBackDrop(false)}>
+                onPointerEnter={handleShowBackDrop}
+                onMouseLeave={handleRemoveBackDrop}>
                 <span className="signIn__username">Hello, sign in</span>
                 <strong className="signIn__options">
                     Account & Lists
@@ -309,12 +336,10 @@ function HeaderTopSection() {
                     </ul>
                 </div>
             </div>
-
             <div className="headerTopSection__return">
                 Returns
                 <strong className="headerTopSection__order">& Orders</strong>
             </div>
-
             <div className="cart">
                 <div className="cart__count">
                     <Icon type="cart" size={45} color="white" />
@@ -322,12 +347,7 @@ function HeaderTopSection() {
                 </div>
                 <span className="cart__text">Cart</span>
             </div>
-            {showBackDrop && (
-                <BackDrop
-                    targetId="header"
-                    // onPointerEnter={() => setShowBackDrop(false)}
-                />
-            )}
+            {showBackDrop && <BackDrop targetId="header" />}
         </div>
     );
 }
