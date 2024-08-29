@@ -83,12 +83,12 @@ function SideMenu({ isShow }) {
             className={`navBar__sideMenu sideMenu ${
                 isShow ? "sideMenu--show" : ""
             }`}>
-            <p className="sideMenu__user">
+            <div className="sideMenu__user">
                 <div className="sideMenu__iconWrapper">
                     <Icon type="user" size={25} className="icon" />
                 </div>
                 Hello, sign in
-            </p>
+            </div>
 
             <div
                 className="sideMenu__content"
