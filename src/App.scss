@@ -1,7 +1,10 @@
-.link {
-	color: getVar("colors.teal-700");
+@import "@styles/_var.scss";
+@import "@styles/_function.scss";
 
-	&:hover {
-		text-decoration: underline;
-	}
+.link {
+    color: getVar("colors.slate-300");
+
+    &:hover {
+        text-decoration: underline;
+    }
 }

@@ -231,7 +231,7 @@ function HeaderTopSection() {
 
                     <a
                         href="#"
-                        className="changeLanguage__link link changeLanguage__link link--changeCountry">
+                        className="changeLanguage__link link changeLanguage__link--changeCountry">
                         Change Country / Region
                     </a>
                 </form>

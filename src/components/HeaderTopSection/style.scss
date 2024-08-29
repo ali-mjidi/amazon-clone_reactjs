@@ -207,9 +207,11 @@
             }
 
             &__link {
+                color: getVar("colors.teal-700");
+
                 &--changeCountry {
                     width: 100%;
-                    // margin-top: getVar("gap.gap-2");;
+                    margin-top: getVar("margin.m-2");
                     text-align: center;
                 }
 
