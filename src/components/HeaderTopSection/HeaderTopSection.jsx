@@ -6,6 +6,7 @@ import Icon from "@components/Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
 import BackDrop from "@components/BackDrop/BackDrop";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 const SELECT_OPTIONS = [
     { value: "all", label: "All" },
@@ -264,7 +265,7 @@ function HeaderTopSection() {
                     <div className="account__signInSection">
                         <button className="account__signInBtn">Sign In</button>
                         <p className="account__newCustomer">
-                            New Customer{" "}
+                            New Customer?&nbsp;
                             <a href="#" className="account__link link">
                                 Start Here
                             </a>
@@ -354,13 +355,13 @@ function HeaderTopSection() {
                 Returns
                 <strong className="headerTopSection__order">& Orders</strong>
             </div>
-            <div className="cart">
-                <div className="cart__count">
+            <Link to="/cart" className="toCart">
+                <div className="toCart__count">
                     <Icon type="cart" size={45} color="white" />
-                    <span className="cart__countNumber">0</span>
+                    <span className="toCart__countNumber">0</span>
                 </div>
-                <span className="cart__text">Cart</span>
-            </div>
+                <span className="toCart__text">Cart</span>
+            </Link>
             {showBackDrop && <BackDrop targetId="header" />}
         </div>
     );

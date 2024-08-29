@@ -2,6 +2,7 @@
 @import "@styles/_function.scss";
 
 .link {
+    cursor: pointer;
     color: getVar("colors.slate-300");
 
     &:hover {

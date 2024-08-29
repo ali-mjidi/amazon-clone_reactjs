@@ -2,6 +2,8 @@
 $colors: (
     "white": #fff,
     "black": #000,
+    blue-500: #3b82f6,
+    blue-800: #1e40af,
     gray-200: #e5e7eb,
     gray-300: #d1d5db,
     gray-400: #9ca3af,
@@ -32,6 +34,8 @@ $gap: (
     gap-1: 0.25rem,
     gap-2: 0.5rem,
     "gap-2.5": 0.625rem,
+    gap-3: 0.75rem,
+	gap-4: 1rem,
 );
 
 $padding: (
@@ -42,6 +46,7 @@ $padding: (
     p-3: 0.75rem,
     "p-3.5": 0.875rem,
     p-4: 1rem,
+    p-5: 1.25rem,
     p-8: 2rem,
     p-10: 2.5rem,
 );

@@ -11,7 +11,6 @@
 
     &__logo {
         width: 115px;
-        cursor: pointer;
     }
 
     &__location {
@@ -135,9 +134,7 @@
         @include flex(center, center);
         padding: 0 8px;
         gap: 4px;
-        cursor: pointer;
         position: relative;
-        color: getVar("colors.white");
 
         &__flag {
             width: 25px;
@@ -150,11 +147,10 @@
             gap: getVar("gap.gap-2");
             display: none;
             position: absolute;
-            // top: calc(100% + 4px);
             top: 100%;
             left: -100%;
             border-radius: getVar("radius.rounded");
-            cursor: pointer;
+            cursor: default;
             color: getVar("colors.black");
             background-color: getVar("colors.white");
             z-index: 100;
@@ -183,7 +179,7 @@
             .radio {
                 @include flex(flex-start, center);
                 gap: getVar("gap.gap-2");
-
+				
                 &__label {
                     font-size: 14px;
                 }
@@ -191,6 +187,12 @@
                 &__input {
                     height: 21px;
                 }
+
+				&,
+				&__label,
+				&__input {
+					cursor: pointer;
+				}
             }
 
             &__title {
@@ -246,7 +248,6 @@
         padding: 4px;
         position: relative;
         font-size: 12px;
-        cursor: pointer;
 
         &:hover > .account {
             display: grid;
@@ -269,6 +270,7 @@
             border-radius: getVar("radius.rounded");
             color: getVar("colors.black");
             background-color: getVar("colors.white");
+            cursor: default;
             z-index: 100;
 
             &__signInSection {
@@ -291,6 +293,10 @@
                 &:hover {
                     background-color: getVar("colors.yellow-500");
                 }
+            }
+
+            &__link {
+                color: getVar("colors.teal-700");
             }
 
             .userList,
@@ -334,7 +340,7 @@
         font-size: 15px;
     }
 
-    .cart {
+    .toCart {
         @include flex(space-between, flex-end);
         padding: getVar("padding.p-1");
 

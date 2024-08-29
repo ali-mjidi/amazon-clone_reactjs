@@ -1,6 +1,6 @@
 @import "@styles/_mixin.scss";
 
 .home {
-    padding: 5rem;
     @include flex(center, center);
+    background-color: getVar("colors.gray-200");
 }
