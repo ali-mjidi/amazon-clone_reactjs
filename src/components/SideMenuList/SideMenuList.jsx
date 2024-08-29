@@ -9,8 +9,9 @@ function SideMenuList({ data, prefix }) {
         <ul className={`${prefix}__list ${list}`}>
             <h3 className={`${prefix}__heading ${heading}`}>{data.heading}</h3>
 
-            {data.list.map(itemData => (
+            {data.list.map((itemData, index) => (
                 <li
+                    key={index}
                     className={`${prefix}__item ${item}`}
                     {...itemData?.handler}>
                     {itemData.content} {prefix === "sideMenu" && rightCaret}

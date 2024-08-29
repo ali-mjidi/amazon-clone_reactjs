@@ -95,8 +95,8 @@ function SideMenu({ isShow }) {
                 style={{
                     overflow: showSideContent && "hidden",
                 }}>
-                {data.map(data => (
-                    <SideMenuList data={data} prefix="sideMenu" />
+                {data.map((data, index) => (
+                    <SideMenuList key={index} data={data} prefix="sideMenu" />
                 ))}
 
                 <SideContent
