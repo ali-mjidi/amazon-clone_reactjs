@@ -1,4 +1,6 @@
+@import "@styles/_var.scss";
 @import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
 
 .home {
     @include flex(center, center);

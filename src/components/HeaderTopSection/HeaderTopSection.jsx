@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Select from "react-select";
 import axios from "axios";
 
@@ -6,7 +7,6 @@ import Icon from "@components/Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
 import BackDrop from "@components/BackDrop/BackDrop";
 import "./style.scss";
-import { Link } from "react-router-dom";
 
 const SELECT_OPTIONS = [
     { value: "all", label: "All" },
