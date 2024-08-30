@@ -4,18 +4,20 @@
 
 .cart {
     @include flex(center, flex-start);
+    min-height: 100vh;
     padding: getVar("padding.p-8");
+    box-sizing: content-box;
     background-color: getVar("colors.gray-200");
 }
 
 .emptyCart {
-	// TODO: bux-shadow and border-radius
     @include flex(flex-start, flex-start, column);
     width: 100%;
     padding: getVar("padding.p-8");
     gap: getVar("gap.gap-4");
-    box-shadow: 0 1px 2px 0 #c7d2fe;
-    color: #333;
+    box-shadow: 0 1px 2px 0 getVar("colors.slate-400");
+    border-radius: getVar("radius.rounded");
+    color: getVar("colors.gray-700");
     background-color: getVar("colors.white");
 
     &__heading {

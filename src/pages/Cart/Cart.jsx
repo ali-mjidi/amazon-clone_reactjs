@@ -18,7 +18,7 @@ function Cart() {
         </div>
     );
 
-    return <div className="cart">{!products.length && emptyCartElement}</div>;
+    return <main className="cart">{!products.length && emptyCartElement}</main>;
 }
 
 export default Cart;
