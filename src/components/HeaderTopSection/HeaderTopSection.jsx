@@ -58,11 +58,13 @@ function HeaderTopSection() {
 
     return (
         <div className="headerTopSection">
-            <img
-                src={amazonLogo}
-                alt="Amazon Logo"
-                className="headerTopSection__logo"
-            />
+            <Link to="/">
+                <img
+                    src={amazonLogo}
+                    alt="Amazon Logo"
+                    className="headerTopSection__logo"
+                />
+            </Link>
 
             <div className="headerTopSection__location">
                 <Icon

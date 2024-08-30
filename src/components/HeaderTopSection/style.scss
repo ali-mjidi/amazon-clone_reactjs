@@ -5,16 +5,18 @@
 .headerTopSection {
     @include flex(space-between, stretch);
     padding: 4px;
-    gap: 1rem;
+    gap: getVar("gap.gap-1");
     color: getVar("colors.white");
     background-color: getVar("colors.gray-900");
 
     &__logo {
         width: 115px;
+        height: 100%;
     }
 
     &__location {
         @include grid(repeat(2, 1fr), auto 1fr);
+        padding-right: getVar("padding.p-2");
         place-items: center;
         row-gap: getVar("gap.gap-1");
         font-size: 12px;
@@ -179,7 +181,7 @@
             .radio {
                 @include flex(flex-start, center);
                 gap: getVar("gap.gap-2");
-				
+
                 &__label {
                     font-size: 14px;
                 }
@@ -188,11 +190,11 @@
                     height: 21px;
                 }
 
-				&,
-				&__label,
-				&__input {
-					cursor: pointer;
-				}
+                &,
+                &__label,
+                &__input {
+                    cursor: pointer;
+                }
             }
 
             &__title {
