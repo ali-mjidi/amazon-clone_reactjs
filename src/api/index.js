@@ -1,19 +1,14 @@
 import axios from "axios";
 
-const BOOK_API = axios.create({
-    baseURL: `https://books.googleapis.com/books/v1/volumes`,
+const Products_API = axios.create({
+    baseURL: `http://localhost:3000/`,
     headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
     },
-    params: {
-        maxResults: 10,
-        langRestrict: "en",
-        key: import.meta.env.VITE_API_KEY,
-    },
 });
 
-BOOK_API.interceptors.request.use(
+Products_API.interceptors.request.use(
     function (config) {
         return config;
     },
@@ -22,13 +17,13 @@ BOOK_API.interceptors.request.use(
     }
 );
 
-BOOK_API.interceptors.response.use(
+Products_API.interceptors.response.use(
     function (response) {
-        return response.data;
+        return response;
     },
     function (error) {
         console.log(error.message);
     }
 );
 
-export default BOOK_API;
+export default Products_API;
