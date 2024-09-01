@@ -3,7 +3,6 @@
 
 .link {
     cursor: pointer;
-    color: getVar("colors.slate-300");
 
     &:hover {
         text-decoration: underline;

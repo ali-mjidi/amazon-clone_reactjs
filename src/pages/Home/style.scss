@@ -3,13 +3,32 @@
 @import "@styles/_function.scss";
 
 .home {
-    @include flex(flex-start, flex-start, column);
+    @include flex(flex-start, center, column);
     min-height: 600px;
-    padding: 0 getVar("padding.p-2");
+    padding: 0 getVar("padding.p-4");
     position: relative;
     background-color: getVar("colors.gray-200");
 
-	&__content {
-		z-index: 50;
-	}
+    &__content {
+        @include flex(flex-start, stretch, column);
+        width: 100%;
+        padding: 0 getVar("padding.p-4");
+		gap: getVar("gap.gap-4");
+        z-index: 50;
+    }
+
+    &__guide {
+		padding: getVar("padding.p-2") 0;
+		text-align: center;
+        background-color: getVar("colors.gray-50");
+		@include font("sm");
+    }
+
+    &__link {
+        color: getVar("colors.blue-500");
+
+        &:hover {
+            color: getVar("colors.red-600");
+        }
+    }
 }
