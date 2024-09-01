@@ -1,0 +1,58 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.slider {
+    width: 100%;
+    height: 600px;
+    padding: 0 getVar("padding.p-2");
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &__slide {
+        &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(
+                transparent 50%,
+                getVar("colors.gray-200")
+            );
+        }
+    }
+
+    &__image {
+        width: 100%;
+    }
+}
+.sliderButtons {
+    @include flex(space-between, center);
+    width: 100%;
+    height: 230px;
+    z-index: 50;
+
+    &__btn {
+        height: 100%;
+        cursor: pointer;
+        border-radius: getVar("radius.rounded-lg");
+        border: 3px solid transparent;
+        background-color: transparent;
+
+        &--next {
+            right: 0;
+        }
+
+        &--prev {
+            left: 0;
+        }
+
+        &:focus {
+            border-color: getVar("colors.blue-800");
+        }
+    }
+}

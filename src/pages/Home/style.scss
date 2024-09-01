@@ -3,6 +3,13 @@
 @import "@styles/_function.scss";
 
 .home {
-    @include flex(center, center);
+    @include flex(flex-start, flex-start, column);
+    min-height: 600px;
+    padding: 0 getVar("padding.p-2");
+    position: relative;
     background-color: getVar("colors.gray-200");
+
+	&__content {
+		z-index: 50;
+	}
 }
