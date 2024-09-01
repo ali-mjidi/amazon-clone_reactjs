@@ -5,7 +5,7 @@ import Icon from "@components/Icon/Icon";
 import "swiper/scss";
 import "./style.scss";
 
-function ProductsWrapper() {
+function ProductsWrapper({ products }) {
     return (
         <Swiper
             className="productsWrapper"
@@ -16,8 +16,17 @@ function ProductsWrapper() {
                 nextEl: ".productsWrapper__btn--next",
                 prevEl: ".productsWrapper__btn--prev",
             }}>
-            {[...Array(20)].map((_, index) => (
-                <SwiperSlide className="slide">Slide {index + 1}</SwiperSlide>
+            {products.map(({ productInfo: { id, imageLink, title } }) => (
+                <SwiperSlide className="slide" key={id}>
+                    <div className="product">
+                        <img
+                            src={imageLink}
+                            alt={title}
+                            className="productImage"
+                        />
+						<h3><span>{title}</span></h3>
+                    </div>
+                </SwiperSlide>
             ))}
 
             <Icon
