@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 import Icon from "@components/Icon/Icon";
 import "swiper/scss";
@@ -16,16 +17,18 @@ function ProductsWrapper({ products }) {
                 nextEl: ".productsWrapper__btn--next",
                 prevEl: ".productsWrapper__btn--prev",
             }}>
-            {products.map(({ productInfo: { id, imageLink, title } }) => (
+            {products.map(({ id, productInfo: { imageLink, title } }) => (
                 <SwiperSlide className="slide" key={id}>
-                    <div className="product">
+                    <Link to={`/product/${id}`} className="product">
                         <img
                             src={imageLink}
                             alt={title}
                             className="productImage"
                         />
-						<h3><span>{title}</span></h3>
-                    </div>
+                        <h3>
+                            <span>{title}</span>
+                        </h3>
+                    </Link>
                 </SwiperSlide>
             ))}
 
