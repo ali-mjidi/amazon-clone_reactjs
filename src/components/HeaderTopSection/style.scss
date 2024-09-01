@@ -173,9 +173,6 @@
                 @include flex(flex-start, flex-start, column);
                 width: 100%;
                 gap: getVar("gap.gap-2");
-                // padding-bottom: getVar("gap.gap-2");;
-                // margin-bottom: getVar("gap.gap-2");;
-                // border-bottom: 1px solid getVar("colors.gray-400");
             }
 
             .radio {

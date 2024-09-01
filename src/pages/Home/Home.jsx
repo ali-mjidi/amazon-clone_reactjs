@@ -1,7 +1,6 @@
 import Slider from "@components/Slider/Slider";
+import ProductsWrapper from "@components/ProductsWrapper/ProductsWrapper";
 import "./style.scss";
-import ProductsWrapper from "../../components/ProductsWrapper/ProductsWrapper";
-
 
 function Home() {
     return (
@@ -21,14 +20,14 @@ function Home() {
                 </p>
 
                 <div className="home__productsWrapper">
-                    <h3 className="home__heading">Books</h3>
+                    <h3 className="home__heading">Best Sellers in Books</h3>
 
-					<ProductsWrapper />
+                    <ProductsWrapper />
                 </div>
                 <div className="home__productsWrapper">
                     <h3 className="home__heading">Books</h3>
 
-					<ProductsWrapper />
+                    <ProductsWrapper />
                 </div>
             </section>
         </div>

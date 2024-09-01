@@ -1,29 +1,49 @@
+@import "@styles/_var.scss";
+@import "@styles/_function.scss";
+
 .productsWrapper {
+    width: 100%;
     height: 20rem;
     position: relative;
-    border: 2px solid black;
 
-    &__Btn {
-		width: 50px;
-		aspect-ratio: 1;
+    &:hover > &__btn {
+        opacity: 1;
+    }
+
+    &:hover .swiper-button-disabled {
+        opacity: 0.5;
+    }
+
+    &__btn {
+        width: 45px;
+        height: 100px;
         position: absolute;
         top: 50%;
-		cursor: pointer;
         transform: translateY(-50%);
-		z-index: 50;
-		background-color: red;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 50;
+        box-shadow: 0 1px 3px 0 getVar("colors.gray-400");
+        background-color: getVar("colors.white");
+        transition: 0.3s;
 
         &--next {
             right: 0;
+            border-radius: getVar("radius.rounded") 0 0 getVar("radius.rounded");
         }
 
         &--prev {
             left: 0;
+            border-radius: 0 getVar("radius.rounded") getVar("radius.rounded") 0;
         }
     }
 }
 
 .slide {
+	width: 200px;
     height: 100%;
     box-shadow: inset 0 0 0 2px blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
