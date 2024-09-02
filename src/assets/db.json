@@ -1,13 +1,13 @@
 {
     "products": [
         {
-            "id": 1,
+            "id": "1",
             "category": "book",
             "productInfo": {
                 "title": "A Man Called Ove: A Novel",
                 "author": "Fredrik Backman",
                 "description": "<h3>Now a major motion picture A Man Called Otto starring Tom Hanks!</h3><h3>#1 New York Times bestseller—more than 3 million copies sold!</h3><p>Meet Ove. He’s a curmudgeon—the kind of man who points at people he dislikes as if they were burglars caught outside his bedroom window. He has staunch principles, strict routines, and a short fuse. People call him “the bitter neighbor from hell.” But must Ove be bitter just because he doesn’t walk around with a smile plastered to his face all the time?</p><p>Behind the cranky exterior there is a story and a sadness. So when one November morning a chatty young couple with two chatty young daughters move in next door and accidentally flatten Ove’s mailbox, it is the lead-in to a comical and heartwarming tale of unkempt cats, unexpected friendship, and the ancient art of backing up a U-Haul. All of which will change one cranky old man and a local residents’ association to their very foundations.</p><br /><p>Fredrik Backman’s beloved first novel about the angry old man next door is a thoughtful exploration of the profound impact one life has on countless others. “If there was an award for ‘Most Charming Book of the Year,’ this first novel by a Swedish blogger-turned-overnight-sensation would win hands down” (Booklist, starred review).</p> ",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/81449HyvNyL._AC_UL232_SR232,232_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/411hVDS5mWL._SY466_.jpg",
                 "rating": 4.6,
                 "rateCounts": 192768,
                 "details": [
@@ -55,13 +55,13 @@
             }
         },
         {
-            "id": 2,
+            "id": "2",
             "category": "book",
             "productInfo": {
                 "title": "Animal Farm: 75th Anniversary Edition",
                 "author": "George Orwell",
                 "description": " <h3>75th Anniversary Edition—Includes a New Introduction by Téa Obreht</h3><h3>George Orwell's timeless and timely allegorical novel—a scathing satire on a downtrodden society’s blind march towards totalitarianism.</h3><p>“All animals are equal, but some animals are more equal than others.”</p><p>A farm is taken over by its overworked, mistreated animals. With flaming idealism and stirring slogans, they set out to create a paradise of progress, justice, and equality. Thus the stage is set for one of the most telling satiric fables ever penned—a razor-edged fairy tale for grown-ups that records the evolution from revolution against tyranny to a totalitarianism just as terrible.</p><p>When Animal Farm was first published, Stalinist Russia was seen as its target. Today it is devastatingly clear that wherever and whenever freedom is attacked, under whatever banner, the cutting clarity and savage comedy of George Orwell’s masterpiece have a meaning and message still ferociously fresh.</p>",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/71je3-DsQEL._AC_UL232_SR232,232_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/41tEO52oK7L._SY466.jpg",
                 "rating": 4.7,
                 "rateCounts": 72811,
                 "details": [
@@ -109,7 +109,7 @@
             }
         },
         {
-            "id": 3,
+            "id": "3",
             "category": "book",
             "productInfo": {
                 "title": "The Suicide Shop",
@@ -163,13 +163,13 @@
             }
         },
         {
-            "id": 4,
+            "id": "4",
             "category": "book",
             "productInfo": {
                 "title": "Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin Series)",
                 "author": "Martin Robert C.",
                 "description": "<p>Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn’t have to be that way.</p><p>Noted software expert Robert C. Martin presents a revolutionary paradigm with Clean Code: A Handbook of Agile Software Craftsmanship. Martin has teamed up with his colleagues from Object Mentor to distill their best agile practice of cleaning code “on the fly” into a book that will instill within you the values of a software craftsman and make you a better programmer–but only if you work at it.</p><p>What kind of work will you be doing? You’ll be reading code–lots of code. And you will be challenged to think about what’s right about that code, and what’s wrong with it. More importantly, you will be challenged to reassess your professional values and your commitment to your craft.</p><p>Clean Code is divided into three parts. The first describes the principles, patterns, and practices of writing clean code. The second part consists of several case studies of increasing complexity. Each case study is an exercise in cleaning up code–of transforming a code base that has some problems into one that is sound and efficient. The third part is the payoff: a single chapter containing a list of heuristics and “smells” gathered while creating the case studies. The result is a knowledge base that describes the way we think when we write, read, and clean code.</p><p><p>Readers will come away from this book understanding</p><ul><li>How to tell the difference between good and bad code</li><li>How to write good code and how to transform bad code into good code</li><li>How to create good names, good functions, good objects, and good classes</li><li>How to format code for maximum readability</li><li>How to implement complete error handling without obscuring code logic</li><li>How to unit test and practice test-driven development</li></ul><p>This book is a must for any developer, software engineer, project manager, team lead, or systems analyst with an interest in producing better code.</p></p>",
-                "imageLink": "https://m.media-amazon.com/images/I/413za4fzZLL.null_SY250_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/413za4fzZLL.null_SY466_.jpg",
                 "rating": 4.7,
                 "rateCounts": 6266,
                 "details": [
@@ -217,13 +217,13 @@
             }
         },
         {
-            "id": 5,
+            "id": "5",
             "category": "book",
             "productInfo": {
                 "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin Series)",
                 "author": "Martin Robert C.",
                 "description": "<h3>Practical Software Architecture Solutions from the Legendary Robert C. Martin (“Uncle Bob”)</h3><p>By applying universal rules of software architecture, you can dramatically improve developer productivity throughout the life of any software system. Now, building upon the success of his best-selling books Clean Code and The Clean Coder, legendary software craftsman Robert C. Martin (“Uncle Bob”) reveals those rules and helps you apply them.</p><p>Martin’s Clean Architecture doesn’t merely present options. Drawing on over a half-century of experience in software environments of every imaginable type, Martin tells you what choices to make and why they are critical to your success. As you’ve come to expect from Uncle Bob, this book is packed with direct, no-nonsense solutions for the real challenges you’ll face–the ones that will make or break your projects.</p><p><ul><li>Learn what software architects need to achieve–and core disciplines and practices for achieving it</li><li>Master essential software design principles for addressing function, component separation, and data management</li><li>See how programming paradigms impose discipline by restricting what developers can do</li><li>Understand what’s critically important and what’s merely a “detail”</li><li>Implement optimal, high-level structures for web, database, thick-client, console, and embedded applications</li><li>Define appropriate boundaries and layers, and organize components and services</li><li>See why designs and architectures go wrong, and how to prevent (or fix) these failures</li></ul><p>Clean Architecture is essential reading for every current or aspiring software architect, systems analyst, system designer, and software manager–and for every programmer who must execute someone else’s designs.</p></p>",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/61r4tYVsRVL._AC_UL232_SR232,232_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/41tjPqycZ1L._SY466_.jpg",
                 "rating": 4.6,
                 "rateCounts": 3455,
                 "details": [
@@ -271,13 +271,13 @@
             }
         },
         {
-            "id": 6,
+            "id": "6",
             "category": "book",
             "productInfo": {
                 "title": "The Clean Coder: A Code of Conduct for Professional Programmers (Robert C. Martin Series)",
                 "author": "Martin Robert C.",
                 "description": "<p>Programmers who endure and succeed amidst swirling uncertainty and nonstop pressure share a common attribute: They care deeply about the practice of creating software. They treat it as a craft. They are professionals.</p><p>In The Clean Coder: A Code of Conduct for Professional Programmers, legendary software expert Robert C. Martin introduces the disciplines, techniques, tools, and practices of true software craftsmanship. This book is packed with practical advice–about everything from estimating and coding to refactoring and testing. It covers much more than technique: It is about attitude. Martin shows how to approach software development with honor, self-respect, and pride; work well and work clean; communicate and estimate faithfully; face difficult decisions with clarity and honesty; and understand that deep knowledge comes with a responsibility to act.</p><p>Readers will learn</p><p><ul><li>What it means to behave as a true software craftsman</li><li>How to deal with conflict, tight schedules, and unreasonable managers</li><li>How to get into the flow of coding, and get past writer’s block</li><li>How to handle unrelenting pressure and avoid burnout</li><li>How to combine enduring attitudes with new development paradigms</li><li>How to manage your time, and avoid blind alleys, marshes, bogs, and swamps</li><li>How to foster environments where programmers and teams can thrive</li><li>When to say “No”–and how to say it</li><li>When to say “Yes”–and what yes really means</li></ul><p>Great software is something to marvel at: powerful, elegant, functional, a pleasure to work with as both a developer and as a user. Great software isn’t written by machines. It is written by professionals with an unshakable commitment to craftsmanship. The Clean Coder will help you become one of them–and earn the pride and fulfillment that they alone possess.</p></p>",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/61GHrDrumhL._AC_UL232_SR232,232_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/4192DPXrLJL._SY466_.jpg",
                 "rating": 4.6,
                 "rateCounts": 2173,
                 "details": [
@@ -325,13 +325,13 @@
             }
         },
         {
-            "id": 7,
+            "id": "7",
             "category": "book",
             "productInfo": {
                 "title": "1984",
                 "author": "George Orwell",
                 "description": "<p>“Orwell saw, to his credit, that the act of falsifying reality is only secondarily a way of changing perceptions. It is, above all, a way of asserting power.”—The New Yorker</p><p>In 1984, London is a grim city in the totalitarian state of Oceania where Big Brother is always watching you and the Thought Police can practically read your mind. Winston Smith is a man in grave danger for the simple reason that his memory still functions. Drawn into a forbidden love affair, Winston finds the courage to join a secret revolutionary organization called The Brotherhood, dedicated to the destruction of the Party. Together with his beloved Julia, he hazards his life in a deadly match against the powers that be.</p><p>Lionel Trilling said of Orwell’s masterpiece “1984 is a profound, terrifying, and wholly fascinating book. It is a fantasy of the political future, and like any such fantasy, serves its author as a magnifying device for an examination of the present.” Though the year 1984 now exists in the past, Orwell’s novel remains an urgent call for the individual willing to speak truth to power.</p>",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/51Nf1eg79xL._AC_UL232_SR232,232_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/61NAx5pd6XL._SY466_.jpg",
                 "rating": 4.6,
                 "rateCounts": 117588,
                 "details": [
@@ -379,13 +379,13 @@
             }
         },
         {
-            "id": 8,
+            "id": "8",
             "category": "book",
             "productInfo": {
                 "title": "Crime and Punishment (Vintage Classics)",
                 "author": " Fyodor Dostoevsky",
                 "description": "<h3>Hailed by Washington Post Book World as 'the best [translation] currently available' when it was first published, this second edition of Crime and Punishment has been updated in honor of the 200th anniversary of Dostoevsky’s birth. • ONE OF TIME MAGAZINE'S 100 BEST MYSTERY AND THRILLER BOOKS OF ALL TIME</h3><p>With the same suppleness, energy, and range of voices that won their translation of The Brothers Karamazov the PEN/Book-of-the-Month Club Prize, Richard Pevear and Larissa Volokhonsky offer a brilliant translation of Crime and Punishment, Dostoevsky's astounding pyschological thriller, newly revised for his bicentenniel. </p><p>In Crime and Punishment, when Raskolnikov, an impoverished student living in the St. Petersburg of the tsars, commits an act of murder and theft, he sets into motion a story that is almost unequalled in world literature for its excruciating suspense, its atmospheric vividness, and its depth of characterization and vision. Dostoevsky’s drama of sin, guilt, and redemption transforms the sordid story of an old woman’s murder into the nineteenth century’s profoundest and most compelling philosophical novel. </p>",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/51Vg24nKbPL._AC_UL232_SR232,232_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/51Vg24nKbPL._SY466_.jpg",
                 "rating": 4.7,
                 "rateCounts": 4072,
                 "details": [
@@ -432,13 +432,13 @@
             }
         },
         {
-            "id": 9,
+            "id": "9",
             "category": "book",
             "productInfo": {
                 "title": "David Copperfield",
                 "author": " Charles Dickens",
                 "description": "<p>David Copperfield is a novel in the bildungsroman genre by Charles Dickens, narrated by the eponymous David Copperfield, detailing his adventures in his journey from infancy to maturity. It was first published as a serial in 1849 and 1850 and as a book in 1850.</p><p>David Copperfield is also an autobiographical novel: 'a very complicated weaving of truth and invention', with events following Dickens's own life. Of the books he wrote, it was his favourite. Called 'the triumph of the art of Dickens', it marks a turning point in his work, separating the novels of youth and those of maturity.</p><p>At first glance, the work is modelled on 18th-century 'personal histories' that were very popular, like Henry Fielding's Joseph Andrews or Tom Jones, but David Copperfield is a more carefully structured work. It begins, like other novels by Dickens, with a bleak picture of childhood in Victorian England, followed by young Copperfield's slow social ascent, as he painfully provides for his aunt, while continuing his studies.</p><p>Dickens wrote without an outline, unlike his previous novel, Dombey and Son. Some aspects of the story were fixed in his mind from the start, but others were undecided until the serial publications were underway. The novel has a primary theme of growth and change, but Dickens also satirises many aspects of Victorian life. These include the plight of prostitutes, the status of women in marriage, class structure, the criminal justice system, the quality of schools, and the employment of children in factories.</p>",
-                "imageLink": "https://m.media-amazon.com/images/I/41MxYLgSRTL._SY445_SX342_.jpg",
+                "imageLink": "https://m.media-amazon.com/images/I/714UWLtJd4L._SY466_.jpg",
                 "rating": 4.7,
                 "rateCounts": 1790,
                 "details": [
@@ -486,20 +486,20 @@
             }
         },
         {
-            "id": 10,
+            "id": "10",
             "category": "book",
             "productInfo": {
-                "title": "Notre-Dame of Paris (The Hunchback of Notre Dame)",
-                "author": "Victor Hugo",
-                "description": "<h3>More commonly known as The Hunchback of Notre-Dame, Victor Hugo's Romantic novel of dark passions and unrequited love</h3><p>In the vaulted Gothic towers of Notre-Dame Cathedral lives Quasimodo, the hunchbacked bellringer. Mocked and shunned for his appearance, he is pitied only by Esmerelda, a beautiful gypsy dancer to whom he becomes completely devoted. Esmerelda, however, has also attracted the attention of the sinister archdeacon Claude Frollo, and when she rejects his lecherous approaches, Frollo hatches a plot to destroy her, that only Quasimodo can prevent. Victor Hugo's sensational, evocative novel brings life to the medieval Paris he loved, and mourns its passing in one of the greatest historical romances of the nineteenth century.</p><p>John Sturrock's clear, contemporary translation is accompanied by an introduction discussing it as a passionate novel of ideas, written in defence of Gothic architecture and of a burgeoning democracy, and demonstrating that an ugly exterior can conceal moral beauty. This revised edition also includes further reading and a chronology of Hugo's life.</p><p>For more than seventy years, Penguin has been the leading publisher of classic literature in the English-speaking world. With more than 1,700 titles, Penguin Classics represents a global bookshelf of the best works throughout history and across genres and disciplines. Readers trust the series to provide authoritative texts enhanced by introductions and notes by distinguished scholars and contemporary authors, as well as up-to-date translations by award-winning translators. </p>",
-                "imageLink": "https://images-na.ssl-images-amazon.com/images/I/71Kelst95YL._AC_UL232_SR232,232_.jpg",
-                "rating": 4.6,
-                "rateCounts": 396,
+                "title": "The Compound Effect (10th Anniversary Edition): Jumpstart Your Income, Your Life, Your Success",
+                "author": "Darren Hardy",
+                "description": "<h3>Do you want success?</h3><h3>More success than you have now?</h3><h3>And even more success than you ever imagined possible?</h3><h3>That is what this book is about. Achieving it.</h3><br /><h3>No gimmicks. No hyperbole. Finally, just the truth on what it takes to earn success</h3><br /><p>As the central curator of the success media industry for over 25 years, author Darren Hardy has heard it all, seen it all, and tried most of it. This book reveals the core principles that drive success. The Compound Effect contains the essence of what every superachiever needs to know, practice, and master to obtain extraordinary success. Inside you will find strategies on:</p><ul><li>How to win—every time! The No. 1 strategy to achieve any goal and triumph over any competitor, even if they're smarter, more talented or more experienced.</li><li>Eradicating your bad habits (some you might be unaware of!) that are derailing your progress.</li><li>Painlessly installing the few key disciplines required for major breakthroughs.</li><li>The real, lasting keys to motivation—how to get yourself to do things you don't feel like doing.</li><li>Capturing the elusive, awesome force of momentum. Catch this, and you'll be unstoppable.</li><li>The acceleration secrets of superachievers. Do they have an unfair advantage? Yes, they do, and now you can too!</li></ul><p>If you're serious about living an extraordinary life, use the power of The Compound Effect to create the success you desire. Begin your journey today!</p>",
+                "imageLink": "https://m.media-amazon.com/images/I/71vffeIFyGL._SY466_.jpg",
+                "rating": 4.7,
+                "rateCounts": 19041,
                 "details": [
                     {
                         "title": "print length",
                         "icon": "BsBook",
-                        "content": "496 pages"
+                        "content": "208 pages"
                     },
                     {
                         "title": "language",
@@ -509,35 +509,35 @@
                     {
                         "title": "publisher",
                         "icon": "PiBuildingOffice",
-                        "content": " Penguin Classics "
+                        "content": "Hachette Go"
                     },
                     {
                         "title": "publication date",
                         "icon": "MdOutlineCalendarMonth",
-                        "content": " October 26, 1978 "
+                        "content": "September 15, 2020"
                     },
                     {
                         "title": "Dimensions",
                         "icon": "RxDimensions",
-                        "content": " 5.1 x 0.92 x 7.8 inches "
+                        "content": " September 15, 2020 "
                     },
                     {
                         "title": "ISBN-10",
                         "icon": "FaBarcode",
-                        "content": "  9780140443530  "
+                        "content": "  0306924633  "
                     },
                     {
                         "title": "ISBN-13",
                         "icon": "FaBarcode",
-                        "content": " 978-0140443530 "
+                        "content": " 978-0306924637 "
                     }
                 ],
                 "buyOptions": {
-                    "paperback": 13.5,
-                    "hardcover": 52.93,
-                    "Kindle": 0.99
+                    "paperback": 23.99,
+                    "hardcover": 23.00,
+                    "Kindle": 12.99
                 },
-                "discountPercent": 0
+                "discountPercent": 47
             }
         }
     ],
