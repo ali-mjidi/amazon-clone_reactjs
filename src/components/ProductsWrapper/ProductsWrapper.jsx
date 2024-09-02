@@ -17,20 +17,24 @@ function ProductsWrapper({ products }) {
                 nextEl: ".productsWrapper__btn--next",
                 prevEl: ".productsWrapper__btn--prev",
             }}>
-            {products.map(({ id, productInfo: { imageLink, title } }) => (
-                <SwiperSlide className="slide" key={id}>
-                    <Link to={`/product/${id}`} className="product">
-                        <img
-                            src={imageLink}
-                            alt={title}
-                            className="productImage"
-                        />
-                        <h3>
-                            <span>{title}</span>
-                        </h3>
-                    </Link>
-                </SwiperSlide>
-            ))}
+            {products.map(
+                ({ id, category, productInfo: { imageLink, title } }) => (
+                    <SwiperSlide className="slide" key={id}>
+                        <Link
+                            to={`/product/${category}/${id}`}
+                            className="productCard">
+                            <img
+                                src={imageLink}
+                                alt={title}
+                                className="productImage"
+                            />
+                            <h3>
+                                <span>{title}</span>
+                            </h3>
+                        </Link>
+                    </SwiperSlide>
+                )
+            )}
 
             <Icon
                 type="prev"
