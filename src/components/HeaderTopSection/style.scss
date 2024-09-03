@@ -243,7 +243,7 @@
     }
 
     .signIn {
-        @include flex(space-around, flex-start, column);
+        @include flex(center, flex-start, column);
         padding: 4px;
         position: relative;
         font-size: 12px;
@@ -329,8 +329,9 @@
     }
 
     &__return {
-        @include flex(space-evenly, flex-start, column);
+        @include flex(center, flex-start, column);
         padding: getVar("padding.p-1");
+		gap: getVar("gap.gap-1");
         font-size: 12px;
     }
 
