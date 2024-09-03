@@ -26,11 +26,9 @@ function ProductsWrapper({ products }) {
                             <img
                                 src={imageLink}
                                 alt={title}
-                                className="productImage"
+                                className="productCard__image"
                             />
-                            <h3>
-                                <span>{title}</span>
-                            </h3>
+                            <h3 className="productCard__title">{title}</h3>
                         </Link>
                     </SwiperSlide>
                 )
