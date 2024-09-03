@@ -1,25 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useParams } from "react-router-dom";
+import parse from "html-react-parser";
 
-import Products_API from "@api";
+import { ProductContext } from "@context/ProductContext";
+import Icon from "@components/Icon/Icon";
 import "./style.scss";
-import Icon from "../../components/Icon/Icon";
 
 function Product() {
-    const [productInfo, setProductInfo] = useState({});
-    const [activeImage, setActiveImage] = useState(0);
-    const [showFullDescription, setShowFullDescription] = useState(false);
+    const {
+        state: { targetProduct: productInfo },
+        actions: { setTargetProduct, getSingleProduct },
+    } = useContext(ProductContext);
+    const [additionalInfo, setAdditionalInfo] = useState({
+        activeImage: 0,
+        showFullDescription: false,
+    });
     const { category, productID } = useParams();
+    // const descriptionElement = useRef();
 
-    async function getProduct() {
-        const {
-            data: { productInfo },
-        } = await Products_API(`products/${productID}`);
-
-        setProductInfo(productInfo);
+    function handleChangeImage(index) {
+        setAdditionalInfo(state => ({ ...state, activeImage: index }));
     }
 
-    function formatNumber(number) {
+    function handleShowMore() {
+        setAdditionalInfo(state => ({
+            ...state,
+            showFullDescription: !state.showFullDescription,
+        }));
+    }
+
+    function formatNumber(number = 0) {
         const integerPart = number.toString();
         const formattedInteger = [];
         let count = 0;
@@ -36,7 +46,11 @@ function Product() {
     }
 
     useEffect(() => {
-        getProduct();
+        getSingleProduct(productID);
+
+        return () => {
+            setTargetProduct({});
+        };
     }, []);
 
     return (
@@ -45,7 +59,9 @@ function Product() {
                 <div className="product__imagesWrapper">
                     <img
                         className="product__thumbnail"
-                        src={productInfo?.imageLink?.at(activeImage)}
+                        src={productInfo?.imageLink?.at(
+                            additionalInfo.activeImage
+                        )}
                         alt={productInfo?.title}
                     />
 
@@ -54,12 +70,12 @@ function Product() {
                             <img
                                 key={index}
                                 className={`product__otherImage ${
-                                    activeImage === index &&
+                                    additionalInfo.activeImage === index &&
                                     "product__otherImage--active"
                                 }`}
                                 src={link}
                                 alt={productInfo?.title}
-                                onPointerEnter={() => setActiveImage(index)}
+                                onPointerEnter={() => handleChangeImage(index)}
                             />
                         ))}
                     </div>
@@ -99,26 +115,28 @@ function Product() {
                     </div>
 
                     <a href="#" className="rating__count product__link link">
-                        {formatNumber(productInfo?.rateCounts || 0)} ratings
+                        {formatNumber(productInfo?.rateCounts)} ratings
                     </a>
                 </div>
                 <section
+                    // ref={descriptionElement}
                     className={`product__description product__description${
-                        showFullDescription && "--full"
-                    }`}
-                    dangerouslySetInnerHTML={{
-                        __html: productInfo?.description,
-                    }}></section>
-
+                        additionalInfo.showFullDescription && "--full"
+                    }`}>
+                    {parse(productInfo?.description || "")}
+                </section>
                 <button
                     className="product__readMoreBtn"
-                    onClick={() => setShowFullDescription(show => !show)}>
+                    onClick={handleShowMore}>
                     <Icon
-                        type={`angle${showFullDescription ? "Up" : "Down"}`}
+                        type={`angle${
+                            additionalInfo.showFullDescription ? "Up" : "Down"
+                        }`}
                         size={12}
                     />
                     <span className="product__link link">
-                        Read {showFullDescription ? "Less" : "More"}
+                        Read&nbsp;
+                        {additionalInfo.showFullDescription ? "Less" : "More"}
                     </span>
                 </button>
 

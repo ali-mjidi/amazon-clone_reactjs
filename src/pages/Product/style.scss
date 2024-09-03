@@ -12,7 +12,7 @@
     }
 
     &__imagesWrapper {
-        @include flex(center, center, column);
+        @include flex(flex-start, center, column);
         width: 100%;
         margin-bottom: getVar("margin.m-2");
         padding-bottom: getVar("padding.p-2");
@@ -87,7 +87,7 @@
 
     &__description {
         @include flex(flex-start, flex-start, column);
-        height: 260px;
+        max-height: 260px;
         overflow: hidden;
         gap: 1rem;
         text-align: justify;
@@ -95,7 +95,7 @@
         mask-size: 100% 100%;
 
         &--full {
-            height: auto;
+            max-height: none;
             mask-image: none;
         }
 

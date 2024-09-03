@@ -44,4 +44,8 @@
         font-weight: getVar("weight.font-bold");
         font-size: 21px;
     }
+
+	.category {
+		text-transform: capitalize;
+	}
 }

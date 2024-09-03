@@ -1,12 +1,21 @@
+import { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 
+import { ProductContext } from "@context/ProductContext";
 import Icon from "@components/Icon/Icon";
 import "swiper/scss";
 import "./style.scss";
 
-function ProductsWrapper({ products }) {
+function ProductsWrapper({ category }) {
+    let {
+        state: { products },
+    } = useContext(ProductContext);
+    products = products.filter(
+        ({ category: productCategory }) => productCategory === category
+    );
+
     return (
         <Swiper
             className="productsWrapper"
@@ -18,20 +27,21 @@ function ProductsWrapper({ products }) {
                 prevEl: ".productsWrapper__btn--prev",
             }}>
             {products.map(
-                ({ id, category, productInfo: { imageLink, title } }) => (
-                    <SwiperSlide className="slide" key={id}>
-                        <Link
-                            to={`/product/${category}/${id}`}
-                            className="productCard">
-                            <img
-                                src={imageLink}
-                                alt={title}
-                                className="productCard__image"
-                            />
-                            <h3 className="productCard__title">{title}</h3>
-                        </Link>
-                    </SwiperSlide>
-                )
+                ({ id, category, productInfo: { imageLink, title } }, index) =>
+                    index < 10 && (
+                        <SwiperSlide className="slide" key={id}>
+                            <Link
+                                to={`/product/${category}/${id}`}
+                                className="productCard">
+                                <img
+                                    src={imageLink}
+                                    alt={title}
+                                    className="productCard__image"
+                                />
+                                <h3 className="productCard__title">{title}</h3>
+                            </Link>
+                        </SwiperSlide>
+                    )
             )}
 
             <Icon

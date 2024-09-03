@@ -1,26 +1,14 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 
-import Products_API from "@api";
+import { ProductContext } from "@context/ProductContext";
 import Slider from "@components/Slider/Slider";
 import ProductsWrapper from "@components/ProductsWrapper/ProductsWrapper";
 import "./style.scss";
 
 function Home() {
-    const [bookProducts, setBookProducts] = useState([]);
-
-    async function getBooks() {
-        const { data } = await Products_API.get("products", {
-            params: {
-                category: "book",
-            },
-        });
-
-        setBookProducts(data);
-    }
-
-    useEffect(() => {
-        getBooks();
-    }, []);
+    const {
+        state: { categories },
+    } = useContext(ProductContext);
 
     return (
         <div className="home">
@@ -38,11 +26,16 @@ function Home() {
                     </a>
                 </p>
 
-                <div className="home__productsWrapper">
-                    <h3 className="home__heading">Best Sellers in Books</h3>
+                {categories.map(category => (
+                    <div className="home__productsWrapper">
+                        <h3 className="home__heading">
+                            Best Sellers in&nbsp;
+                            <span className="category">{category}</span>
+                        </h3>
 
-                    <ProductsWrapper products={bookProducts} />
-                </div>
+                        <ProductsWrapper category={category} />
+                    </div>
+                ))}
             </section>
         </div>
     );
