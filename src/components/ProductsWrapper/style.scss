@@ -8,10 +8,10 @@
 
     &:hover > &__btn {
         opacity: 1;
-    }
 
-    &:hover .swiper-button-disabled {
-        opacity: 0.5;
+        &--disabled {
+            opacity: 0.5;
+        }
     }
 
     &__btn {
@@ -54,7 +54,7 @@
             width: 100%;
             height: fit-content;
             display: -webkit-box;
-			line-clamp: 1;
+            line-clamp: 1;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;

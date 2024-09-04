@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { ProductContext } from "@context/ProductContext";
 import ProductTitle from "@components/ProductTitle/ProductTitle";
 import ProductDescription from "@components/ProductDescription/ProductDescription";
+import BookProductDetails from "@components/BookProductDetails/BookProductDetails";
 import "./style.scss";
 
 function Product() {
@@ -66,6 +67,8 @@ function Product() {
                 <ProductTitle />
 
                 <ProductDescription />
+
+				{category === "book" && <BookProductDetails />}
             </div>
             <div className="product__buy"></div>
         </div>

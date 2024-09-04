@@ -25,6 +25,7 @@ function ProductsWrapper({ category }) {
             navigation={{
                 nextEl: ".productsWrapper__btn--next",
                 prevEl: ".productsWrapper__btn--prev",
+                disabledClass: "productsWrapper__btn--disabled",
             }}>
             {products.map(
                 ({ id, category, productInfo: { imageLink, title } }, index) =>

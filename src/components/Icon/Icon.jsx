@@ -3,6 +3,7 @@ import {
     IoSearch,
     IoCartOutline,
     IoMenu,
+    IoEarthOutline,
 } from "react-icons/io5";
 import {
     FaDollarSign,
@@ -12,11 +13,19 @@ import {
     FaRegStarHalfStroke,
     FaAngleDown,
     FaAngleUp,
+    FaBarcode,
 } from "react-icons/fa6";
-import { MdLanguage, MdOutlineNavigateNext } from "react-icons/md";
+import {
+    MdLanguage,
+    MdOutlineCalendarMonth,
+    MdOutlineNavigateNext,
+} from "react-icons/md";
 import { IoMdArrowBack } from "react-icons/io";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { GoReport } from "react-icons/go";
+import { BsBook } from "react-icons/bs";
+import { PiBabyDuotone, PiBuildingOffice } from "react-icons/pi";
+import { RxDimensions } from "react-icons/rx";
 
 const iconComponents = {
     location: IoLocationOutline,
@@ -36,6 +45,13 @@ const iconComponents = {
     angleDown: FaAngleDown,
     angleUp: FaAngleUp,
     report: GoReport,
+    BsBook,
+    IoEarthOutline,
+    PiBuildingOffice,
+    MdOutlineCalendarMonth,
+    RxDimensions,
+    FaBarcode,
+    PiBabyDuotone,
 };
 
 function Icon({ type, ...props }) {
