@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { useParams } from "react-router-dom";
-import parse from "html-react-parser";
 
 import { ProductContext } from "@context/ProductContext";
-import Icon from "@components/Icon/Icon";
+import ProductTitle from "@components/ProductTitle/ProductTitle";
+import ProductDescription from "@components/ProductDescription/ProductDescription";
 import "./style.scss";
 
 function Product() {
@@ -13,36 +13,11 @@ function Product() {
     } = useContext(ProductContext);
     const [additionalInfo, setAdditionalInfo] = useState({
         activeImage: 0,
-        showFullDescription: false,
     });
     const { category, productID } = useParams();
-    // const descriptionElement = useRef();
 
     function handleChangeImage(index) {
         setAdditionalInfo(state => ({ ...state, activeImage: index }));
-    }
-
-    function handleShowMore() {
-        setAdditionalInfo(state => ({
-            ...state,
-            showFullDescription: !state.showFullDescription,
-        }));
-    }
-
-    function formatNumber(number = 0) {
-        const integerPart = number.toString();
-        const formattedInteger = [];
-        let count = 0;
-
-        for (let i = integerPart.length - 1; i >= 0; i--) {
-            formattedInteger.unshift(integerPart[i]);
-            count++;
-            if (count % 3 === 0 && i !== 0) {
-                formattedInteger.unshift(",");
-            }
-        }
-
-        return formattedInteger.join("");
     }
 
     useEffect(() => {
@@ -88,62 +63,9 @@ function Product() {
                 </p>
             </div>
             <div className="product__info">
-                <h1 className="product__title">{productInfo?.title}</h1>
-                <p className="product__author">
-                    By&nbsp;
-                    <a href="#" className="product__link link">
-                        {productInfo?.author}
-                    </a>
-                </p>
-                <div className="rating">
-                    <div className="rating__rate">
-                        <span className="rating__number">
-                            {productInfo?.rating}
-                        </span>
-                        <div className="rating__iconsWrapper">
-                            {[
-                                ...Array(Math.floor(productInfo?.rating) || 5),
-                            ].map((_, index) => (
-                                <Icon key={index} type="star" color="#de7921" />
-                            ))}
+                <ProductTitle />
 
-                            {productInfo?.rating -
-                            Math.floor(productInfo?.rating) ? (
-                                <Icon type="halfStar" color="#de7921" />
-                            ) : null}
-                        </div>
-                    </div>
-
-                    <a href="#" className="rating__count product__link link">
-                        {formatNumber(productInfo?.rateCounts)} ratings
-                    </a>
-                </div>
-                <section
-                    // ref={descriptionElement}
-                    className={`product__description product__description${
-                        additionalInfo.showFullDescription && "--full"
-                    }`}>
-                    {parse(productInfo?.description || "")}
-                </section>
-                <button
-                    className="product__readMoreBtn"
-                    onClick={handleShowMore}>
-                    <Icon
-                        type={`angle${
-                            additionalInfo.showFullDescription ? "Up" : "Down"
-                        }`}
-                        size={12}
-                    />
-                    <span className="product__link link">
-                        Read&nbsp;
-                        {additionalInfo.showFullDescription ? "Less" : "More"}
-                    </span>
-                </button>
-
-                <a className="product__report product__link link">
-                    <Icon type="report" size={20} className="reportIcon" />
-                    Report an issue with this product or seller
-                </a>
+                <ProductDescription />
             </div>
             <div className="product__buy"></div>
         </div>

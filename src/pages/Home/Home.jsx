@@ -26,8 +26,8 @@ function Home() {
                     </a>
                 </p>
 
-                {categories.map(category => (
-                    <div className="home__productsWrapper">
+                {categories.map((category, index) => (
+                    <div key={index} className="home__productsWrapper">
                         <h3 className="home__heading">
                             Best Sellers in&nbsp;
                             <span className="category">{category}</span>

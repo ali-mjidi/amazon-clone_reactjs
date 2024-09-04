@@ -85,41 +85,5 @@
         }
     }
 
-    &__description {
-        @include flex(flex-start, flex-start, column);
-        max-height: 260px;
-        overflow: hidden;
-        gap: 1rem;
-        text-align: justify;
-        mask-image: linear-gradient(black 80%, transparent 110%);
-        mask-size: 100% 100%;
-
-        &--full {
-            max-height: none;
-            mask-image: none;
-        }
-
-        h3 {
-            font-weight: getVar("weight.font-bold");
-        }
-    }
-
-    &__readMoreBtn {
-        @include flex(flex-start, center);
-        gap: getVar("gap.gap-1");
-        cursor: pointer;
-        background-color: transparent;
-    }
-
-    &__report {
-        @include flex(flex-start, center);
-        width: 100%;
-        gap: getVar("gap.gap-1");
-        border-bottom: 2px solid getVar("colors.gray-300");
-
-        .reportIcon {
-            transform: scale(-1, 1);
-            color: getVar("colors.gray-700");
-        }
-    }
+    
 }
