@@ -562,6 +562,6 @@
             }
         }
     ],
-    "categories": ["book"],
+    "categories": { "name": ["book"] },
     "cart": []
 }

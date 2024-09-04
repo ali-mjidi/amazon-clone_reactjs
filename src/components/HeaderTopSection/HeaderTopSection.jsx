@@ -1,37 +1,25 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-import axios from "axios";
 
+import { ProductContext } from "@context/ProductContext";
 import Icon from "@components/Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
 import BackDrop from "@components/BackDrop/BackDrop";
 import "./style.scss";
 
-const SELECT_OPTIONS = [
-    { value: "all", label: "All" },
-    { value: "book", label: "Book" },
-    { value: "some", label: "something else and more than that" },
-];
-
 function HeaderTopSection() {
-    const [selectedOption, setSelectedOption] = useState(null);
+    const {
+        state: { categories, cart, userLocation },
+    } = useContext(ProductContext);
+    const SELECT_OPTIONS = [
+        { value: "all", label: "All" },
+        ...categories.map(category => ({ value: category, label: category })),
+    ];
+    const [selectedOption, setSelectedOption] = useState(SELECT_OPTIONS[0]);
     const [showBackDrop, setShowBackDrop] = useState(false);
     const [isFormFocus, setIsFormFocus] = useState(false);
-    const [userLocation, setUserLocation] = useState("");
     const searchInput = useRef();
-
-    useEffect(() => {
-        getUserLocation();
-    }, []);
-
-    async function getUserLocation() {
-        const { data } = await axios.get(
-            "https://get.geojs.io//v1/ip/country/full"
-        );
-
-        setUserLocation(data);
-    }
 
     function handleShowBackDrop() {
         setShowBackDrop(true);
@@ -85,10 +73,9 @@ function HeaderTopSection() {
                 <Select
                     className="select"
                     classNamePrefix="select"
-                    defaultValue={SELECT_OPTIONS[0]}
+                    defaultValue={selectedOption}
                     options={SELECT_OPTIONS}
                     onChange={handleChangeSelect}
-                    onFocus={handleShowBackDrop}
                 />
 
                 <input
@@ -360,7 +347,7 @@ function HeaderTopSection() {
             <Link to="/cart" className="toCart">
                 <div className="toCart__count">
                     <Icon type="cart" size={45} color="white" />
-                    <span className="toCart__countNumber">0</span>
+                    <span className="toCart__countNumber">{cart.length}</span>
                 </div>
                 <span className="toCart__text">Cart</span>
             </Link>

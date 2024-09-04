@@ -4,6 +4,7 @@
 
 .home {
     @include flex(flex-start, center, column);
+    min-height: 600px;
     padding: 0 getVar("padding.p-4");
     padding-bottom: getVar("padding.p-4");
     position: relative;
@@ -45,7 +46,7 @@
         font-size: 21px;
     }
 
-	.category {
-		text-transform: capitalize;
-	}
+    .category {
+        text-transform: capitalize;
+    }
 }

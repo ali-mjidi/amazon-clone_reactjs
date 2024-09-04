@@ -75,6 +75,7 @@
 
         .select {
             height: 100%;
+            text-transform: capitalize;
 
             &:focus {
                 outline: 0;
@@ -106,6 +107,7 @@
             }
 
             &__option {
+                hyphens: auto;
                 color: getVar("colors.black");
 
                 &--is-selected {
@@ -331,7 +333,7 @@
     &__return {
         @include flex(center, flex-start, column);
         padding: getVar("padding.p-1");
-		gap: getVar("gap.gap-1");
+        gap: getVar("gap.gap-1");
         font-size: 12px;
     }
 
