@@ -49,6 +49,7 @@
         height: 100%;
         place-items: center;
         cursor: pointer;
+		user-select: none;
 
         &__title {
             width: 100%;

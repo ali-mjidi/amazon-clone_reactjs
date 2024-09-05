@@ -6,8 +6,6 @@
     @include flex(center, flex-start);
     min-height: 100vh;
     padding: getVar("padding.p-8");
-    box-sizing: content-box;
-    background-color: getVar("colors.gray-200");
 }
 
 .emptyCart {

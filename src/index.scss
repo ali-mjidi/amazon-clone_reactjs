@@ -1,1 +1,11 @@
+@import "@styles/_var.scss";
+@import "@styles/_function.scss";
 @import "@styles/reset.scss";
+
+#root {
+    background-color: getVar("colors.gray-200");
+}
+
+#root:has(.product) {
+    background-color: getVar("colors.white");
+}

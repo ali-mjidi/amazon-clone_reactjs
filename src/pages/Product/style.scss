@@ -4,13 +4,14 @@
 
 .product {
     @include grid(1fr, minmax(192px, 20%) minmax(629px, 1fr) 315px);
-	max-width: 1500px;
-	margin: 0 auto;
+    max-width: 1500px;
+    margin: 0 auto;
     padding: getVar("padding.p-3.5") getVar("padding.p-4");
     gap: 40px;
 
     &__visualInformation {
         @include grid(1fr auto, 100%);
+        // @include flex(flex-start, center, column);
     }
 
     &__imagesWrapper {
@@ -22,14 +23,17 @@
         border-bottom: 2px solid getVar("colors.gray-300");
     }
 
+    &__thumbnailWrapper {
+        position: sticky;
+        top: 0;
+    }
+
     &__thumbnail {
         width: 100%;
         min-height: 296px;
         max-height: 450px;
         object-fit: contain;
         object-position: left top;
-        position: sticky;
-        top: 0;
     }
 
     &__otherImagesWrapper {
@@ -48,6 +52,10 @@
         &--active {
             border-color: getVar("colors.blue-700");
         }
+    }
+
+    &__authorWrapper {
+        height: max-content;
     }
 
     &__info {
@@ -87,9 +95,7 @@
         }
     }
 
-	&__buy {
-		background-color: red;
-	}
-
-    
+    &__buy {
+        background-color: red;
+    }
 }
