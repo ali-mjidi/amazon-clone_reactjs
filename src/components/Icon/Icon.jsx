@@ -14,6 +14,7 @@ import {
     FaAngleDown,
     FaAngleUp,
     FaBarcode,
+    FaCircleUser,
 } from "react-icons/fa6";
 import {
     MdLanguage,
@@ -36,6 +37,7 @@ const iconComponents = {
     language: MdLanguage,
     dollar: FaDollarSign,
     user: FaUser,
+    circleUser: FaCircleUser,
     right: MdOutlineNavigateNext,
     back: IoMdArrowBack,
     next: GrNext,

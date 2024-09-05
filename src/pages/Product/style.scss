@@ -60,6 +60,7 @@
 
     &__info {
         @include flex(flex-start, flex-start, column);
+        padding-top: getVar("padding.p-4");
         gap: getVar("gap.gap-2");
         @include font("sm");
     }

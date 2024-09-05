@@ -1,0 +1,47 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.author {
+    @include flex(space-between, center);
+    width: 100%;
+    height: 50px;
+
+    &Wrapper {
+        @include flex(flex-start, center, column);
+        gap: getVar("gap.gap-6");
+
+        &__title {
+            width: 100%;
+            font-weight: getVar("weight.font-semibold");
+            margin-bottom: -#{getVar("margin.m-4")};
+        }
+    }
+
+    &__photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: getVar("radius.rounded-full");
+        color: getVar("colors.gray-300");
+
+        &Wrapper {
+            height: 100%;
+            aspect-ratio: 1;
+        }
+    }
+
+    &__name {
+        font-weight: getVar("weight.font-semibold");
+        cursor: pointer;
+    }
+
+    &__followBtn {
+        width: 100px;
+        height: 30px;
+        border-radius: getVar("radius.rounded-full");
+        border: 1px solid getVar("colors.gray-500");
+        background-color: transparent;
+        cursor: pointer;
+    }
+}

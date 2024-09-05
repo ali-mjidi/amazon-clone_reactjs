@@ -5,6 +5,7 @@ import { ProductContext } from "@context/ProductContext";
 import ProductTitle from "@components/ProductTitle/ProductTitle";
 import ProductDescription from "@components/ProductDescription/ProductDescription";
 import BookProductDetails from "@components/BookProductDetails/BookProductDetails";
+import BookAuthor from "@components/BookAuthor/BookAuthor";
 import "./style.scss";
 
 function Product() {
@@ -59,12 +60,8 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                <div className="product__authorWrapper">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Exercitationem saepe voluptatum quas cum debitis rerum, ad
-                    iusto fugiat illo maiores molestiae sequi cumque,
-                    repellendus sit expedita adipisci pariatur hic ducimus.
-                </div>
+
+                {category === "book" && <BookAuthor />}
             </div>
             <div className="product__info">
                 <ProductTitle />

@@ -3,12 +3,13 @@ $colors: (
     "white": #fff,
     "black": #000,
     blue-500: #3b82f6,
-	blue-700: #1d4ed8,
+    blue-700: #1d4ed8,
     blue-800: #1e40af,
-	gray-50: #f9fafb,
+    gray-50: #f9fafb,
     gray-200: #e5e7eb,
     gray-300: #d1d5db,
     gray-400: #9ca3af,
+    gray-500: #6b7280,
     gray-700: #374151,
     gray-900: #111827,
     slate-200: #e2e8f0,
@@ -39,6 +40,7 @@ $gap: (
     "gap-2.5": 0.625rem,
     gap-3: 0.75rem,
     gap-4: 1rem,
+    gap-6: 1.5rem,
 );
 
 $padding: (
@@ -57,10 +59,11 @@ $padding: (
 $margin: (
     m-1: 0.25rem,
     m-2: 0.5rem,
-	m-4: 1rem,
+    m-4: 1rem,
 );
 
 $weight: (
+    font-medium: 500,
     font-semibold: 600,
     font-bold: 700,
     font-extrabold: 800,
