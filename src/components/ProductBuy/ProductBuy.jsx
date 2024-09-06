@@ -7,17 +7,22 @@ import Icon from "@components/Icon/Icon";
 import BookProductBuyOptions from "@components/BookProductBuyOptions/BookProductBuyOptions";
 import "./style.scss";
 
+const deliveryCost = (Math.random() * 10 + 5).toFixed(2);
+
 function ProductBuy() {
     const {
         state: {
             targetProduct: { buyOptions, discountPercent, selectedBuyOption },
+            userLocation,
         },
     } = useContext(ProductContext);
-    const [finalPrice, setFinalPrice] = useState();
+    const [finalPrice, setFinalPrice] = useState(0);
     const [showReturnInfo, setShowReturnInfo] = useState(false);
     const [showHowReturn, setShowHowReturn] = useState(false);
+    const [showDeliveryDetail, setShowDeliveryDetail] = useState(false);
     const { category } = useParams();
-    const menuRef = useClickOutside(hidReturnInfoHandler);
+    const returnInfoRef = useClickOutside(hidReturnInfoHandler);
+    const deliverDetailRef = useClickOutside(hideDeliveryDetailHandler);
 
     function discount(price = buyOptions[selectedBuyOption] || 0) {
         const result = price - price * (discountPercent / 100);
@@ -32,9 +37,27 @@ function ProductBuy() {
         return decimalPart;
     }
 
+    function daysAfterToday(dayNumber) {
+        let today = new Date();
+        let newDate = new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate() + dayNumber
+        );
+        return newDate.toLocaleDateString("en-US", {
+            weekday: "long",
+            day: "2-digit",
+            month: "long",
+        });
+    }
+
     function hidReturnInfoHandler() {
         setShowReturnInfo(false);
         setShowHowReturn(false);
+    }
+
+    function hideDeliveryDetailHandler() {
+        setShowDeliveryDetail(false);
     }
 
     function toggleReturnHandler() {
@@ -80,7 +103,7 @@ function ProductBuy() {
                 <section
                     className="buyInfo__returnInfo"
                     onClick={() => setShowReturnInfo(true)}
-                    ref={menuRef}>
+                    ref={returnInfoRef}>
                     <p className="product__link link">
                         FREE International Returns
                     </p>
@@ -133,6 +156,56 @@ function ProductBuy() {
                         </div>
                     </div>
                 </section>
+
+                <div className="deliveryInfo">
+                    <div className="deliverInfo__cost">
+                        No Import Charges & ${deliveryCost} Shipping to &nbsp;
+                        {userLocation || "Unknown"}&nbsp;
+                        <span
+                            className="product__link link deliveryInfo__detail"
+                            onClick={() => setShowDeliveryDetail(true)}>
+                            <Icon
+                                type={`angle${
+                                    showDeliveryDetail ? "Up" : "Down"
+                                }`}
+                            />
+                            Details
+                        </span>
+                        <div
+                            ref={deliverDetailRef}
+                            className={`deliverShippingInfo ${
+                                showDeliveryDetail &&
+                                "deliverShippingInfo--show"
+                            }`}>
+                            <h3 className="deliverShippingInfo__heading">
+                                Shipping &amp; Fee Details
+                            </h3>
+                            <ul className="deliverShippingInfo__detailList">
+                                <li className="deliverShippingInfo__detailItem">
+                                    Price
+                                    <span className="cost">{finalPrice}</span>
+                                </li>
+                                <li className="deliverShippingInfo__detailItem">
+                                    AmazonGlobal Shipping
+                                    <span className="cost">{deliveryCost}</span>
+                                </li>
+                                <li className="deliverShippingInfo__detailItem">
+                                    Estimated Import Charges
+                                    <span className="cost">
+                                        {(0).toFixed(2)}
+                                    </span>
+                                </li>
+                            </ul>
+
+                            <p className="deliverShippingInfo__totalCost">
+                                Total
+                                <span className="cost">
+                                    {+deliveryCost + +finalPrice}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

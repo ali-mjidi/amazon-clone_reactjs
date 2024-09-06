@@ -63,7 +63,6 @@ function ProductProvider({ children }) {
         dispatch({ type: "SET_PRODUCTS", payload: products.data });
         dispatch({ type: "SET_CATEGORIES", payload: categories.data.name });
         dispatch({ type: "SET_CART", payload: cart.data });
-        dispatch({ type: "SET_LOCATION", payload: location.data });
     }
 
     async function getSingleProduct(id) {

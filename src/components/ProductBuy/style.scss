@@ -13,9 +13,11 @@
 .buyInfo {
     @include flex(flex-start, stretch, column);
     padding: 0 getVar("padding.p-2");
+    color: getVar("colors.gray-600");
 
     &__heading {
         font-weight: getVar("weight.font-bold");
+        color: getVar("colors.black");
     }
 
     &__priceWrapper {
@@ -34,6 +36,8 @@
     &__price {
         @include flex(center, flex-start);
         font-weight: getVar("weight.font-bold");
+        color: getVar("colors.black");
+
         &::before,
         &::after {
             @include flex(center, center);
@@ -59,7 +63,7 @@
 
         &Wrapper {
             width: 100%;
-            color: getVar("colors.gray-600");
+            // color: getVar("colors.gray-600");
             @include font("sm");
         }
     }
@@ -69,81 +73,126 @@
         position: relative;
         gap: getVar("gap.gap-1");
         cursor: pointer;
+    }
 
-        .returnInfo {
-            @include flex(flex-start, flex-start, column);
-            width: 100%;
-            padding: getVar("padding.p-4");
-            gap: getVar("gap.gap-1");
+    .returnInfo {
+        @include flex(flex-start, flex-start, column);
+        width: 100%;
+        padding: getVar("padding.p-4");
+        gap: getVar("gap.gap-1");
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        box-shadow: 0 2px 5px rgba(getVar("colors.gray-900"), 0.15);
+        border-radius: getVar("radius.rounded-lg");
+        border: 1px solid getVar("colors.gray-300");
+        background-color: getVar("colors.white");
+        z-index: 49;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: 0.3s;
+
+        &--show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            aspect-ratio: 1;
             position: absolute;
-            top: calc(100% + 5px);
-            left: 0;
-            box-shadow: 0 2px 5px rgba(getVar("colors.gray-900"), 0.15);
-            border-radius: getVar("radius.rounded-lg");
-            border: 1px solid getVar("colors.gray-300");
-            background-color: getVar("colors.white");
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: 0.3s;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
+        }
 
-            &--show {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0px);
+        &::before {
+            width: 20px;
+            background-color: getVar("colors.gray-300");
+        }
+
+        &::after {
+            width: 18px;
+            background-color: white;
+        }
+
+        &__heading {
+            font-weight: getVar("weight.font-bold");
+        }
+
+        &__how {
+            &Btn {
+                @include flex(flex-start, center);
+                gap: getVar("gap.gap-1");
             }
 
-            &::before,
-            &::after {
-                content: "";
-                aspect-ratio: 1;
-                position: absolute;
-                bottom: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
-            }
+            &Wrapper {
+                display: grid;
+                grid-template-rows: 0fr;
+                transition: 0.3s;
 
-            &::before {
-                width: 20px;
-                background-color: getVar("colors.gray-300");
-            }
-
-            &::after {
-                width: 18px;
-                background-color: white;
-            }
-
-            &__heading {
-                font-weight: getVar("weight.font-bold");
-            }
-
-            &__how {
-                &Btn {
-                    @include flex(flex-start, center);
-                    gap: getVar("gap.gap-1");
-                }
-
-                &Wrapper {
-                    display: grid;
-                    grid-template-rows: 0fr;
-                    transition: 0.3s;
-
-                    &--show {
-                        grid-template-rows: 1fr;
-                    }
-                }
-
-                &List {
-                    overflow: hidden;
-                }
-
-                &Item {
-                    margin: 0 1rem;
-                    list-style: number outside;
-                    font-weight: getVar("weight.font-medium");
+                &--show {
+                    grid-template-rows: 1fr;
                 }
             }
+
+            &List {
+                overflow: hidden;
+            }
+
+            &Item {
+                margin: 0 1rem;
+                list-style: number outside;
+                font-weight: getVar("weight.font-medium");
+            }
+        }
+    }
+
+    .deliveryInfo {
+        position: relative;
+    }
+
+    .deliverShippingInfo {
+        @extend .returnInfo;
+        @include flex(flex-start, stretch, column);
+        top: 120%;
+
+        &--show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+        }
+
+        &__heading {
+            margin-bottom: getVar("margin.m-2");
+            padding-bottom: getVar("padding.p-2");
+            font-weight: getVar("weight.font-bold");
+            border-bottom: 2px solid getVar("colors.gray-300");
+            color: getVar("colors.black");
+            @include font("lg");
+        }
+
+        &__detailItem,
+        &__totalCost {
+            @include flex(space-between, center);
+
+            .cost {
+                font-weight: getVar("weight.font-semibold");
+
+                &::before {
+                    content: "$";
+                }
+            }
+        }
+
+        &__totalCost {
+            margin-top: getVar("margin.m-2");
+            padding-top: getVar("padding.p-2");
+            border-top: 2px solid getVar("colors.gray-300");
         }
     }
 }
