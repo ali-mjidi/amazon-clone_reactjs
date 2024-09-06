@@ -11,11 +11,12 @@ const ProductContext = createContext({
         userLocation: "",
     },
     actions: {
-        setProducts: () => {},
-        setCategories: () => {},
+        // setProducts: () => {},
+        // setCategories: () => {},
         setCart: () => {},
         setTargetProduct: () => {},
         getSingleProduct: () => {},
+        setBuyOption: () => {},
     },
 });
 
@@ -29,6 +30,14 @@ function productReducer(state, action) {
             return { ...state, cart: action.payload };
         case "SET_TARGET_PRODUCT":
             return { ...state, targetProduct: action.payload };
+        case "SET_BUY_OPTION":
+            return {
+                ...state,
+                targetProduct: {
+                    ...state.targetProduct,
+                    selectedBuyOption: action.payload,
+                },
+            };
         case "SET_LOCATION":
             return { ...state, userLocation: action.payload };
         default:
@@ -62,7 +71,17 @@ function ProductProvider({ children }) {
             data: { productInfo },
         } = await Products_API(`products/${id}`);
 
-        dispatch({ type: "SET_TARGET_PRODUCT", payload: productInfo });
+        dispatch({
+            type: "SET_TARGET_PRODUCT",
+            payload: {
+                ...productInfo,
+                selectedBuyOption: Object.keys(productInfo.buyOptions).at(0),
+            },
+        });
+    }
+
+    function setBuyOption(option) {
+        dispatch({ type: "SET_BUY_OPTION", payload: option });
     }
 
     async function getUserLocation() {
@@ -79,14 +98,15 @@ function ProductProvider({ children }) {
     }, []);
 
     const actions = {
-        setProducts: products =>
-            dispatch({ type: "SET_PRODUCTS", payload: products }),
-        setCategories: categories =>
-            dispatch({ type: "SET_CATEGORIES", payload: categories }),
+        // setProducts: products =>
+        //     dispatch({ type: "SET_PRODUCTS", payload: products }),
+        // setCategories: categories =>
+        //     dispatch({ type: "SET_CATEGORIES", payload: categories }),
         setCart: cart => dispatch({ type: "SET_CART", payload: cart }),
         setTargetProduct: targetProduct =>
             dispatch({ type: "SET_TARGET_PRODUCT", payload: targetProduct }),
         getSingleProduct,
+        setBuyOption,
     };
 
     return (

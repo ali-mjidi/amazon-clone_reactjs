@@ -6,6 +6,7 @@ import ProductTitle from "@components/ProductTitle/ProductTitle";
 import ProductDescription from "@components/ProductDescription/ProductDescription";
 import BookProductDetails from "@components/BookProductDetails/BookProductDetails";
 import BookAuthor from "@components/BookAuthor/BookAuthor";
+import ProductBuy from "@components/ProductBuy/ProductBuy";
 import "./style.scss";
 
 function Product() {
@@ -13,13 +14,11 @@ function Product() {
         state: { targetProduct: productInfo },
         actions: { setTargetProduct, getSingleProduct },
     } = useContext(ProductContext);
-    const [additionalInfo, setAdditionalInfo] = useState({
-        activeImage: 0,
-    });
+    const [activeImage, setActiveImage] = useState(0);
     const { category, productID } = useParams();
 
     function handleChangeImage(index) {
-        setAdditionalInfo(state => ({ ...state, activeImage: index }));
+        setActiveImage(index);
     }
 
     useEffect(() => {
@@ -37,9 +36,7 @@ function Product() {
                     <div className="product__thumbnailWrapper">
                         <img
                             className="product__thumbnail"
-                            src={productInfo?.imageLink?.at(
-                                additionalInfo.activeImage
-                            )}
+                            src={productInfo?.imageLink?.at(activeImage)}
                             alt={productInfo?.title}
                         />
                         <div className="product__otherImagesWrapper">
@@ -47,7 +44,7 @@ function Product() {
                                 <img
                                     key={index}
                                     className={`product__otherImage ${
-                                        additionalInfo.activeImage === index &&
+                                        activeImage === index &&
                                         "product__otherImage--active"
                                     }`}
                                     src={link}
@@ -70,7 +67,7 @@ function Product() {
 
                 {category === "book" && <BookProductDetails />}
             </div>
-            <div className="product__buy"></div>
+            <ProductBuy />
         </div>
     );
 }

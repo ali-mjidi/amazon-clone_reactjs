@@ -1,0 +1,47 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.buySection {
+    padding: getVar("padding.p-2");
+    border-radius: getVar("radius.rounded-lg");
+    border: 5px solid getVar("colors.gray-300");
+}
+
+.productBuyOptions {
+    @include grid(1fr, repeat(2, 1fr));
+    row-gap: 10px;
+    column-gap: 8px;
+
+    .buyOption {
+        @include flex(space-around, flex-start, column);
+        min-height: 50px;
+        padding: 5px 10px;
+        text-transform: capitalize;
+        border-radius: getVar("radius.rounded-lg");
+        border: 1px solid getVar("colors.gray-700");
+        cursor: pointer;
+        @include font("sm");
+
+        &:hover {
+            background-color: getVar("colors.blue-50");
+        }
+
+        &--active {
+            outline: 3px solid getVar("colors.blue-700");
+            background-color: getVar("colors.blue-100");
+
+            .buyOption__option {
+                font-weight: 700;
+            }
+        }
+
+        &__option {
+            font-weight: getVar("weight.font-semibold");
+        }
+
+        &__price {
+            font-weight: getVar("weight.font-bold");
+        }
+    }
+}
