@@ -15,7 +15,7 @@ function BookAuthor() {
         <section className="authorWrapper">
             <p className="authorWrapper__title">Follow the authors</p>
             {author?.map(({ name, photo }) => (
-                <div className="author">
+                <div className="author" key={name}>
                     <div className="author__photoWrapper">
                         {photo ?? (
                             <Icon

@@ -12,7 +12,10 @@
 }
 
 @mixin font($size) {
-    @if $size == "sm" {
+    @if $size == "xs" {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    } @else if $size == "sm" {
         font-size: 0.875rem;
         line-height: 1.25rem;
     } @else if $size == "xs" {

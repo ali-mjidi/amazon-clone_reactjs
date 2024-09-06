@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { ProductContext } from "@context/ProductContext";
+import BookProductBuyOptions from "@components/BookProductBuyOptions/BookProductBuyOptions";
 import "./style.scss";
 
 function ProductBuy() {
@@ -9,31 +10,57 @@ function ProductBuy() {
         state: {
             targetProduct: { buyOptions, discountPercent, selectedBuyOption },
         },
-        actions: { setBuyOption },
     } = useContext(ProductContext);
+    const [finalPrice, setFinalPrice] = useState();
     const { category } = useParams();
 
-    function discount(price = buyOptions[selectedBuyOption]) {
+    function discount(price = buyOptions[selectedBuyOption] || 0) {
         const result = price - price * (discountPercent / 100);
         return result.toFixed(2);
     }
 
+    function getDecimal(floatNumber) {
+        const floatString = floatNumber.toFixed(2);
+        const decimalIndex = floatString.indexOf(".");
+        const decimalPart = floatString.substring(decimalIndex + 1);
+
+        return decimalPart;
+    }
+
+    useEffect(() => {
+        if (buyOptions) {
+            setFinalPrice(discount());
+        }
+    }, [selectedBuyOption]);
+
     return (
         <section className="buySection">
-            <div className="productBuyOptions">
-                {Object.entries(buyOptions || {}).map(([option, price]) => (
-                    <div
-                        key={option}
-                        onClick={() => setBuyOption(option)}
-                        className={`buyOption ${
-                            selectedBuyOption === option && "buyOption--active"
-                        }`}>
-                        <span className="buyOption__option">{option}</span>
-                        <span className="buyOption__price">
-                            {discount(price)}
+            {category === "book" && (
+                <BookProductBuyOptions discount={discount} />
+            )}
+
+            <div className="buyInfo">
+                <h3 className="buyInfo__heading">Buy new:</h3>
+                <div className="buyInfo__priceWrapper">
+                    {discountPercent > 0 && (
+                        <span className="buyInfo__discountPercent">
+                            -{discountPercent}%
                         </span>
-                    </div>
-                ))}
+                    )}
+                    <span
+                        className="buyInfo__price"
+                        data-decimal={getDecimal(+finalPrice)}>
+                        {parseInt(finalPrice)}
+                    </span>
+                    {discountPercent > 0 && (
+                        <span className="buyInfo__originalPriceWrapper">
+                            List Price:&nbsp;
+                            <span className="buyInfo__originalPrice">
+                                ${buyOptions && buyOptions[selectedBuyOption]}
+                            </span>
+                        </span>
+                    )}
+                </div>
             </div>
         </section>
     );

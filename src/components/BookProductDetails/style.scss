@@ -13,7 +13,7 @@
         width: 110px;
         padding: 0.25rem;
         text-align: center;
-        font-size: 12px;
+        @include font("xs");
     }
 
     &__title {

@@ -8,40 +8,56 @@
     border: 5px solid getVar("colors.gray-300");
 }
 
-.productBuyOptions {
-    @include grid(1fr, repeat(2, 1fr));
-    row-gap: 10px;
-    column-gap: 8px;
+.buyInfo {
+    @include flex(flex-start, flex-start, column);
 
-    .buyOption {
-        @include flex(space-around, flex-start, column);
-        min-height: 50px;
-        padding: 5px 10px;
-        text-transform: capitalize;
-        border-radius: getVar("radius.rounded-lg");
-        border: 1px solid getVar("colors.gray-700");
-        cursor: pointer;
-        @include font("sm");
+    &__heading {
+        font-weight: getVar("weight.font-bold");
+    }
 
-        &:hover {
-            background-color: getVar("colors.blue-50");
+    &__priceWrapper {
+        @include flex(flex-start, center);
+        padding: getVar("padding.p-2") 0;
+        flex-wrap: wrap;
+        row-gap: getVar("gap.gap-2");
+        column-gap: getVar("gap.gap-4");
+        font-size: 28px;
+    }
+
+    &__discountPercent {
+        color: getVar("colors.red-600");
+    }
+
+    &__price {
+        @include flex(center, flex-start);
+        font-weight: getVar("weight.font-bold");
+        &::before,
+        &::after {
+            @include flex(center, center);
+            width: max-content;
+            height: 10px;
+            font-weight: getVar("weight.font-medium");
+            line-height: 0;
+            @include font("sm");
         }
 
-        &--active {
-            outline: 3px solid getVar("colors.blue-700");
-            background-color: getVar("colors.blue-100");
-
-            .buyOption__option {
-                font-weight: 700;
-            }
+        &::before {
+            content: "$";
         }
 
-        &__option {
-            font-weight: getVar("weight.font-semibold");
+        &::after {
+            content: attr(data-decimal);
         }
+    }
 
-        &__price {
-            font-weight: getVar("weight.font-bold");
+    &__originalPrice {
+        text-decoration: line-through;
+        font-weight: getVar("weight.font-semibold");
+
+        &Wrapper {
+            width: 100%;
+            color: getVar("colors.gray-600");
+            @include font("sm");
         }
     }
 }

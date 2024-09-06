@@ -29,47 +29,51 @@ function Product() {
         };
     }, []);
 
-    return (
-        <div className="product">
-            <div className="product__visualInformation">
-                <div className="product__imagesWrapper">
-                    <div className="product__thumbnailWrapper">
-                        <img
-                            className="product__thumbnail"
-                            src={productInfo?.imageLink?.at(activeImage)}
-                            alt={productInfo?.title}
-                        />
-                        <div className="product__otherImagesWrapper">
-                            {productInfo?.imageLink?.map((link, index) => (
-                                <img
-                                    key={index}
-                                    className={`product__otherImage ${
-                                        activeImage === index &&
-                                        "product__otherImage--active"
-                                    }`}
-                                    src={link}
-                                    alt={productInfo?.title}
-                                    onPointerEnter={() =>
-                                        handleChangeImage(index)
-                                    }
-                                />
-                            ))}
+    if (productInfo) {
+        return (
+            <div className="product">
+                <div className="product__visualInformation">
+                    <div className="product__imagesWrapper">
+                        <div className="product__thumbnailWrapper">
+                            <img
+                                className="product__thumbnail"
+                                src={productInfo?.imageLink?.at(activeImage)}
+                                alt={productInfo?.title}
+                            />
+                            <div className="product__otherImagesWrapper">
+                                {productInfo?.imageLink?.map((link, index) => (
+                                    <img
+                                        key={index}
+                                        className={`product__otherImage ${
+                                            activeImage === index &&
+                                            "product__otherImage--active"
+                                        }`}
+                                        src={link}
+                                        alt={productInfo?.title}
+                                        onPointerEnter={() =>
+                                            handleChangeImage(index)
+                                        }
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
+
+                    {category === "book" && <BookAuthor />}
                 </div>
+                <div className="product__info">
+                    <ProductTitle />
 
-                {category === "book" && <BookAuthor />}
+                    <ProductDescription />
+
+                    {category === "book" && <BookProductDetails />}
+                </div>
+                <ProductBuy />
             </div>
-            <div className="product__info">
-                <ProductTitle />
-
-                <ProductDescription />
-
-                {category === "book" && <BookProductDetails />}
-            </div>
-            <ProductBuy />
-        </div>
-    );
+        );
+    } else {
+        return <p>not found</p>;
+    }
 }
 
 export default Product;
