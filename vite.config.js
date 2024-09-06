@@ -12,6 +12,7 @@ export default defineConfig({
             "@context": path.resolve(__dirname, "./src/context"),
             "@api": path.resolve(__dirname, "./src/api"),
             "@styles": path.resolve(__dirname, "./src/styles"),
+            "@hooks": path.resolve(__dirname, "./src/hooks"),
         },
     },
     plugins: [react()],
