@@ -17,16 +17,19 @@ function BookProductDetails() {
         <Swiper
             className="detail"
             modules={[Navigation]}
-            slidesPerView="auto"
             spaceBetween={28}
             breakpoints={{
-                1028: {
+                1256: {
                     slidesPerView: 5,
                     slidesPerGroup: 5,
                 },
+                1028: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4,
+                },
                 768: {
-                    slidesPerView: 2,
-                    slidesPerGroup: 2,
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
                 },
             }}
             navigation={{

@@ -4,13 +4,12 @@
 
 .home {
     @include flex(flex-start, center, column);
-	max-width: 1500px;
+    min-width: 1000px;
+    max-width: 1500px;
     min-height: 600px;
-	margin: 0 auto;
-    // padding: 0 getVar("padding.p-4");
+    margin: 0 auto;
     padding-bottom: getVar("padding.p-4");
     position: relative;
-    // background-color: getVar("colors.gray-200");
 
     &__content {
         @include flex(flex-start, stretch, column);

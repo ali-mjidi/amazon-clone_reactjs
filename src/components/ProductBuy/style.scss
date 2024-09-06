@@ -3,13 +3,16 @@
 @import "@styles/_function.scss";
 
 .buySection {
+    @include flex(flex-start, stretch, column);
     padding: getVar("padding.p-2");
+    gap: getVar("gap.gap-3");
     border-radius: getVar("radius.rounded-lg");
     border: 5px solid getVar("colors.gray-300");
 }
 
 .buyInfo {
     @include flex(flex-start, flex-start, column);
+    padding: 0 getVar("padding.p-2");
 
     &__heading {
         font-weight: getVar("weight.font-bold");

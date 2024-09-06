@@ -4,7 +4,6 @@
 
 .productBuyOptions {
     @include grid(1fr, repeat(2, 1fr));
-    margin-bottom: getVar("margin.m-3");
     padding-bottom: getVar("padding.p-3");
     row-gap: 10px;
     column-gap: 8px;
