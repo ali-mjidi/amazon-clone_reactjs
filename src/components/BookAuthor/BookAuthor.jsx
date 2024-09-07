@@ -17,15 +17,17 @@ function BookAuthor() {
             {author?.map(({ name, photo }) => (
                 <div className="author" key={name}>
                     <div className="author__photoWrapper">
-                        {photo ?? (
+                        {photo ? (
+                            <img
+                                src={photo}
+                                alt={name}
+                                className="author__photo"
+                            />
+                        ) : (
                             <Icon
                                 type="circleUser"
                                 className="author__photo author__photo--noPhoto"
                             />
-                        )}
-
-                        {!photo ?? (
-                            <img src={photo} alt="" className="author__photo" />
                         )}
                     </div>
 
