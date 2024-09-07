@@ -109,13 +109,15 @@
             &__option {
                 hyphens: auto;
                 color: getVar("colors.black");
+				@include font("sm");
 
                 &--is-selected {
                     background-color: getVar("colors.gray-200");
                 }
 
-                &:hover {
-                    background-color: getVar("colors.gray-400");
+                &--is-focused {
+					color: getVar("colors.white");
+					background-color: getVar("colors.blue-500");
                 }
             }
 
