@@ -2,8 +2,56 @@
 @import "@styles/_mixin.scss";
 @import "@styles/_function.scss";
 
-.buySection {
+%dropBox {
     @include flex(flex-start, stretch, column);
+    width: 100%;
+    padding: getVar("padding.p-4");
+    gap: getVar("gap.gap-1");
+    position: absolute;
+    box-shadow: 0 2px 5px rgba(getVar("colors.gray-900"), 0.15);
+    border-radius: getVar("radius.rounded-lg");
+    border: 1px solid getVar("colors.gray-300");
+    background-color: getVar("colors.white");
+    z-index: 49;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: 0.3s;
+
+    &::before,
+    &::after {
+        content: "";
+        aspect-ratio: 1;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
+    }
+
+    &::before {
+        width: 20px;
+        background-color: getVar("colors.gray-300");
+    }
+
+    &::after {
+        width: 18px;
+        background-color: white;
+    }
+
+    & > [class*="__heading"] {
+        font-weight: getVar("weight.font-bold");
+    }
+}
+
+%dropBox--show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+}
+
+.buySection {
+    @include flex(space-between, stretch, column);
     padding: getVar("padding.p-2");
     gap: getVar("gap.gap-3");
     border-radius: getVar("radius.rounded-lg");
@@ -63,7 +111,6 @@
 
         &Wrapper {
             width: 100%;
-            // color: getVar("colors.gray-600");
             @include font("sm");
         }
     }
@@ -77,51 +124,11 @@
 
     .returnInfo,
     .deliverShippingInfo {
-        @include flex(flex-start, stretch, column);
-        width: 100%;
-        padding: getVar("padding.p-4");
-        gap: getVar("gap.gap-1");
-        position: absolute;
+        @extend %dropBox;
         left: 0;
-        box-shadow: 0 2px 5px rgba(getVar("colors.gray-900"), 0.15);
-        border-radius: getVar("radius.rounded-lg");
-        border: 1px solid getVar("colors.gray-300");
-        background-color: getVar("colors.white");
-        z-index: 49;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: 0.3s;
 
         &--show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0px);
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            aspect-ratio: 1;
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
-        }
-
-        &::before {
-            width: 20px;
-            background-color: getVar("colors.gray-300");
-        }
-
-        &::after {
-            width: 18px;
-            background-color: white;
-        }
-
-        &__heading {
-            font-weight: getVar("weight.font-bold");
+            @extend %dropBox--show;
         }
     }
 
@@ -158,11 +165,50 @@
     }
 
     .deliveryInfo {
-        position: relative;
+        &__cost {
+            position: relative;
+        }
+
+        &__detail {
+            @include flex(center, center);
+            display: inline-flex;
+            gap: getVar("gap.gap-1");
+            line-height: 1;
+
+            .icon {
+                color: getVar("colors.gray-600");
+            }
+        }
+
+        &__normalDelivery,
+        &__fastDelivery {
+            color: getVar("colors.black");
+
+            .deliveryDate {
+                font-weight: 700;
+            }
+        }
+
+        &__fastDelivery {
+            margin: getVar("margin.m-3") 0;
+        }
+
+        &__location {
+            @include flex(flex-start, center);
+            width: fit-content;
+            gap: getVar("gap.gap-1");
+            cursor: pointer;
+
+            .icon {
+                width: 16px;
+                height: 18px;
+                color: getVar("colors.black");
+            }
+        }
     }
 
     .deliverShippingInfo {
-        top: 120%;
+        top: 100%;
 
         &__heading {
             margin-bottom: getVar("margin.m-2");
@@ -189,6 +235,133 @@
             margin-top: getVar("margin.m-2");
             padding-top: getVar("padding.p-2");
             border-top: 2px solid getVar("colors.gray-300");
+        }
+    }
+}
+
+.orderSection {
+    @include flex(flex-start, stretch, column);
+    padding: 0 getVar("padding.p-2");
+    gap: getVar("gap.gap-2");
+
+    &__availability {
+        font-weight: getVar("weight.font-medium");
+        color: getVar("colors.emerald-700");
+        @include font("lg");
+    }
+
+    &__addBtn {
+        margin-top: getVar("margin.m-2");
+        padding: getVar("padding.p-2") 0;
+        cursor: pointer;
+        border-radius: getVar("radius.rounded-full");
+        background-color: getVar("colors.yellow-300");
+
+        &:hover {
+            background-color: getVar("colors.yellow-400");
+        }
+    }
+
+    .quantitySelector {
+        color: gerVar("colors.black");
+
+        &__control,
+        &__option {
+            cursor: pointer;
+        }
+
+        &__control {
+            height: 30px;
+            font-weight: getVar("weight.font-semibold");
+            border-radius: getVar("radius.rounded-lg");
+            color: gerVar("colors.black");
+            background-color: getVar("colors.gray-100");
+
+            &:hover {
+                background-color: getVar("colors.slate-200");
+            }
+        }
+
+        &__option {
+            padding: getVar("padding.p-1") getVar("padding.p-3");
+            color: getVar("colors.black");
+
+            &--is-selected {
+                border: 2px solid getVar("colors.blue-700");
+                background-color: getVar("colors.blue-50");
+            }
+
+            &--is-focused {
+                background-color: getVar("colors.gray-100");
+            }
+        }
+
+        &__indicator {
+            color: black;
+
+            &:hover {
+                color: inherit;
+            }
+        }
+
+        &__indicator-separator {
+            display: none;
+        }
+    }
+}
+
+.overallInfo {
+    @include flex(center, stretch, column);
+    padding: getVar("padding.p-2");
+    gap: getVar("gap.gap-1");
+    @include font("xs");
+
+    &__item {
+        @include grid(1fr, 30% 1fr);
+        place-items: center left;
+    }
+
+    &__title {
+        color: getVar("colors.gray-600");
+    }
+
+    &__content {
+        display: -webkit-box;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        // overflow: hidden;
+        position: relative;
+
+        &:hover > .refundInfo,
+        &:hover > .paymentInfo {
+            @extend %dropBox--show;
+            transition-delay: 0s;
+        }
+
+        .refundInfo,
+        .paymentInfo {
+            @extend %dropBox;
+            padding: getVar("padding.p-6") getVar("padding.p-8");
+            width: 30vw;
+            top: 130%;
+            right: 0;
+            transition-delay: 0.5s;
+            @include font("sm");
+
+            &__heading {
+                margin-bottom: getVar("margin.m-3");
+            }
+
+            &__content {
+                margin-bottom: getVar("margin.m-1");
+            }
+
+            &::before,
+            &::after {
+                left: 80%;
+            }
         }
     }
 }

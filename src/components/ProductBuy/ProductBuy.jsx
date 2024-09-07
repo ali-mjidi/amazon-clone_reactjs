@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import Select from "react-select";
 
 import { ProductContext } from "@context/ProductContext";
 import { useClickOutside } from "@hooks/useClickOutside";
@@ -16,7 +17,14 @@ function ProductBuy() {
             userLocation,
         },
     } = useContext(ProductContext);
+    const quantityValues = [
+        ...[...Array(30)].map((_, index) => ({
+            value: index + 1,
+            label: `Quantity: ${index + 1}`,
+        })),
+    ];
     const [finalPrice, setFinalPrice] = useState(0);
+    const [quantity, setQuantity] = useState(quantityValues[0].value);
     const [showReturnInfo, setShowReturnInfo] = useState(false);
     const [showHowReturn, setShowHowReturn] = useState(false);
     const [showDeliveryDetail, setShowDeliveryDetail] = useState(false);
@@ -62,6 +70,10 @@ function ProductBuy() {
 
     function toggleReturnHandler() {
         setShowHowReturn(show => !show);
+    }
+
+    function changeQuantityHandler(option) {
+        setQuantity(option.value);
     }
 
     useEffect(() => {
@@ -158,18 +170,19 @@ function ProductBuy() {
                 </section>
 
                 <div className="deliveryInfo">
-                    <div className="deliverInfo__cost">
+                    <div className="deliveryInfo__cost">
                         No Import Charges & ${deliveryCost} Shipping to &nbsp;
                         {userLocation || "Unknown"}&nbsp;
                         <span
                             className="product__link link deliveryInfo__detail"
                             onClick={() => setShowDeliveryDetail(true)}>
+                            Details
                             <Icon
                                 type={`angle${
                                     showDeliveryDetail ? "Up" : "Down"
                                 }`}
+                                className="icon"
                             />
-                            Details
                         </span>
                         <div
                             ref={deliverDetailRef}
@@ -205,8 +218,100 @@ function ProductBuy() {
                             </p>
                         </div>
                     </div>
+
+                    <div className="deliveryInfo__normalDelivery">
+                        Delivery&nbsp;
+                        <span className="deliveryDate">
+                            {daysAfterToday(7)}
+                        </span>
+                    </div>
+
+                    <div className="deliveryInfo__fastDelivery">
+                        Or fastest delivery&nbsp;
+                        <span className="deliveryDate">
+                            {daysAfterToday(5)}
+                        </span>
+                    </div>
+
+                    <p className="deliveryInfo__location product__link">
+                        <Icon type="location" className="icon" />
+                        Deliver to {userLocation}
+                    </p>
                 </div>
             </div>
+
+            <form className="orderSection" onSubmit={e => e.preventDefault()}>
+                <p className="orderSection__availability">In Stock</p>
+
+                <Select
+                    className="quantitySelector"
+                    classNamePrefix="quantitySelector"
+                    defaultValue={quantityValues[0]}
+                    options={quantityValues}
+                    onChange={changeQuantityHandler}
+                    isSearchable={false}
+                />
+
+                <button className="orderSection__addBtn">Add to Cart</button>
+            </form>
+
+            <ul className="overallInfo">
+                <li className="overallInfo__item">
+                    <span className="overallInfo__title">Ships from</span>
+                    <span className="overallInfo__content">Amazon.com</span>
+                </li>
+                <li className="overallInfo__item">
+                    <span className="overallInfo__title">Sold by</span>
+                    <span className="overallInfo__content">Amazon.com</span>
+                </li>
+                <li className="overallInfo__item">
+                    <span className="overallInfo__title">Returns</span>
+                    <span
+                        className="overallInfo__content"
+                        onPointerEnter={e => console.log(e.target.classList)}>
+                        <p className="product__link link">
+                            30-day refund/replacement
+                        </p>
+
+                        <div className="refundInfo">
+                            <h3 className="refundInfo__heading">
+                                30-day refund/replacement
+                            </h3>
+
+                            <p className="refundInfo__content">
+                                This item can be returned in its original
+                                condition for a full refund or replacement
+                                within 30 days of receipt.
+                            </p>
+
+                            <a href="#" className="product__link link">
+                                Read full return policy
+                            </a>
+                        </div>
+                    </span>
+                </li>
+                <li className="overallInfo__item">
+                    <span className="overallInfo__title">Payment</span>
+                    <span className="overallInfo__content">
+                        <p className="product__link link">Secure transaction</p>
+
+                        <div className="paymentInfo">
+                            <h3 className="paymentInfo__heading">
+                                Your transaction is secure
+                            </h3>
+
+                            <p className="paymentInfo__content">
+                                We work hard to protect your security and
+                                privacy. Our payment security system encrypts
+                                your information during transmission. We don’t
+                                share your credit card details with third-party
+                                sellers, and we don’t sell your information to
+                                others. Learn more
+                            </p>
+                        </div>
+                    </span>
+                </li>
+            </ul>
         </section>
     );
 }
