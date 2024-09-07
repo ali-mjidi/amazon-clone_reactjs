@@ -75,13 +75,13 @@
         cursor: pointer;
     }
 
-    .returnInfo {
-        @include flex(flex-start, flex-start, column);
+    .returnInfo,
+    .deliverShippingInfo {
+        @include flex(flex-start, stretch, column);
         width: 100%;
         padding: getVar("padding.p-4");
         gap: getVar("gap.gap-1");
         position: absolute;
-        top: calc(100% + 5px);
         left: 0;
         box-shadow: 0 2px 5px rgba(getVar("colors.gray-900"), 0.15);
         border-radius: getVar("radius.rounded-lg");
@@ -123,6 +123,11 @@
         &__heading {
             font-weight: getVar("weight.font-bold");
         }
+    }
+
+    .returnInfo {
+        top: calc(100% + 5px);
+        color: black;
 
         &__how {
             &Btn {
@@ -157,20 +162,11 @@
     }
 
     .deliverShippingInfo {
-        @extend .returnInfo;
-        @include flex(flex-start, stretch, column);
         top: 120%;
-
-        &--show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0px);
-        }
 
         &__heading {
             margin-bottom: getVar("margin.m-2");
             padding-bottom: getVar("padding.p-2");
-            font-weight: getVar("weight.font-bold");
             border-bottom: 2px solid getVar("colors.gray-300");
             color: getVar("colors.black");
             @include font("lg");
