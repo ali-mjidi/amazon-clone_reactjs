@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Products_API = axios.create({
     baseURL: `http://localhost:3000/`,
@@ -14,6 +15,7 @@ Products_API.interceptors.request.use(
     },
     function (error) {
         console.log(error);
+        toast.error("Request: " + error.message);
     }
 );
 
@@ -22,7 +24,8 @@ Products_API.interceptors.response.use(
         return response;
     },
     function (error) {
-        console.log(error.message);
+        // console.log(error.message);
+        toast.error("Response: " + error.message);
     }
 );
 

@@ -174,8 +174,8 @@ function ProductBuy() {
 
                 <div className="deliveryInfo">
                     <div className="deliveryInfo__cost">
-                        No Import Charges & ${deliveryCost} Shipping to &nbsp;
-                        {userLocation || "Unknown"}&nbsp;
+                        No Import Charges & ${deliveryCost} Shipping to&nbsp;
+                        {userLocation || "your location"}&nbsp;
                         <span
                             className="product__link link deliveryInfo__detail"
                             onClick={() => setShowDeliveryDetail(true)}>
