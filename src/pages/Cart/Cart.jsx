@@ -1,16 +1,21 @@
-import { useState } from "react";
-
-import "./style.scss";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { ProductContext } from "@context/ProductContext";
+import "./style.scss";
+
 function Cart() {
-    const [products, setProducts] = useState([]);
+    const {
+        state: { cart },
+    } = useContext(ProductContext);
+
+    console.log(cart);
 
     const emptyCartElement = (
         <div className="emptyCart">
             <h2 className="emptyCart__heading">Your Amazon Basket is empty</h2>
             <p className="emptyCart__text">
-                Check products page for shopping.{" "}
+                Check products page for shopping.&nbsp;
                 <Link to="/" className="link emptyCart__link">
                     continue shopping
                 </Link>
@@ -18,7 +23,7 @@ function Cart() {
         </div>
     );
 
-    return <main className="cart">{!products.length && emptyCartElement}</main>;
+    return <main className="cart">{!cart.length && emptyCartElement}</main>;
 }
 
 export default Cart;

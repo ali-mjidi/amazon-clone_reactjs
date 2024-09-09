@@ -1,5 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 import Products_API from "@api";
 
 const ProductContext = createContext({
@@ -13,9 +15,10 @@ const ProductContext = createContext({
     actions: {
         // setProducts: () => {},
         // setCategories: () => {},
-        setCart: () => {},
+        // setCart: () => {},
         setTargetProduct: () => {},
         getSingleProduct: () => {},
+        addToCart: () => {},
         setBuyOption: () => {},
     },
 });
@@ -38,6 +41,8 @@ function productReducer(state, action) {
                     selectedBuyOption: action.payload,
                 },
             };
+        case "ADD_TO_CART":
+            return { ...state, cart: [action.payload, ...state.cart] };
         case "SET_LOCATION":
             return { ...state, userLocation: action.payload };
         default:
@@ -79,6 +84,21 @@ function ProductProvider({ children }) {
         });
     }
 
+    async function addToCart(product) {
+        if (!state.cart.find(item => item.id === product.id)) {
+            const request = await Products_API.post("cart", product);
+
+            if (request?.status >= 200 && request?.status <= 299) {
+                toast.success("Product successfully added to Cart");
+                dispatch({ type: "ADD_TO_CART", payload: product });
+            } else {
+                toast.error("Something happened Wrong, try again");
+            }
+        } else {
+            toast.info("This product is already in Cart");
+        }
+    }
+
     function setBuyOption(option) {
         dispatch({ type: "SET_BUY_OPTION", payload: option });
     }
@@ -101,10 +121,11 @@ function ProductProvider({ children }) {
         //     dispatch({ type: "SET_PRODUCTS", payload: products }),
         // setCategories: categories =>
         //     dispatch({ type: "SET_CATEGORIES", payload: categories }),
-        setCart: cart => dispatch({ type: "SET_CART", payload: cart }),
+        // setCart: cart => dispatch({ type: "SET_CART", payload: cart }),
         setTargetProduct: targetProduct =>
             dispatch({ type: "SET_TARGET_PRODUCT", payload: targetProduct }),
         getSingleProduct,
+        addToCart,
         setBuyOption,
     };
 

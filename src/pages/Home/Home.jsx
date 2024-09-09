@@ -7,7 +7,7 @@ import "./style.scss";
 
 function Home() {
     const {
-        state: { categories },
+        state: { categories, userLocation },
     } = useContext(ProductContext);
 
     return (
@@ -15,9 +15,9 @@ function Home() {
             <Slider />
             <section className="home__content">
                 <p className="home__guide">
-                    You are on amazon.com. You can also shop on Amazon Iran for
-                    millions of products with fast local delivery. Click here to
-                    go to &nbsp;
+                    You are on amazon.com. You can also shop on Amazon&nbsp;
+                    {userLocation} for millions of products with fast local
+                    delivery. Click here to go to &nbsp;
                     <a
                         href="https://amazon.de"
                         target="_blank"

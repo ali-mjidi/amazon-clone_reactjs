@@ -17,6 +17,7 @@ function ProductBuy() {
             targetProduct: { buyOptions, discountPercent, selectedBuyOption },
             userLocation,
         },
+        actions: { addToCart },
     } = useContext(ProductContext);
     const quantityValues = [
         ...[...Array(30)].map((_, index) => ({
@@ -29,7 +30,7 @@ function ProductBuy() {
     const [showReturnInfo, setShowReturnInfo] = useState(false);
     const [showHowReturn, setShowHowReturn] = useState(false);
     const [showDeliveryDetail, setShowDeliveryDetail] = useState(false);
-    const { category } = useParams();
+    const { category, productID } = useParams();
     const returnInfoRef = useClickOutside(hidReturnInfoHandler);
     const deliverDetailRef = useClickOutside(hideDeliveryDetailHandler);
 
@@ -77,7 +78,15 @@ function ProductBuy() {
         setQuantity(option.value);
     }
 
-    const test = () => toast.success("IT'S OKAY");
+    function addToCartHandler() {
+        const product = {
+            id: productID,
+            quantity,
+            selectedBuyOption,
+            price: finalPrice,
+        };
+        addToCart(product);
+    }
 
     useEffect(() => {
         if (buyOptions) {
@@ -255,7 +264,11 @@ function ProductBuy() {
                     isSearchable={false}
                 />
 
-                <button className="orderSection__addBtn" onClick={test}>Add to Cart</button>
+                <button
+                    className="orderSection__addBtn"
+                    onClick={addToCartHandler}>
+                    Add to Cart
+                </button>
             </form>
 
             <ul className="overallInfo">
