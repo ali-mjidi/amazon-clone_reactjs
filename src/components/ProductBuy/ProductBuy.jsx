@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Select from "react-select";
 
 import { ProductContext } from "@context/ProductContext";
@@ -75,6 +76,8 @@ function ProductBuy() {
     function changeQuantityHandler(option) {
         setQuantity(option.value);
     }
+
+    const test = () => toast.success("IT'S OKAY");
 
     useEffect(() => {
         if (buyOptions) {
@@ -252,7 +255,7 @@ function ProductBuy() {
                     isSearchable={false}
                 />
 
-                <button className="orderSection__addBtn">Add to Cart</button>
+                <button className="orderSection__addBtn" onClick={test}>Add to Cart</button>
             </form>
 
             <ul className="overallInfo">
