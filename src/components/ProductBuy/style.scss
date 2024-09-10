@@ -252,14 +252,6 @@
 
     &__addBtn {
         margin-top: getVar("margin.m-2");
-        padding: getVar("padding.p-2") 0;
-        cursor: pointer;
-        border-radius: getVar("radius.rounded-full");
-        background-color: getVar("colors.yellow-300");
-
-        &:hover {
-            background-color: getVar("colors.yellow-400");
-        }
     }
 
     .quantitySelector {

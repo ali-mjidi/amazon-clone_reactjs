@@ -1,0 +1,14 @@
+@import "@styles/_var.scss";
+@import "@styles/_function.scss";
+
+.btn {
+    width: 100%;
+    padding: getVar("padding.p-2") 0;
+    cursor: pointer;
+    border-radius: getVar("radius.rounded-full");
+    background-color: getVar("colors.yellow-300");
+
+    &:hover {
+        background-color: getVar("colors.yellow-400");
+    }
+}

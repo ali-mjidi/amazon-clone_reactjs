@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import Select from "react-select";
 
 import { ProductContext } from "@context/ProductContext";
 import { useClickOutside } from "@hooks/useClickOutside";
 import Icon from "@components/Icon/Icon";
 import BookProductBuyOptions from "@components/BookProductBuyOptions/BookProductBuyOptions";
+import Button from "@components/Button/Button";
 import "./style.scss";
 
 const deliveryCost = (Math.random() * 10 + 5).toFixed(2);
@@ -264,11 +264,11 @@ function ProductBuy() {
                     isSearchable={false}
                 />
 
-                <button
+                <Button
                     className="orderSection__addBtn"
                     onClick={addToCartHandler}>
                     Add to Cart
-                </button>
+                </Button>
             </form>
 
             <ul className="overallInfo">

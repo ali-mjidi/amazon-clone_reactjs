@@ -623,6 +623,12 @@
       "quantity": 1,
       "selectedBuyOption": "paperback",
       "price": "11.51"
+    },
+    {
+      "id": "2",
+      "quantity": 1,
+      "selectedBuyOption": "paperback",
+      "price": "5.99"
     }
   ]
 }

@@ -3,16 +3,44 @@
 @import "@styles/_function.scss";
 
 .cart {
-    @include flex(center, flex-start);
+    @include grid(1fr, minmax(642px, 1fr) 300px);
+    min-width: 1000px;
+    width: 100%;
+    max-width: 1500px;
     min-height: 100vh;
+    margin: 0 auto;
     padding: getVar("padding.p-8");
+    gap: getVar("gap.gap-5");
+
+    &__proceed {
+        @include flex(center, flex-start, column);
+        height: max-content;
+        padding: getVar("padding.p-5");
+        gap: getVar("gap.gap-2");
+        grid-row: 1 / -1;
+        grid-column: 2 / -1;
+        background-color: getVar("colors.white");
+
+        &Btn {
+            @include font("sm");
+            line-height: 1;
+        }
+    }
+
+    &__items {
+        grid-row: 1 / -1;
+        grid-column: 1 / 2;
+        background-color: red;
+    }
 }
 
 .emptyCart {
     @include flex(flex-start, flex-start, column);
     width: 100%;
+    height: max-content;
     padding: getVar("padding.p-8");
     gap: getVar("gap.gap-4");
+    grid-column: 1 / -1;
     box-shadow: 0 1px 2px 0 getVar("colors.slate-400");
     border-radius: getVar("radius.rounded");
     color: getVar("colors.gray-700");
@@ -24,11 +52,19 @@
     }
 
     &__link {
-        color: getVar("colors.blue-500") !important;
+        color: getVar("colors.blue-500");
 
         &:hover {
-            color: getVar("colors.blue-800") !important;
+            color: getVar("colors.blue-800");
             text-decoration: none !important;
         }
+    }
+}
+
+.subtotal {
+    @include font("lg");
+
+    &__cost {
+        font-weight: getVar("weight.font-bold");
     }
 }
