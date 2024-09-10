@@ -80,7 +80,8 @@ function ProductBuy() {
 
     function addToCartHandler() {
         const product = {
-            id: productID,
+			id: crypto.randomUUID(),
+            productID,
             quantity,
             selectedBuyOption,
             price: finalPrice,

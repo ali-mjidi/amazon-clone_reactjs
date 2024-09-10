@@ -18,7 +18,7 @@ function CartItem({ itemData }) {
             creator: [{ name }],
             imageLink: [image],
         },
-    } = products.find(({ id }) => id === itemData.id);
+    } = products.find(({ id }) => id === itemData.productID);
     const quantityValues = [
         { value: 0, label: "0: (Delete)" },
         ...[...Array(30)].map((_, index) => ({
@@ -29,7 +29,7 @@ function CartItem({ itemData }) {
     const path = `/product/${category}/${id}`;
 
     function deleteItemHandler() {
-        deleteCartItem(id);
+        deleteCartItem(itemData.id);
     }
 
     return (

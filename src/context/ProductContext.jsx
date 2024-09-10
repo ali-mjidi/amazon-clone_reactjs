@@ -16,7 +16,7 @@ const ProductContext = createContext({
         setTargetProduct: () => {},
         getSingleProduct: () => {},
         addToCart: () => {},
-		deleteCartItem: () => {},
+        deleteCartItem: () => {},
         updateCartQuantity: () => {},
         setBuyOption: () => {},
     },
@@ -45,7 +45,9 @@ function productReducer(state, action) {
         case "DELETE_FROM_CART":
             const newCart = state.cart;
             newCart.splice(
-                newCart.findIndex(({ id }) => id === action.payload),
+                newCart.findIndex(
+                    ({ id }) => id === action.payload
+                ),
                 1
             );
 
@@ -106,7 +108,14 @@ function ProductProvider({ children }) {
     }
 
     async function addToCart(product) {
-        if (!state.cart.find(item => item.id === product.id)) {
+        const sameProductInCart = state.cart.find(
+            item => item.productID === product.productID
+        );
+
+        if (
+            !sameProductInCart ||
+            sameProductInCart.selectedBuyOption !== product.selectedBuyOption
+        ) {
             const request = await Products_API.post("cart", product);
             const successText = "Product successfully added to Cart";
             const dispatchObj = {
@@ -120,12 +129,12 @@ function ProductProvider({ children }) {
         }
     }
 
-    async function deleteCartItem(productID) {
-        const request = await Products_API.delete(`cart/${productID}`);
+    async function deleteCartItem(id) {
+        const request = await Products_API.delete(`cart/${id}`);
         const successText = "Successfully deleted";
         const dispatchObj = {
             type: "DELETE_FROM_CART",
-            payload: productID,
+            payload: id,
         };
 
         checkStatus(request?.status, successText, dispatchObj);
@@ -187,7 +196,7 @@ function ProductProvider({ children }) {
             dispatch({ type: "SET_TARGET_PRODUCT", payload: targetProduct }),
         getSingleProduct,
         addToCart,
-		deleteCartItem,
+        deleteCartItem,
         updateCartQuantity,
         setBuyOption,
     };
