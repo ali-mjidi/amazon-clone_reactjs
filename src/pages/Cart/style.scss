@@ -9,8 +9,12 @@
     max-width: 1500px;
     min-height: 100vh;
     margin: 0 auto;
-    padding: getVar("padding.p-8");
+    padding: getVar("padding.p-3.5") getVar("padding.p-5");
     gap: getVar("gap.gap-5");
+
+    &:has(.emptyCart) {
+        padding: getVar("padding.p-8");
+    }
 
     &__proceed {
         @include flex(center, flex-start, column);

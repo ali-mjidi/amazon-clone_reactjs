@@ -47,14 +47,16 @@ function Cart() {
 
     return (
         <main className="cart">
-            <section className="cart__proceed">
-                {subtotal}
-                <Button className="cart__proceedBtn" onClick={() => null}>
-                    Proceed to checkout
-                </Button>
-            </section>
+            {!!cart.length && (
+                <section className="cart__proceed">
+                    {subtotal}
+                    <Button className="cart__proceedBtn" onClick={() => null}>
+                        Proceed to checkout
+                    </Button>
+                </section>
+            )}
 
-            <div className="cart__items"></div>
+            {!!cart.length && <div className="cart__items"></div>}
 
             {!cart.length && emptyCartElement}
         </main>
