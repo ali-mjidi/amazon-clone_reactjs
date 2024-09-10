@@ -140,18 +140,18 @@ function ProductProvider({ children }) {
         checkStatus(request?.status, successText, dispatchObj);
     }
 
-    async function updateCartQuantity(productID, newQuantity) {
+    async function updateCartQuantity(id, newQuantity) {
         if (newQuantity === 0) {
-            deleteCartItem(productID);
+            deleteCartItem(id);
         } else {
-            const request = await Products_API.patch(`cart/${productID}`, {
+            const request = await Products_API.patch(`cart/${id}`, {
                 quantity: newQuantity,
             });
             const successText = "Quantity successfully updated";
             const dispatchObj = {
                 type: "UPDATE_QUANTITY",
                 payload: {
-                    productID,
+                    id,
                     newQuantity,
                 },
             };

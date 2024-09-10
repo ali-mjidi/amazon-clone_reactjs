@@ -81,7 +81,7 @@ function CartItem({ itemData }) {
                         defaultValue={quantityValues[itemData.quantity]}
                         options={quantityValues}
                         isSearchable={false}
-                        onChange={({ value }) => updateCartQuantity(id, value)}
+                        onChange={({ value }) => updateCartQuantity(itemData.id, value)}
                     />
 
                     <button
