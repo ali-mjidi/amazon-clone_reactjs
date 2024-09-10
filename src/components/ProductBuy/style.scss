@@ -51,7 +51,7 @@
 }
 
 .buySection {
-    @include flex(space-between, stretch, column);
+    @include flex(flex-start, stretch, column);
     padding: getVar("padding.p-2");
     gap: getVar("gap.gap-3");
     border-radius: getVar("radius.rounded-lg");
