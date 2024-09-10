@@ -7,7 +7,7 @@ import "./style.scss";
 function BookAuthor() {
     const {
         state: {
-            targetProduct: { author },
+            targetProduct: { creator: author },
         },
     } = useContext(ProductContext);
 

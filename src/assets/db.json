@@ -5,7 +5,7 @@
       "category": "book",
       "productInfo": {
         "title": "A Man Called Ove: A Novel",
-        "author": [
+        "creator": [
           {
             "name": "Fredrik Backman",
             "photo": null
@@ -67,7 +67,7 @@
       "category": "book",
       "productInfo": {
         "title": "Animal Farm: 75th Anniversary Edition",
-        "author": [
+        "creator": [
           {
             "name": "George Orwell",
             "photo": null
@@ -128,7 +128,7 @@
       "category": "book",
       "productInfo": {
         "title": "The Suicide Shop",
-        "author": [
+        "creator": [
           {
             "name": "Jean Teulé",
             "photo": null
@@ -189,7 +189,7 @@
       "category": "book",
       "productInfo": {
         "title": "Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin Series)",
-        "author": [
+        "creator": [
           {
             "name": "Martin Robert C.",
             "photo": null
@@ -250,7 +250,7 @@
       "category": "book",
       "productInfo": {
         "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin Series)",
-        "author": [
+        "creator": [
           {
             "name": "Martin Robert C.",
             "photo": null
@@ -311,7 +311,7 @@
       "category": "book",
       "productInfo": {
         "title": "The Clean Coder: A Code of Conduct for Professional Programmers (Robert C. Martin Series)",
-        "author": [
+        "creator": [
           {
             "name": "Martin Robert C.",
             "photo": null
@@ -372,7 +372,7 @@
       "category": "book",
       "productInfo": {
         "title": "1984",
-        "author": [
+        "creator": [
           {
             "name": "George Orwell",
             "photo": null
@@ -433,7 +433,7 @@
       "category": "book",
       "productInfo": {
         "title": "Crime and Punishment (Vintage Classics)",
-        "author": [
+        "creator": [
           {
             "name": " Fyodor Dostoevsky",
             "photo": null
@@ -493,7 +493,7 @@
       "category": "book",
       "productInfo": {
         "title": "David Copperfield",
-        "author": [
+        "creator": [
           {
             "name": " Charles Dickens",
             "photo": null
@@ -554,7 +554,7 @@
       "category": "book",
       "productInfo": {
         "title": "The Compound Effect (10th Anniversary Edition): Jumpstart Your Income, Your Life, Your Success",
-        "author": [
+        "creator": [
           {
             "name": "Darren Hardy",
             "photo": null

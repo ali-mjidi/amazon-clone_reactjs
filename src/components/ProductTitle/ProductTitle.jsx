@@ -31,7 +31,7 @@ function ProductTitle() {
             <p className="product__author">
                 By&nbsp;
                 <a href="#" className="product__link link">
-                    {productInfo?.author?.at(0)?.name}
+                    {productInfo?.creator?.at(0)?.name}
                 </a>
             </p>
             <div className="rating">

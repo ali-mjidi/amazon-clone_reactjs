@@ -7,23 +7,27 @@
     min-width: 1000px;
     width: 100%;
     max-width: 1500px;
-    min-height: 100vh;
     margin: 0 auto;
     padding: getVar("padding.p-3.5") getVar("padding.p-5");
     gap: getVar("gap.gap-5");
 
     &:has(.emptyCart) {
+        min-height: 100vh;
         padding: getVar("padding.p-8");
+    }
+
+    &__proceed,
+    &__items {
+        padding: getVar("padding.p-5");
+        grid-row: 1 / -1;
+        background-color: getVar("colors.white");
     }
 
     &__proceed {
         @include flex(center, flex-start, column);
         height: max-content;
-        padding: getVar("padding.p-5");
         gap: getVar("gap.gap-2");
-        grid-row: 1 / -1;
         grid-column: 2 / -1;
-        background-color: getVar("colors.white");
 
         &Btn {
             @include font("sm");
@@ -32,9 +36,32 @@
     }
 
     &__items {
-        grid-row: 1 / -1;
         grid-column: 1 / 2;
-        background-color: red;
+    }
+
+    &Header {
+        @include flex(space-between, center);
+        border-bottom: 1px solid getVar("colors.gray-300");
+
+        &__title {
+            margin-bottom: getVar("margin.m-5");
+            font-weight: getVar("weight.font-semibold");
+            @include font("3xl");
+        }
+
+        &__priceTag {
+            align-self: flex-end;
+            @include font("sm");
+        }
+    }
+
+    &Products {
+        @include flex(flex-start, stretch, column);
+    }
+
+    &__footer {
+        text-align: right;
+        border-top: 1px solid getVar("colors.gray-300");
     }
 }
 

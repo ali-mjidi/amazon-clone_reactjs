@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { ProductContext } from "@context/ProductContext";
+import CartItem from "@components/CartItem/CartItem";
 import Button from "@components/Button/Button";
 import "./style.scss";
 
@@ -48,15 +49,32 @@ function Cart() {
     return (
         <main className="cart">
             {!!cart.length && (
-                <section className="cart__proceed">
-                    {subtotal}
-                    <Button className="cart__proceedBtn" onClick={() => null}>
-                        Proceed to checkout
-                    </Button>
-                </section>
-            )}
+                <>
+                    <section className="cart__proceed">
+                        {subtotal}
+                        <Button
+                            className="cart__proceedBtn"
+                            onClick={() => null}>
+                            Proceed to checkout
+                        </Button>
+                    </section>
 
-            {!!cart.length && <div className="cart__items"></div>}
+                    <section className="cart__items">
+                        <div className="cartHeader">
+                            <h2 className="cartHeader__title">Shopping cart</h2>
+                            <span className="cartHeader__priceTag">Price</span>
+                        </div>
+
+                        <div className="cartProducts">
+                            {cart.map(item => (
+                                <CartItem itemData={item} />
+                            ))}
+                        </div>
+
+                        <div className="cart__footer">{subtotal}</div>
+                    </section>
+                </>
+            )}
 
             {!cart.length && emptyCartElement}
         </main>

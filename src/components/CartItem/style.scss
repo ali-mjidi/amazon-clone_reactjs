@@ -1,0 +1,129 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.cartItem {
+    @include flex(space-between, stretch);
+    padding: getVar("padding.p-3") {
+        right: 0;
+    }
+    @include font("xs");
+
+    &:not(:last-of-type) {
+        border-bottom: 1px solid getVar("colors.gray-300");
+    }
+
+    &__title,
+    &__cost {
+        @include font("lg");
+    }
+
+    &__creator {
+        @include font("sm");
+    }
+
+    &__image {
+        width: 180px;
+        aspect-ratio: 1;
+        object-fit: contain;
+    }
+
+    &__data {
+        @include flex(space-between, flex-start, column);
+        flex-grow: 1;
+    }
+
+    &__buyOption {
+        font-weight: getVar("weight.font-bold");
+    }
+
+    &__giftOption {
+        @include flex(flex-start, center);
+        gap: getVar("gap.gap-2");
+    }
+
+    &__giftCheck {
+        $label: cartItem__giftLabel;
+
+        &:disabled,
+        &:disabled + .#{$label}--available {
+            display: none;
+        }
+
+        &:disabled ~ .#{$label}--disable {
+            display: block;
+        }
+    }
+
+    &__giftLabel {
+        &--disable {
+            display: none;
+        }
+    }
+
+    &__operators {
+        @include flex(flex-start, center);
+        gap: getVar("gap.gap-4");
+    }
+
+    &__operation {
+        padding-left: 0.5rem;
+        border-left: 1px solid getVar("colors.gray-300");
+        color: getVar("colors.blue-500");
+        background-color: transparent;
+    }
+
+    &__cost {
+        font-weight: getVar("weight.font-extrabold");
+    }
+
+    .quantityChanger {
+        &__control,
+        &__option {
+            cursor: pointer;
+        }
+
+        &__control {
+            min-height: unset;
+            padding: getVar("padding.p-1");
+            gap: getVar("gap.gap-1");
+            border-radius: getVar("radius.rounded-lg");
+            background-color: getVar("colors.gray-100");
+
+            &:hover {
+                background-color: getVar("colors.slate-200");
+            }
+        }
+
+        &__value-container {
+            padding: 0;
+            align-items: center;
+        }
+
+        &__menu {
+            width: max-content;
+        }
+
+        &__option {
+            padding: getVar("padding.p-1") getVar("padding.p-3");
+            color: getVar("colors.black");
+
+            &--is-selected {
+                border: 2px solid getVar("colors.blue-700");
+                background-color: getVar("colors.blue-50");
+            }
+
+            &--is-focused {
+                background-color: getVar("colors.gray-100");
+            }
+        }
+
+        &__indicator {
+            padding: 0;
+
+            &-separator {
+                display: none;
+            }
+        }
+    }
+}
