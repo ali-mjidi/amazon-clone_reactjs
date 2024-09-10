@@ -14,10 +14,8 @@ function Cart() {
     const [totalQuantity, setTotalQuantity] = useState(0);
 
     useEffect(() => {
-        // --------------------- just for development
         setTotalPrice(0);
         setTotalQuantity(0);
-        // --------------------- just for development
 
         cart.map(item => {
             setTotalPrice(total => total + item.price * item.quantity);
@@ -25,7 +23,7 @@ function Cart() {
 
             return item;
         });
-    }, [cart]);
+    }, [cart, cart.length]);
 
     const emptyCartElement = (
         <div className="emptyCart">

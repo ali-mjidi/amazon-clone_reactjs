@@ -13,12 +13,10 @@ const ProductContext = createContext({
         userLocation: "",
     },
     actions: {
-        // setProducts: () => {},
-        // setCategories: () => {},
-        // setCart: () => {},
         setTargetProduct: () => {},
         getSingleProduct: () => {},
         addToCart: () => {},
+		deleteCartItem: () => {},
         updateCartQuantity: () => {},
         setBuyOption: () => {},
     },
@@ -44,6 +42,14 @@ function productReducer(state, action) {
             };
         case "ADD_TO_CART":
             return { ...state, cart: [action.payload, ...state.cart] };
+        case "DELETE_FROM_CART":
+            const newCart = state.cart;
+            newCart.splice(
+                newCart.findIndex(({ id }) => id === action.payload),
+                1
+            );
+
+            return { ...state, cart: newCart };
         case "UPDATE_QUANTITY":
             return {
                 ...state,
@@ -117,7 +123,10 @@ function ProductProvider({ children }) {
     async function deleteCartItem(productID) {
         const request = await Products_API.delete(`cart/${productID}`);
         const successText = "Successfully deleted";
-        const dispatchObj = {};
+        const dispatchObj = {
+            type: "DELETE_FROM_CART",
+            payload: productID,
+        };
 
         checkStatus(request?.status, successText, dispatchObj);
     }
@@ -178,6 +187,7 @@ function ProductProvider({ children }) {
             dispatch({ type: "SET_TARGET_PRODUCT", payload: targetProduct }),
         getSingleProduct,
         addToCart,
+		deleteCartItem,
         updateCartQuantity,
         setBuyOption,
     };

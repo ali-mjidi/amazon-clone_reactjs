@@ -8,7 +8,7 @@ import "./style.scss";
 function CartItem({ itemData }) {
     const {
         state: { products },
-        actions: { updateCartQuantity },
+        actions: { updateCartQuantity, deleteCartItem },
     } = useContext(ProductContext);
     const {
         id,
@@ -27,6 +27,10 @@ function CartItem({ itemData }) {
         })),
     ];
     const path = `/product/${category}/${id}`;
+
+    function deleteItemHandler() {
+        deleteCartItem(id);
+    }
 
     return (
         <section className="cartItem">
@@ -80,7 +84,11 @@ function CartItem({ itemData }) {
                         onChange={({ value }) => updateCartQuantity(id, value)}
                     />
 
-                    <button className="cartItem__operation link">Delete</button>
+                    <button
+                        className="cartItem__operation link"
+                        onClick={deleteItemHandler}>
+                        Delete
+                    </button>
 
                     <button className="cartItem__operation link">
                         Save for later
