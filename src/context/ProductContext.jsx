@@ -187,11 +187,6 @@ function ProductProvider({ children }) {
     }, []);
 
     const actions = {
-        // setProducts: products =>
-        //     dispatch({ type: "SET_PRODUCTS", payload: products }),
-        // setCategories: categories =>
-        //     dispatch({ type: "SET_CATEGORIES", payload: categories }),
-        // setCart: cart => dispatch({ type: "SET_CART", payload: cart }),
         setTargetProduct: targetProduct =>
             dispatch({ type: "SET_TARGET_PRODUCT", payload: targetProduct }),
         getSingleProduct,
