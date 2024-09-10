@@ -19,6 +19,7 @@ const ProductContext = createContext({
         setTargetProduct: () => {},
         getSingleProduct: () => {},
         addToCart: () => {},
+        updateCartQuantity: () => {},
         setBuyOption: () => {},
     },
 });
@@ -43,6 +44,20 @@ function productReducer(state, action) {
             };
         case "ADD_TO_CART":
             return { ...state, cart: [action.payload, ...state.cart] };
+        case "UPDATE_QUANTITY":
+            return {
+                ...state,
+                cart: state.cart.map(item => {
+                    if (item.id === action.payload.productID) {
+                        return {
+                            ...item,
+                            quantity: action.payload.newQuantity,
+                        };
+                    } else {
+                        return item;
+                    }
+                }),
+            };
         case "SET_LOCATION":
             return { ...state, userLocation: action.payload };
         default:
@@ -87,15 +102,52 @@ function ProductProvider({ children }) {
     async function addToCart(product) {
         if (!state.cart.find(item => item.id === product.id)) {
             const request = await Products_API.post("cart", product);
+            const successText = "Product successfully added to Cart";
+            const dispatchObj = {
+                type: "ADD_TO_CART",
+                payload: product,
+            };
 
-            if (request?.status >= 200 && request?.status <= 299) {
-                toast.success("Product successfully added to Cart");
-                dispatch({ type: "ADD_TO_CART", payload: product });
-            } else {
-                toast.error("Something happened Wrong, try again");
-            }
+            checkStatus(request?.status, successText, dispatchObj);
         } else {
             toast.info("This product is already in Cart");
+        }
+    }
+
+    async function deleteCartItem(productID) {
+        const request = await Products_API.delete(`cart/${productID}`);
+        const successText = "Successfully deleted";
+        const dispatchObj = {};
+
+        checkStatus(request?.status, successText, dispatchObj);
+    }
+
+    async function updateCartQuantity(productID, newQuantity) {
+        if (newQuantity === 0) {
+            deleteCartItem(productID);
+        } else {
+            const request = await Products_API.patch(`cart/${productID}`, {
+                quantity: newQuantity,
+            });
+            const successText = "Quantity successfully updated";
+            const dispatchObj = {
+                type: "UPDATE_QUANTITY",
+                payload: {
+                    productID,
+                    newQuantity,
+                },
+            };
+
+            checkStatus(request?.status, successText, dispatchObj);
+        }
+    }
+
+    function checkStatus(status, successText, dispatchObj) {
+        if (status >= 200 && status <= 299) {
+            toast.success(successText);
+            dispatch(dispatchObj);
+        } else {
+            toast.error("Something happened Wrong, try again");
         }
     }
 
@@ -126,6 +178,7 @@ function ProductProvider({ children }) {
             dispatch({ type: "SET_TARGET_PRODUCT", payload: targetProduct }),
         getSingleProduct,
         addToCart,
+        updateCartQuantity,
         setBuyOption,
     };
 

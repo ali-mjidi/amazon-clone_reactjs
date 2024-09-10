@@ -37,6 +37,10 @@
         font-weight: getVar("weight.font-bold");
     }
 
+    &__availability {
+        color: getVar("colors.emerald-700");
+    }
+
     &__giftOption {
         @include flex(flex-start, center);
         gap: getVar("gap.gap-2");
@@ -69,7 +73,7 @@
     &__operation {
         padding-left: 0.5rem;
         border-left: 1px solid getVar("colors.gray-300");
-        color: getVar("colors.blue-500");
+        color: getVar("colors.blue-700");
         background-color: transparent;
     }
 
@@ -87,6 +91,7 @@
             min-height: unset;
             padding: getVar("padding.p-1");
             gap: getVar("gap.gap-1");
+            font-weight: getVar("weight.font-semibold");
             border-radius: getVar("radius.rounded-lg");
             background-color: getVar("colors.gray-100");
 
@@ -120,6 +125,12 @@
 
         &__indicator {
             padding: 0;
+
+            &,
+            &:hover {
+                // color: inherit;
+                color: getVar("colors.gray-500");
+            }
 
             &-separator {
                 display: none;

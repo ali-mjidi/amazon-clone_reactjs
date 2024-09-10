@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import Select from "react-select";
 
 import { ProductContext } from "@context/ProductContext";
@@ -7,8 +8,11 @@ import "./style.scss";
 function CartItem({ itemData }) {
     const {
         state: { products },
+        actions: { updateCartQuantity },
     } = useContext(ProductContext);
     const {
+        id,
+        category,
         productInfo: {
             title,
             creator: [{ name }],
@@ -22,12 +26,18 @@ function CartItem({ itemData }) {
             label: `Qty: ${index + 1}`,
         })),
     ];
+    const path = `/product/${category}/${id}`;
 
     return (
         <section className="cartItem">
-            <img className="cartItem__image" src={image} alt={title} />
+            <Link to={path}>
+                <img className="cartItem__image" src={image} alt={title} />
+            </Link>
+
             <div className="cartItem__data">
-                <h2 className="cartItem__title">{title}</h2>
+                <Link to={path}>
+                    <h2 className="cartItem__title">{title}</h2>
+                </Link>
                 <p className="cartItem__creator">by {name}</p>
                 <p className="cartItem__buyOption">
                     {itemData.selectedBuyOption}
@@ -66,6 +76,8 @@ function CartItem({ itemData }) {
                         classNamePrefix="quantityChanger"
                         defaultValue={quantityValues[itemData.quantity]}
                         options={quantityValues}
+                        isSearchable={false}
+                        onChange={({ value }) => updateCartQuantity(id, value)}
                     />
 
                     <button className="cartItem__operation link">Delete</button>

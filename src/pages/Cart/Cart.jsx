@@ -42,7 +42,7 @@ function Cart() {
     const subtotal = (
         <h3 className="subtotal">
             Subtotal ({totalQuantity} item{totalQuantity > 1 && "s"}
-            ): <span className="subtotal__cost">${totalPrice}</span>
+            ): <span className="subtotal__cost">${totalPrice.toFixed(2)}</span>
         </h3>
     );
 
@@ -67,7 +67,7 @@ function Cart() {
 
                         <div className="cartProducts">
                             {cart.map(item => (
-                                <CartItem itemData={item} />
+                                <CartItem key={item.id} itemData={item} />
                             ))}
                         </div>
 
