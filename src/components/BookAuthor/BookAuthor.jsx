@@ -22,6 +22,9 @@ function BookAuthor() {
             {author?.map(({ name, photo }) => (
                 <div className="author" key={name}>
                     <div className="author__photoWrapper">
+						{/* 
+							IF the author has photo url then show and if not show a default no profile Icon instead 
+						*/}
                         {photo ? (
                             <img
                                 src={photo}

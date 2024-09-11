@@ -6,6 +6,11 @@ import { ProductContext } from "@context/ProductContext";
 import Icon from "@components/Icon/Icon";
 import "./style.scss";
 
+/*
+	This is the book detail information that placed under the product's description.
+	This component shows only when the product is book
+*/
+
 function BookProductDetails() {
     const {
         state: {
@@ -38,6 +43,7 @@ function BookProductDetails() {
                 disabledClass: "detail__btn--disabled",
             }}>
             <Icon type="prev" className="detail__btn detail__btn--prev" />
+
             {details?.map(({ title, icon, content }, index) => (
                 <SwiperSlide className="detail__slide" key={index}>
                     <h3 className="detail__title">{title}</h3>

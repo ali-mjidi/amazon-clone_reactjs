@@ -3,6 +3,11 @@ import { useContext } from "react";
 import { ProductContext } from "@context/ProductContext";
 import "./style.scss";
 
+/*
+	This is the book buy options information that placed above the product's price.
+	This component shows only when the product is book
+*/
+
 function BookProductBuyOptions({ discount }) {
     const {
         state: {
@@ -13,7 +18,10 @@ function BookProductBuyOptions({ discount }) {
 
     return (
         <div className="productBuyOptions">
-            {Object.entries(buyOptions || {}).map(([option, price]) => (
+			{/* 
+				This checks that if buyOptions is not undefined at first then show data
+			*/}
+            {buyOptions && Object.entries(buyOptions).map(([option, price]) => (
                 <div
                     key={option}
                     onClick={() => setBuyOption(option)}
