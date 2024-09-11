@@ -6,14 +6,19 @@ import CartItem from "@components/CartItem/CartItem";
 import Button from "@components/Button/Button";
 import "./style.scss";
 
+/*
+	The Cart page
+*/
+
 function Cart() {
     const {
         state: { cart },
     } = useContext(ProductContext);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0); // Stores total price of all the products that stored in cart.
+    const [totalQuantity, setTotalQuantity] = useState(0); // Stores total amount of products that stored in cart.
 
     useEffect(() => {
+        // Set them to zero at first because every time that cart change (for example: change quantity of a product at cart), then this will be run and increase totals each time.
         setTotalPrice(0);
         setTotalQuantity(0);
 
@@ -25,6 +30,7 @@ function Cart() {
         });
     }, [cart, cart.length]);
 
+	// The empty cart component that shows when cart is empty
     const emptyCartElement = (
         <div className="emptyCart">
             <h2 className="emptyCart__heading">Your Amazon Basket is empty</h2>
@@ -37,6 +43,7 @@ function Cart() {
         </div>
     );
 
+	// This component shows total amount and total price to user.
     const subtotal = (
         <h3 className="subtotal">
             Subtotal ({totalQuantity} item{totalQuantity > 1 && "s"}
@@ -46,6 +53,9 @@ function Cart() {
 
     return (
         <main className="cart">
+			{/* 
+				Checks that if the cart is not empty
+			*/}
             {!!cart.length && (
                 <>
                     <section className="cart__proceed">
@@ -74,6 +84,9 @@ function Cart() {
                 </>
             )}
 
+			{/* 
+				Checks that if the cart is empty
+			*/}
             {!cart.length && emptyCartElement}
         </main>
     );

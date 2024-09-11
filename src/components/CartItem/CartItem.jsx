@@ -5,6 +5,10 @@ import Select from "react-select";
 import { ProductContext } from "@context/ProductContext";
 import "./style.scss";
 
+/*
+	This is the component that shows each product that stored in the cart.
+*/
+
 function CartItem({ itemData }) {
     const {
         state: { products },
@@ -18,15 +22,16 @@ function CartItem({ itemData }) {
             creator: [{ name }],
             imageLink: [image],
         },
-    } = products.find(({ id }) => id === itemData.productID);
+    } = products.find(({ id }) => id === itemData.productID); // it's all of the product info
     const quantityValues = [
+        // all of the values that we want for quantity changer selector.
         { value: 0, label: "0: (Delete)" },
         ...[...Array(30)].map((_, index) => ({
             value: index + 1,
             label: `Qty: ${index + 1}`,
         })),
     ];
-    const path = `/product/${category}/${id}`;
+    const path = `/product/${category}/${id}`; // path to product's link.
 
     function deleteItemHandler() {
         deleteCartItem(itemData.id);
@@ -48,6 +53,12 @@ function CartItem({ itemData }) {
                 </p>
                 <p className="cartItem__availability">In Stock</p>
                 <form className="cartItem__giftOption">
+					{/* 
+						If the product can deliver as gift then the checkbox and the first label will be shown,
+						and if not the both will be disable and the second label will be shown.
+
+						* Because I don't define any data for this section in the db, then all the checkboxes will be disabled.
+					*/}
                     <input
                         type="checkbox"
                         id="gift"
@@ -75,13 +86,18 @@ function CartItem({ itemData }) {
                 </form>
 
                 <div className="cartItem__operators">
+					{/* 
+						Quantity changer selector
+					*/}
                     <Select
                         className="quantityChanger"
                         classNamePrefix="quantityChanger"
                         defaultValue={quantityValues[itemData.quantity]}
                         options={quantityValues}
                         isSearchable={false}
-                        onChange={({ value }) => updateCartQuantity(itemData.id, value)}
+                        onChange={({ value }) =>
+                            updateCartQuantity(itemData.id, value)
+                        }
                     />
 
                     <button
