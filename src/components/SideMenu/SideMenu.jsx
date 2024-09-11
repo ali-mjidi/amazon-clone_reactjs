@@ -8,11 +8,14 @@ import "./style.scss";
 function SideMenu({ isShow }) {
     const [showSideContent, setShowSideContent] = useState(false);
     const data = [
+        // Here is the whole data that placed in the sideMenu.
         {
             heading: "Digital Content & Devices",
             list: [
                 {
                     content: "Amazon Music",
+                    // The handler property is the function that each menu option do or show something with it whenever click happens.
+                    // In this case only first option shows the side content
                     handler: { onClick: () => setShowSideContent(true) },
                 },
                 {
@@ -73,6 +76,7 @@ function SideMenu({ isShow }) {
     ];
 
     useEffect(() => {
+		// Close sideContent component when the sideMenu closes.
         if (!isShow) {
             setShowSideContent(false);
         }
@@ -92,7 +96,9 @@ function SideMenu({ isShow }) {
 
             <div
                 className="sideMenu__content"
-                style={{
+                style={{ 
+					// This will hide rest of sideMenu that show on under of sideContent
+					// This will prevent to scroll when sideContent shows.
                     overflow: showSideContent && "hidden",
                 }}>
                 {data.map((data, index) => (

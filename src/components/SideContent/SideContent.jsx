@@ -4,6 +4,7 @@ import "./style.scss";
 
 function SideContent({ isShow, closeHandler }) {
     const data = {
+		// In this case only 'amazon music' has sideContent, so here is the data for it.
         heading: "Stream Music",
         list: [
             { content: "Amazon Music Unlimited" },
@@ -14,7 +15,7 @@ function SideContent({ isShow, closeHandler }) {
         ],
     };
     return (
-        <section className={`sideContent sideContent${isShow ? "--show" : ""}`}>
+        <section className={`sideContent sideContent${isShow && "--show"}`}>
             <button className="sideContent__back" onClick={closeHandler}>
                 <Icon type="back" size={28} className="icon" /> Main Menu
             </button>

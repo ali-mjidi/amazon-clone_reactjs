@@ -15,7 +15,7 @@ function HeaderTopSection() {
     const SELECT_OPTIONS = [
         { value: "all", label: "All" },
         ...categories.map(category => ({ value: category, label: category })),
-    ];
+    ]; // All the values that we want for category selector beside search bar
     const [selectedOption, setSelectedOption] = useState(SELECT_OPTIONS[0]);
     const [showBackDrop, setShowBackDrop] = useState(false);
     const [isFormFocus, setIsFormFocus] = useState(false);
@@ -67,7 +67,7 @@ function HeaderTopSection() {
 
             <form
                 className={`headerTopSection__searchBar searchBar ${
-                    isFormFocus ? "searchBar--focus" : ""
+                    isFormFocus && "searchBar--focus"
                 }`}
                 onSubmit={e => e.preventDefault()}>
                 <Select
@@ -351,6 +351,7 @@ function HeaderTopSection() {
                 </div>
                 <span className="toCart__text">Cart</span>
             </Link>
+
             {showBackDrop && <BackDrop targetId="header" />}
         </div>
     );
