@@ -80,7 +80,7 @@ function ProductBuy() {
 
     function addToCartHandler() {
         const product = {
-			id: crypto.randomUUID(),
+            id: crypto.randomUUID(),
             productID,
             quantity,
             selectedBuyOption,
@@ -283,9 +283,7 @@ function ProductBuy() {
                 </li>
                 <li className="overallInfo__item">
                     <span className="overallInfo__title">Returns</span>
-                    <span
-                        className="overallInfo__content"
-                        onPointerEnter={e => console.log(e.target.classList)}>
+                    <span className="overallInfo__content">
                         <p className="product__link link">
                             30-day refund/replacement
                         </p>

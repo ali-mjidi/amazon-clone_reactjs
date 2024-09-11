@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Products_API = axios.create({
-    baseURL: `http://localhost:3000/`,
+    baseURL: `http://localhosat:3000/`,
     headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -14,7 +14,7 @@ Products_API.interceptors.request.use(
         return config;
     },
     function (error) {
-        console.log(error);
+        console.error(error);
         toast.error("Request: " + error.message);
     }
 );
@@ -24,6 +24,7 @@ Products_API.interceptors.response.use(
         return response;
     },
     function (error) {
+        console.error(error);
         toast.error("Response: " + error.message);
     }
 );
