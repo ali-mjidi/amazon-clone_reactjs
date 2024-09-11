@@ -1,8 +1,64 @@
+import FooterList from "@components/FooterList/FooterList";
 import Icon from "@components/Icon/Icon";
 import amazonLogo from "@assets/images/amazon-white.svg";
 import "./style.scss";
 
 function Footer() {
+    const data = [
+        {
+            heading: "Get to Know Us",
+            className: "aboutUs",
+            list: [
+                "Careers",
+                "Blog",
+                "About Amazon",
+                "Investor Relations",
+                "Amazon Devices",
+                "Amazon Science",
+            ],
+        },
+        {
+            heading: "Make Money with Us",
+            className: "makeMoney",
+            list: [
+                "Sell products on Amazon",
+                "Sell on Amazon Business",
+                "Sell apps on Amazon",
+                "Become an Affiliate",
+                "Advertise Your Products",
+                "Self-Publish with Us",
+                "Host an Amazon Hubs",
+                "See More Make Money with Us",
+            ],
+        },
+        {
+            heading: "Amazon Payment Products",
+            className: "payment",
+            list: [
+                "Amazon Business Card",
+                "Shop with Points",
+                "Reload Your Balance",
+                "Amazon Currency Converter",
+            ],
+        },
+        {
+            heading: "Let Us Help You",
+            className: "help",
+            list: [
+                "Amazon and COVID-19",
+                "Your Account",
+                "Your Orders",
+                "Shipping Rates &",
+                "Policies",
+                "Returns &",
+                "Replacements",
+                "Manage Your Content and Devices",
+                "Amazon Assistant",
+                "Help",
+            ],
+        },
+    ];
+
     return (
         <footer className="footer">
             <a href="#header" className="footer__elevator">
@@ -11,164 +67,9 @@ function Footer() {
 
             <section className="footer__links">
                 <div className="footer__wrapper">
-                    <ul className="footer__aboutUs">
-                        <h3 className="footer__heading">Get to Know Us</h3>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Careers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                About Amazon
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Investor Relations
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Amazon Devices
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Amazon Science
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul className="footer__makeMoney">
-                        <h3 className="footer__heading">Make Money with Us</h3>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Sell products on Amazon
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Sell on Amazon Business
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Sell apps on Amazon
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Become an Affiliate
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Advertise Your Products
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Self-Publish with Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Host an Amazon Hubs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                See More Make Money with Us
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul className="footer__payment">
-                        <h3 className="footer__heading">
-                            Amazon Payment Products
-                        </h3>
-
-                        <li>
-                            <a href="" className="footer__link link">
-                                Amazon Business Card
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Shop with Points
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Reload Your Balance
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Amazon Currency Converter
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul className="footer__help">
-                        <h3 className="footer__heading">Let Us Help You</h3>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Amazon and COVID-19
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Your Account
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Your Orders
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Shipping Rates &
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Policies
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Returns &
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Replacements
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Manage Your Content and Devices
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Amazon Assistant
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" className="footer__link link">
-                                Help
-                            </a>
-                        </li>
-                    </ul>
+                    {data.map(data => (
+                        <FooterList data={data} />
+                    ))}
                 </div>
             </section>
 
