@@ -24,12 +24,8 @@ const ProductContext = createContext({
 
 function productReducer(state, action) {
     switch (action.type) {
-        case "SET_PRODUCTS":
-            return { ...state, products: action.payload };
-        case "SET_CATEGORIES":
-            return { ...state, categories: action.payload };
-        case "SET_CART":
-            return { ...state, cart: action.payload };
+        case "SET_ALL_DATA":
+            return { ...state, ...action.payload };
         case "SET_TARGET_PRODUCT":
             return { ...state, targetProduct: action.payload };
         case "SET_BUY_OPTION":
@@ -45,9 +41,7 @@ function productReducer(state, action) {
         case "DELETE_FROM_CART":
             const newCart = state.cart;
             newCart.splice(
-                newCart.findIndex(
-                    ({ id }) => id === action.payload
-                ),
+                newCart.findIndex(({ id }) => id === action.payload),
                 1
             );
 
@@ -88,9 +82,14 @@ function ProductProvider({ children }) {
         const categories = await Products_API("categories");
         const cart = await Products_API("cart");
 
-        dispatch({ type: "SET_PRODUCTS", payload: products.data });
-        dispatch({ type: "SET_CATEGORIES", payload: categories.data.name });
-        dispatch({ type: "SET_CART", payload: cart.data });
+        dispatch({
+            type: "SET_ALL_DATA",
+            payload: {
+                products: products.data,
+                categories: categories.data.name,
+                cart: cart.data,
+            },
+        });
     }
 
     async function getSingleProduct(id) {
