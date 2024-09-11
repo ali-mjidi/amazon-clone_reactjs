@@ -4,6 +4,11 @@ import { ProductContext } from "@context/ProductContext";
 import Icon from "@components/Icon/Icon";
 import "./style.scss";
 
+/*
+	This component is the authors element that appears bellow the book product's image
+	This component shows only when the product is book
+*/
+
 function BookAuthor() {
     const {
         state: {
