@@ -4,7 +4,7 @@ import "./style.scss";
 
 function BackDrop({ targetId, ...props }) {
     return createPortal(
-        <div className={`backDrop backDrop${targetId === "root" ? "--root" : "--header"}`} {...props}></div>,
+        <div className={`backDrop backDrop--${targetId}`} {...props}></div>,
         document.getElementById(targetId)
     );
 }
