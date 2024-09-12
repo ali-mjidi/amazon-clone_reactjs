@@ -18,6 +18,8 @@ function ProductDescription() {
     }
 
     useEffect(() => {
+		// This if statement is to run the effect only once,
+		// if it doesn't exist then every time height of description change and run this useEffect every time
         if (
             isDescriptionLong === null &&
             descriptionElement.current?.offsetHeight > 0

@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 
+/*
+	This custom hook is to handle close target element when user clicks outside of the element,
+*/
+
 function useClickOutside(handler) {
     const elementRef = useRef();
 
