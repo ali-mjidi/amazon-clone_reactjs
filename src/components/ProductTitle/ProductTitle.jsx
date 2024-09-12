@@ -40,16 +40,51 @@ function ProductTitle() {
                         {productInfo?.rating}
                     </span>
                     <div className="rating__iconsWrapper">
-                        {[...Array(Math.floor(productInfo?.rating) || 5)].map(
+                        {/* 
+							Shows the full stars
+						*/}
+                        {[...Array(Math.floor(productInfo?.rating) || 0)].map(
                             (_, index) => (
-                                <Icon key={index} type="star" color="#de7921" />
+                                <Icon
+                                    key={index}
+                                    type="star"
+                                    className="fullStar"
+                                />
                             )
                         )}
 
-                        {productInfo?.rating -
-                        Math.floor(productInfo?.rating) ? (
-                            <Icon type="halfStar" color="#de7921" />
-                        ) : null}
+                        {/* 
+							Check that if the rate is float, 
+							then show the half star for decimal part of rate
+						*/}
+                        {!!(
+                            productInfo?.rating -
+                            Math.floor(productInfo?.rating)
+                        ) && <Icon type="halfStar" className="halfStar" />}
+
+                        {/* 
+							Show emptyStars for rates less than 4
+						*/}
+                        {productInfo?.rating < 4 &&
+                            [
+                                ...Array(
+                                    Math.ceil(4 - productInfo?.rating) || 0
+                                ),
+                            ].map((_, index) => (
+                                <Icon
+                                    key={index}
+                                    type="emptyStar"
+                                    className="emptyStar"
+                                />
+                            ))}
+
+                        {/* 
+							Checks that if the rate is integer and lte than 4 then show a emptyStar Icon
+						*/}
+                        {productInfo?.rating % 1 === 0 &&
+                            productInfo?.rating <= 4 && (
+                                <Icon type="emptyStar" className="emptyStar" />
+                            )}
                     </div>
                 </div>
 

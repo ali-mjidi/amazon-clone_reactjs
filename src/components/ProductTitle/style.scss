@@ -1,0 +1,9 @@
+@import "@styles/_var.scss";
+@import "@styles/_mixin.scss";
+@import "@styles/_function.scss";
+
+.fullStar,
+.halfStar,
+.emptyStar {
+    color: getVar("colors.orange-500");
+}
