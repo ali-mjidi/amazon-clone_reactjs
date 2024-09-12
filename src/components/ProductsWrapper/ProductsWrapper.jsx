@@ -27,23 +27,22 @@ function ProductsWrapper({ category }) {
                 prevEl: ".productsWrapper__btn--prev",
                 disabledClass: "productsWrapper__btn--disabled",
             }}>
-            {products.map(
-                ({ id, category, productInfo: { imageLink, title } }, index) =>
-                    index < 10 && (
-                        <SwiperSlide className="slide" key={id}>
-                            <Link
-                                to={`/product/${category}/${id}`}
-                                className="productCard">
-                                <img
-                                    src={imageLink}
-                                    alt={title}
-                                    className="productCard__image"
-                                />
-                                <h3 className="productCard__title">{title}</h3>
-                            </Link>
-                        </SwiperSlide>
-                    )
-            )}
+            {products
+                .slice(0, 10)
+                .map(({ id, category, productInfo: { imageLink, title } }) => (
+                    <SwiperSlide className="slide" key={id}>
+                        <Link
+                            to={`/product/${category}/${id}`}
+                            className="productCard">
+                            <img
+                                src={imageLink}
+                                alt={title}
+                                className="productCard__image"
+                            />
+                            <h3 className="productCard__title">{title}</h3>
+                        </Link>
+                    </SwiperSlide>
+                ))}
 
             <Icon
                 type="prev"
