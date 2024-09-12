@@ -26,6 +26,7 @@ Products_API.interceptors.response.use(
     function (error) {
         console.error(error);
         toast.error("Response: " + error.message);
+		return error;
     }
 );
 

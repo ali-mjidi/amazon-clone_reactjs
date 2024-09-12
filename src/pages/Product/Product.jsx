@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import { ProductContext } from "@context/ProductContext";
@@ -16,6 +17,7 @@ function Product() {
     } = useContext(ProductContext);
     const [activeImage, setActiveImage] = useState(0);
     const { category, productID } = useParams();
+    const [isProductEmpty, setIsProductEmpty] = useState(false);
 
     function handleChangeImage(index) {
         setActiveImage(index);
@@ -25,9 +27,15 @@ function Product() {
         getSingleProduct(productID);
 
         return () => {
-            setTargetProduct({});
+            setTargetProduct(null);
         };
     }, []);
+
+    useEffect(() => {
+        if (productInfo !== null) {
+            setIsProductEmpty(!Boolean(Object.keys(productInfo).length));
+        }
+    }, [productInfo]);
 
     if (productInfo) {
         return (
@@ -69,10 +77,10 @@ function Product() {
                     {category === "book" && <BookProductDetails />}
                 </div>
                 <ProductBuy />
+
+                {isProductEmpty && <Navigate to="/*" />}
             </div>
         );
-    } else {
-        return <p>not found</p>;
     }
 }
 

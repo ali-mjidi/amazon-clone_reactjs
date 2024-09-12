@@ -9,7 +9,7 @@ const ProductContext = createContext({
         products: [],
         categories: [],
         cart: [],
-        targetProduct: {},
+        targetProduct: null,
         userLocation: "",
     },
     actions: {
@@ -60,8 +60,6 @@ function productReducer(state, action) {
                     }
                 }),
             };
-        case "SET_LOCATION":
-            return { ...state, userLocation: action.payload };
         default:
             return state;
     }
@@ -72,7 +70,7 @@ function ProductProvider({ children }) {
         products: [],
         categories: [],
         cart: [],
-        targetProduct: {},
+        targetProduct: null,
     };
 
     const [state, dispatch] = useReducer(productReducer, initialState);
@@ -81,6 +79,9 @@ function ProductProvider({ children }) {
         const products = await Products_API("products");
         const categories = await Products_API("categories");
         const cart = await Products_API("cart");
+        const location = await axios.get(
+            "https://get.geojs.io//v1/ip/country/full"
+        );
 
         dispatch({
             type: "SET_ALL_DATA",
@@ -88,22 +89,39 @@ function ProductProvider({ children }) {
                 products: products.data,
                 categories: categories.data.name,
                 cart: cart.data,
+                userLocation: location.data,
             },
         });
     }
 
     async function getSingleProduct(id) {
-        const {
-            data: { productInfo },
-        } = await Products_API(`products/${id}`);
-
         dispatch({
             type: "SET_TARGET_PRODUCT",
-            payload: {
-                ...productInfo,
-                selectedBuyOption: Object.keys(productInfo.buyOptions).at(0),
-            },
+            payload: { status: "connecting" },
         });
+
+        const request = await Products_API(`products/${id}`);
+
+        if (request.status <= 299 && request.status >= 200) {
+            const {
+                data: { productInfo },
+            } = request;
+
+            dispatch({
+                type: "SET_TARGET_PRODUCT",
+                payload: {
+                    ...productInfo,
+                    selectedBuyOption: Object.keys(productInfo.buyOptions).at(
+                        0
+                    ),
+                },
+            });
+        } else {
+            dispatch({
+                type: "SET_TARGET_PRODUCT",
+                payload: {},
+            });
+        }
     }
 
     async function addToCart(product) {
@@ -172,17 +190,8 @@ function ProductProvider({ children }) {
         dispatch({ type: "SET_BUY_OPTION", payload: option });
     }
 
-    async function getUserLocation() {
-        const { data } = await axios.get(
-            "https://get.geojs.io//v1/ip/country/full"
-        );
-
-        dispatch({ type: "SET_LOCATION", payload: data });
-    }
-
     useEffect(() => {
         getAllData();
-        getUserLocation();
     }, []);
 
     const actions = {
