@@ -67,8 +67,8 @@ function Footer() {
 
             <section className="footer__links">
                 <div className="footer__wrapper">
-                    {data.map(data => (
-                        <FooterList data={data} />
+                    {data.map((data, index) => (
+                        <FooterList key={index} data={data} />
                     ))}
                 </div>
             </section>
