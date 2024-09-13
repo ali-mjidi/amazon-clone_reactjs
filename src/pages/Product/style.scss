@@ -1,12 +1,11 @@
 @import "@styles/_var.scss";
 @import "@styles/_mixin.scss";
 @import "@styles/_function.scss";
+@import "@styles/_placeholder.scss";
 
 .product {
+    @extend %page;
     @include grid(1fr, minmax(192px, 20%) minmax(386px, 1fr) 315px);
-    min-width: 1000px;
-    width: 100%;
-    max-width: 1500px;
     margin: 0 auto;
     padding: getVar("padding.p-3.5") getVar("padding.p-4");
     gap: 40px;

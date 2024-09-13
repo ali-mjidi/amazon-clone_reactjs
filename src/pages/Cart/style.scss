@@ -1,12 +1,11 @@
 @import "@styles/_var.scss";
 @import "@styles/_mixin.scss";
 @import "@styles/_function.scss";
+@import "@styles/_placeholder.scss";
 
 .cart {
+    @extend %page;
     @include grid(1fr, minmax(642px, 1fr) 300px);
-    min-width: 1000px;
-    width: 100%;
-    max-width: 1500px;
     margin: 0 auto;
     padding: getVar("padding.p-3.5") getVar("padding.p-5");
     gap: getVar("gap.gap-5");
