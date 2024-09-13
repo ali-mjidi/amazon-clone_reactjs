@@ -1,0 +1,21 @@
+@import "@styles/var";
+@import "@styles/mixin";
+@import "@styles/function";
+
+.productSkeleton {
+	height: 600px;
+
+    &__otherImages {
+        @include flex(flex-start, center);
+        margin-top: getVar("margin.m-1");
+        gap: 6px;
+    }
+
+	.lines {
+		@include flex(space-between, flex-start, column);
+	}
+}
+
+.three {
+    background-color: red;
+}

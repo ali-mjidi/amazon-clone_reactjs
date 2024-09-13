@@ -3,11 +3,13 @@ import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import { ProductContext } from "@context/ProductContext";
+import ProductImages from "@components/ProductImages/ProductImages";
 import ProductTitle from "@components/ProductTitle/ProductTitle";
 import ProductDescription from "@components/ProductDescription/ProductDescription";
 import BookProductDetails from "@components/BookProductDetails/BookProductDetails";
 import BookAuthor from "@components/BookAuthor/BookAuthor";
 import ProductBuy from "@components/ProductBuy/ProductBuy";
+import ProductSkeleton from "@components/ProductSkeleton/ProductSkeleton";
 import "./style.scss";
 
 function Product() {
@@ -15,13 +17,8 @@ function Product() {
         state: { targetProduct: productInfo },
         actions: { setTargetProduct, getSingleProduct },
     } = useContext(ProductContext);
-    const [activeImage, setActiveImage] = useState(0);
     const { category, productID } = useParams();
     const [isProductEmpty, setIsProductEmpty] = useState(false);
-
-    function handleChangeImage(index) {
-        setActiveImage(index);
-    }
 
     useEffect(() => {
         getSingleProduct(productID);
@@ -37,35 +34,13 @@ function Product() {
         }
     }, [productInfo]);
 
-    if (productInfo) {
+    if (!productInfo || Object.keys(productInfo).length === 1) {
+        return <ProductSkeleton />;
+    } else {
         return (
             <div className="product">
                 <div className="product__visualInformation">
-                    <div className="product__imagesWrapper">
-                        <div className="product__thumbnailWrapper">
-                            <img
-                                className="product__thumbnail"
-                                src={productInfo?.imageLink?.at(activeImage)}
-                                alt={productInfo?.title}
-                            />
-                            <div className="product__otherImagesWrapper">
-                                {productInfo?.imageLink?.map((link, index) => (
-                                    <img
-                                        key={index}
-                                        className={`product__otherImage ${
-                                            activeImage === index &&
-                                            "product__otherImage--active"
-                                        }`}
-                                        src={link}
-                                        alt={productInfo?.title}
-                                        onPointerEnter={() =>
-                                            handleChangeImage(index)
-                                        }
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                    <ProductImages />
 
                     {category === "book" && <BookAuthor />}
                 </div>
