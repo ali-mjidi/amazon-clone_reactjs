@@ -78,7 +78,7 @@ function Product() {
                 </div>
                 <ProductBuy />
 
-                {isProductEmpty && <Navigate to="/*" />}
+                {isProductEmpty && <Navigate to="/notFound" />}
             </div>
         );
     }

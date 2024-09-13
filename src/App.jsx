@@ -18,6 +18,7 @@ function App() {
                     element={<Product />}
                 />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/notFound" element={<NotFound />} />
             </Route>
         </Routes>
     );
