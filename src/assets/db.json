@@ -668,7 +668,7 @@
         "creator": "BANDAI NAMCO Entertainment ",
         "description": "<ul><li>ELDEN RING is a fantasy action-RPG adventure set within a world created by Hidetaka Miyazaki—creator of the influential DARK SOULS video game series; and George R.R. Martin—author of The New York Times best-selling fantasy series, A Song of Ice and Fire</li><li>Danger and discovery lurk around every corner in FromSoftware’s largest game to-date</li><li>HIDETAKA MIYAZAKI: President and Game Director of FromSoftware Inc. Known for directing critically-acclaimed games in beloved franchises including Armored Core and Dark Souls</li><li>GEORGE R. R. MARTIN: the #1 The New York Times bestselling author of many novels, including the acclaimed series A Song of Ice and Fire—A Game of Thrones, A Clash of Kings, A Storm of Swords, A Feast For Crows, and A Dance with Dragons</li></ul>",
         "imageLink": [
-          "https://m.media-amazon.com/images/I/71GPiuyNtkL._AC_SX569_.jpg",
+          "https://m.media-amazon.com/images/I/81h2WhI4dtL._AC_SX679_.jpg",
           "https://m.media-amazon.com/images/I/71ugu+Io97L._AC_SX679_.jpg",
           "https://m.media-amazon.com/images/I/61tSIL4L7KL._AC_SX679_.jpg",
           "https://m.media-amazon.com/images/I/71UkqgzWtcL._AC_SX679_.jpg",
@@ -683,6 +683,60 @@
           "Xbox Series X": 59.95
         },
         "discountPercent": 17
+      }
+    },
+    {
+      "id": "14",
+      "category": "videoGame",
+      "productInfo": {
+        "title": "Minecraft Bedrock",
+        "creator": "MOJANG",
+        "description": "<ul><li>Play and share with friends on console, mobile and Windows 10</li><li>discover community creations in the new in-game store</li><li>access new mini games and game modes through servers</li><li>share the couch with four player split screen</li></ul>",
+        "imageLink": [
+			"https://m.media-amazon.com/images/I/81KurUpcIkL._SY500_.jpg",
+			"https://m.media-amazon.com/images/I/91Ac8WyCPWL._SX522_.jpg",
+			"https://m.media-amazon.com/images/I/710MPuIIBTL._SX522_.jpg",
+			"https://m.media-amazon.com/images/I/71BAjQX7P9L._SX522_.jpg",
+			"https://m.media-amazon.com/images/I/81Ia99LXP4L._SX522_.jpg",
+			"https://m.media-amazon.com/images/I/81DBx+Mon2L._SX522_.jpg",
+			"https://m.media-amazon.com/images/I/51ffueRk31L.jpg"
+
+        ],
+        "rating": 4.7,
+        "rateCounts": 5076,
+        "buyOptions": {
+			"PlayStation 3": 25.99,
+			"PlayStation 4": 42.84
+        },
+        "discountPercent": 0
+      }
+    },
+    {
+      "id": "15",
+      "category": "videoGame",
+      "productInfo": {
+        "title": "Grand Theft Auto: San Andreas",
+        "creator": "Rockstar Games",
+        "description": "<ul><li>GTA San Andreas</li><li>GTA San Andreas</li><li>GTA San Andreas</li></ul>",
+        "imageLink": [
+          "https://m.media-amazon.com/images/I/616z3iyu9-L.jpg",
+		  "https://m.media-amazon.com/images/I/51yBSnHZp-L.jpg",
+		  "https://m.media-amazon.com/images/I/413dRbaBMPL.jpg",
+		  "https://m.media-amazon.com/images/I/51fkV+oS+ZL.jpg",
+		  "https://m.media-amazon.com/images/I/51941YnSARL.jpg",
+		  "https://m.media-amazon.com/images/I/513zBMZQx0L.jpg",
+		  "https://m.media-amazon.com/images/I/51PQuHeJA-L.jpg"
+        ],
+        "rating": 4.7,
+        "rateCounts": 3992,
+        "buyOptions": {
+          "PlayStation 2": 9.00,
+          "PlayStation 3": 19.99,
+          "Xbox 360": 18.00,
+		  "PC": 15.00,
+		  "Xbox": 9.00
+        },
+        "discountPercent": 0
       }
     }
   ],
