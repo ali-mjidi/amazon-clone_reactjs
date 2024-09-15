@@ -678,8 +678,8 @@
         "rating": 4.7,
         "rateCounts": 3992,
         "buyOptions": {
-          "PlayStation 4": 49.75,
           "PlayStation 5": 59.99,
+          "PlayStation 4": 49.75,
           "Xbox Series X": 59.95
         },
         "discountPercent": 17
@@ -693,20 +693,19 @@
         "creator": "MOJANG",
         "description": "<ul><li>Play and share with friends on console, mobile and Windows 10</li><li>discover community creations in the new in-game store</li><li>access new mini games and game modes through servers</li><li>share the couch with four player split screen</li></ul>",
         "imageLink": [
-			"https://m.media-amazon.com/images/I/81KurUpcIkL._SY500_.jpg",
-			"https://m.media-amazon.com/images/I/91Ac8WyCPWL._SX522_.jpg",
-			"https://m.media-amazon.com/images/I/710MPuIIBTL._SX522_.jpg",
-			"https://m.media-amazon.com/images/I/71BAjQX7P9L._SX522_.jpg",
-			"https://m.media-amazon.com/images/I/81Ia99LXP4L._SX522_.jpg",
-			"https://m.media-amazon.com/images/I/81DBx+Mon2L._SX522_.jpg",
-			"https://m.media-amazon.com/images/I/51ffueRk31L.jpg"
-
+          "https://m.media-amazon.com/images/I/81KurUpcIkL._SY500_.jpg",
+          "https://m.media-amazon.com/images/I/91Ac8WyCPWL._SX522_.jpg",
+          "https://m.media-amazon.com/images/I/710MPuIIBTL._SX522_.jpg",
+          "https://m.media-amazon.com/images/I/71BAjQX7P9L._SX522_.jpg",
+          "https://m.media-amazon.com/images/I/81Ia99LXP4L._SX522_.jpg",
+          "https://m.media-amazon.com/images/I/81DBx+Mon2L._SX522_.jpg",
+          "https://m.media-amazon.com/images/I/51ffueRk31L.jpg"
         ],
         "rating": 4.7,
         "rateCounts": 5076,
         "buyOptions": {
-			"PlayStation 3": 25.99,
-			"PlayStation 4": 42.84
+          "PlayStation 4": 42.84,
+          "PlayStation 3": 25.99
         },
         "discountPercent": 0
       }
@@ -720,21 +719,21 @@
         "description": "<ul><li>GTA San Andreas</li><li>GTA San Andreas</li><li>GTA San Andreas</li></ul>",
         "imageLink": [
           "https://m.media-amazon.com/images/I/616z3iyu9-L.jpg",
-		  "https://m.media-amazon.com/images/I/51yBSnHZp-L.jpg",
-		  "https://m.media-amazon.com/images/I/413dRbaBMPL.jpg",
-		  "https://m.media-amazon.com/images/I/51fkV+oS+ZL.jpg",
-		  "https://m.media-amazon.com/images/I/51941YnSARL.jpg",
-		  "https://m.media-amazon.com/images/I/513zBMZQx0L.jpg",
-		  "https://m.media-amazon.com/images/I/51PQuHeJA-L.jpg"
+          "https://m.media-amazon.com/images/I/51yBSnHZp-L.jpg",
+          "https://m.media-amazon.com/images/I/413dRbaBMPL.jpg",
+          "https://m.media-amazon.com/images/I/51fkV+oS+ZL.jpg",
+          "https://m.media-amazon.com/images/I/51941YnSARL.jpg",
+          "https://m.media-amazon.com/images/I/513zBMZQx0L.jpg",
+          "https://m.media-amazon.com/images/I/51PQuHeJA-L.jpg"
         ],
         "rating": 4.7,
         "rateCounts": 3992,
         "buyOptions": {
-          "PlayStation 2": 9.00,
+          "PlayStation 2": 9,
           "PlayStation 3": 19.99,
-          "Xbox 360": 18.00,
-		  "PC": 15.00,
-		  "Xbox": 9.00
+          "Xbox 360": 18,
+          "PC": 15,
+          "Xbox": 9
         },
         "discountPercent": 0
       }
