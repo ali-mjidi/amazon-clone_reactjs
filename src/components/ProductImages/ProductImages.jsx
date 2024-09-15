@@ -22,14 +22,6 @@ function ProductImages({ setIsLoad }) {
                 {!isImageLoad && (
                     <Skeleton type="square" width="100%" height="400px" />
                 )}
-                    <img
-                        className={`product__thumbnail ${
-                            !isImageLoad && "product__thumbnail--loading"
-                        }`}
-                        src={productInfo?.imageLink?.at(activeImage)}
-                        alt={productInfo?.title}
-                        onLoad={() => setIsImageLoad(true)}
-                    />
                     <div className="product__otherImagesWrapper">
                         {productInfo?.imageLink?.map((link, index) => (
                             <img
@@ -44,6 +36,15 @@ function ProductImages({ setIsLoad }) {
                             />
                         ))}
                     </div>
+					
+                    <img
+                        className={`product__thumbnail ${
+                            !isImageLoad && "product__thumbnail--loading"
+                        }`}
+                        src={productInfo?.imageLink?.at(activeImage)}
+                        alt={productInfo?.title}
+                        onLoad={() => setIsImageLoad(true)}
+                    />
                 </div>
             </div>
         );

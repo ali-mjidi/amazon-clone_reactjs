@@ -38,7 +38,7 @@ function Product() {
         return <ProductSkeleton />;
     } else {
         return (
-            <div className="product">
+            <div className={`product ${category}`}>
                 <div className="product__visualInformation">
                     <ProductImages />
 

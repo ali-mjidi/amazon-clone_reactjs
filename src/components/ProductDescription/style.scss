@@ -23,6 +23,11 @@
         h3 {
             font-weight: getVar("weight.font-bold");
         }
+
+        ul {
+			margin-left: getVar("margin.m-4");
+            list-style: disc;
+        }
     }
 
     &__readMoreBtn {

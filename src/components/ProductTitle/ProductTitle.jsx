@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 
 import { ProductContext } from "@context/ProductContext";
 import Icon from "@components/Icon/Icon";
@@ -8,6 +9,7 @@ function ProductTitle() {
     const {
         state: { targetProduct: productInfo },
     } = useContext(ProductContext);
+    const { category } = useParams();
 
     function formatNumber(number = 0) {
         const integerPart = number.toString();
@@ -31,7 +33,9 @@ function ProductTitle() {
             <p className="product__author">
                 By&nbsp;
                 <a href="#" className="product__link link">
-                    {productInfo?.creator?.at(0)?.name}
+                    {category === "book"
+                        ? productInfo?.creator?.at(0)?.name
+                        : productInfo?.creator}
                 </a>
             </p>
             <div className="rating">
