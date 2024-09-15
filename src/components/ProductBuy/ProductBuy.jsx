@@ -5,7 +5,7 @@ import Select from "react-select";
 import { ProductContext } from "@context/ProductContext";
 import { useClickOutside } from "@hooks/useClickOutside";
 import Icon from "@components/Icon/Icon";
-import BookProductBuyOptions from "@components/BookProductBuyOptions/BookProductBuyOptions";
+import ProductBuyOptions from "@components/ProductBuyOptions/ProductBuyOptions";
 import Button from "@components/Button/Button";
 import "./style.scss";
 
@@ -17,7 +17,7 @@ function ProductBuy() {
             targetProduct: { buyOptions, discountPercent, selectedBuyOption },
             userLocation,
         },
-        actions: { addToCart },
+        actions: { addToCart, discount },
     } = useContext(ProductContext);
     const quantityValues = [
         ...[...Array(30)].map((_, index) => ({
@@ -33,11 +33,6 @@ function ProductBuy() {
     const { category, productID } = useParams();
     const returnInfoRef = useClickOutside(hidReturnInfoHandler);
     const deliverDetailRef = useClickOutside(hideDeliveryDetailHandler);
-
-    function discount(price = buyOptions[selectedBuyOption] || 0) {
-        const result = price - price * (discountPercent / 100);
-        return result.toFixed(2);
-    }
 
     function getDecimal(floatNumber) {
         const floatString = floatNumber.toFixed(2);
@@ -98,7 +93,7 @@ function ProductBuy() {
     return (
         <section className="buySection">
             {category === "book" && (
-                <BookProductBuyOptions discount={discount} />
+                <ProductBuyOptions />
             )}
 
             <div className="buyInfo">

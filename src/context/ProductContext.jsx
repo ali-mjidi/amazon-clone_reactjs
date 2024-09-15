@@ -196,6 +196,16 @@ function ProductProvider({ children }) {
         dispatch({ type: "SET_BUY_OPTION", payload: option });
     }
 
+    function discount(
+        price = state?.targetProduct?.buyOptions[
+            state.targetProduct.selectedBuyOption
+        ] || 0
+    ) {
+        const result =
+            price - price * (state.targetProduct.discountPercent / 100);
+        return result.toFixed(2);
+    }
+
     useEffect(() => {
         getAllData();
     }, []);
@@ -208,6 +218,7 @@ function ProductProvider({ children }) {
         deleteCartItem,
         updateCartQuantity,
         setBuyOption,
+        discount,
     };
 
     return (

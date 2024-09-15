@@ -3,15 +3,24 @@
 @import "@styles/_function.scss";
 
 .productBuyOptions {
-    @include grid(1fr, repeat(2, 1fr));
+    @include flex(flex-start, center);
+    width: 100%;
     padding-bottom: getVar("padding.p-3");
+    flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 8px;
     border-bottom: 1px solid getVar("colors.gray-400");
 
+    &--book {
+        @include grid(1fr, repeat(2, 1fr));
+
+        .buyOption {
+            min-height: 50px;
+        }
+    }
+
     .buyOption {
         @include flex(space-around, flex-start, column);
-        min-height: 50px;
         padding: 5px 10px;
         text-transform: capitalize;
         border-radius: getVar("radius.rounded-lg");

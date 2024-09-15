@@ -9,6 +9,7 @@ import ProductDescription from "@components/ProductDescription/ProductDescriptio
 import BookProductDetails from "@components/BookProductDetails/BookProductDetails";
 import BookAuthor from "@components/BookAuthor/BookAuthor";
 import ProductBuy from "@components/ProductBuy/ProductBuy";
+import ProductBuyOptions from "@components/ProductBuyOptions/ProductBuyOptions";
 import ProductSkeleton from "@components/ProductSkeleton/ProductSkeleton";
 import "./style.scss";
 
@@ -46,6 +47,8 @@ function Product() {
                 </div>
                 <div className="product__info">
                     <ProductTitle />
+
+                    {category !== "book" && <ProductBuyOptions />}
 
                     <ProductDescription />
 
