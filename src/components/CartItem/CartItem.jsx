@@ -19,7 +19,7 @@ function CartItem({ itemData }) {
         category,
         productInfo: {
             title,
-            creator: [{ name }],
+            creator,
             imageLink: [image],
         },
     } = products.find(({ id }) => id === itemData.productID); // it's all of the product info
@@ -47,13 +47,15 @@ function CartItem({ itemData }) {
                 <Link to={path}>
                     <h2 className="cartItem__title">{title}</h2>
                 </Link>
-                <p className="cartItem__creator">by {name}</p>
+                <p className="cartItem__creator">
+                    by {category !== "book" ? creator : creator[0]?.name}
+                </p>
                 <p className="cartItem__buyOption">
                     {itemData.selectedBuyOption}
                 </p>
                 <p className="cartItem__availability">In Stock</p>
                 <form className="cartItem__giftOption">
-					{/* 
+                    {/* 
 						If the product can deliver as gift then the checkbox and the first label will be shown,
 						and if not the both will be disable and the second label will be shown.
 
@@ -86,7 +88,7 @@ function CartItem({ itemData }) {
                 </form>
 
                 <div className="cartItem__operators">
-					{/* 
+                    {/* 
 						Quantity changer selector
 					*/}
                     <Select

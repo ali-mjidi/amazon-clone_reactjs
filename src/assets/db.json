@@ -692,13 +692,5 @@
       "videoGame"
     ]
   },
-  "cart": [
-    {
-      "id": "ad7a04bd-9b4e-48cd-87a2-2ba10fa2770a",
-      "productID": "12",
-      "quantity": 1,
-      "selectedBuyOption": "Xbox One",
-      "price": "46.34"
-    }
-  ]
+  "cart": []
 }
