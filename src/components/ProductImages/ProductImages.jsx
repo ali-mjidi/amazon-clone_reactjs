@@ -4,11 +4,12 @@ import { ProductContext } from "@context/ProductContext";
 import Skeleton from "@components/Skeleton/Skeleton";
 import "./style.scss";
 
-function ProductImages() {
+function ProductImages({ setIsLoad }) {
     const {
         state: { targetProduct: productInfo },
     } = useContext(ProductContext);
     const [activeImage, setActiveImage] = useState(0);
+    const [isImageLoad, setIsImageLoad] = useState(false);
 
     function handleChangeImage(index) {
         setActiveImage(index);
@@ -18,10 +19,16 @@ function ProductImages() {
         return (
             <div className="product__imagesWrapper">
                 <div className="product__thumbnailWrapper">
+                {!isImageLoad && (
+                    <Skeleton type="square" width="100%" height="400px" />
+                )}
                     <img
-                        className="product__thumbnail"
+                        className={`product__thumbnail ${
+                            !isImageLoad && "product__thumbnail--loading"
+                        }`}
                         src={productInfo?.imageLink?.at(activeImage)}
                         alt={productInfo?.title}
+                        onLoad={() => setIsImageLoad(true)}
                     />
                     <div className="product__otherImagesWrapper">
                         {productInfo?.imageLink?.map((link, index) => (

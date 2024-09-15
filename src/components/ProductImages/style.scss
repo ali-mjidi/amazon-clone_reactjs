@@ -13,6 +13,7 @@
     }
 
     &__thumbnailWrapper {
+        width: 100%;
         position: sticky;
         top: 0;
     }
@@ -23,6 +24,10 @@
         max-height: 450px;
         object-fit: contain;
         object-position: left top;
+
+        &--loading {
+            display: none;
+        }
     }
 
     &__otherImagesWrapper {
