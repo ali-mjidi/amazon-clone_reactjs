@@ -76,12 +76,18 @@ function ProductProvider({ children }) {
     const [state, dispatch] = useReducer(productReducer, initialState);
 
     async function getAllData() {
-        const products = await Products_API("products");
-        const categories = await Products_API("categories");
-        const cart = await Products_API("cart");
-        const location = await axios.get(
-            "https://get.geojs.io//v1/ip/country/full"
-        );
+        const getProducts = () => Products_API("products");
+        const getCategories = () => Products_API("categories");
+        const getCart = () => Products_API("cart");
+        const getLocation = () =>
+            axios.get("https://get.geojs.io//v1/ip/country/full");
+
+        const [products, categories, cart, location] = await Promise.all([
+            getProducts(),
+            getCategories(),
+            getCart(),
+            getLocation(),
+        ]);
 
         dispatch({
             type: "SET_ALL_DATA",
