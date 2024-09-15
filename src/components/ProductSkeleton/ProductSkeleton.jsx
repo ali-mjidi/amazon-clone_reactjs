@@ -5,7 +5,7 @@ function ProductSkeleton() {
     return (
         <div className="product productSkeleton">
             <div className="one">
-                <Skeleton type="square" width="100%" height="300px" />
+                <Skeleton type="square" width="300px" height="400px" />
 
                 <div className="productSkeleton__otherImages">
                     <Skeleton
